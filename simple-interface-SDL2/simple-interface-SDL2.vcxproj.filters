@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Исходные файлы\string_clases">
+      <UniqueIdentifier>{9e33fd75-cc52-4c91-9099-2f5bce6aacf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\interface">
+      <UniqueIdentifier>{a90c679f-3f0f-4b45-93a0-29db2cc71371}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\control_element">
+      <UniqueIdentifier>{17d260cc-08c0-4213-b63b-400710440895}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\window">
+      <UniqueIdentifier>{ce02989e-5383-4dff-bfa4-ebb8ed9b60cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\primitives">
+      <UniqueIdentifier>{2d238724-7b23-4ad4-871f-caec7f45aad7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="interface\color.h">
+      <Filter>Исходные файлы\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="interface\Interface.h">
+      <Filter>Исходные файлы\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="control_elements\button.h">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClInclude>
+    <ClInclude Include="control_elements\dropDownList.h">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClInclude>
+    <ClInclude Include="control_elements\input.h">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClInclude>
+    <ClInclude Include="control_elements\itemList.h">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClInclude>
+    <ClInclude Include="control_elements\label.h">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClInclude>
+    <ClInclude Include="control_elements\textField.h">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClInclude>
+    <ClInclude Include="string_classes\BIN_String.h">
+      <Filter>Исходные файлы\string_clases</Filter>
+    </ClInclude>
+    <ClInclude Include="string_classes\Dec_String.h">
+      <Filter>Исходные файлы\string_clases</Filter>
+    </ClInclude>
+    <ClInclude Include="string_classes\ID_String.h">
+      <Filter>Исходные файлы\string_clases</Filter>
+    </ClInclude>
+    <ClInclude Include="string_classes\String.h">
+      <Filter>Исходные файлы\string_clases</Filter>
+    </ClInclude>
+    <ClInclude Include="control_elements\base_control.h">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClInclude>
+    <ClInclude Include="window\window-class.h">
+      <Filter>Исходные файлы\window</Filter>
+    </ClInclude>
+    <ClInclude Include="primitives\primitives.h">
+      <Filter>Исходные файлы\primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="viewport\viewport.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="interface\Interface.cpp">
+      <Filter>Исходные файлы\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="interface\Interface_OnEvent.cpp">
+      <Filter>Исходные файлы\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="interface\Interface_OnEvent_Function.cpp">
+      <Filter>Исходные файлы\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="interface\Interface_OnExecute.cpp">
+      <Filter>Исходные файлы\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="interface\Interface_Setup.cpp">
+      <Filter>Исходные файлы\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="control_elements\button.cpp">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClCompile>
+    <ClCompile Include="control_elements\dropDownList.cpp">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClCompile>
+    <ClCompile Include="control_elements\input.cpp">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClCompile>
+    <ClCompile Include="control_elements\itemList.cpp">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClCompile>
+    <ClCompile Include="control_elements\label.cpp">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClCompile>
+    <ClCompile Include="control_elements\textField.cpp">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClCompile>
+    <ClCompile Include="string_classes\BIN_String.cpp">
+      <Filter>Исходные файлы\string_clases</Filter>
+    </ClCompile>
+    <ClCompile Include="string_classes\Dec_String.cpp">
+      <Filter>Исходные файлы\string_clases</Filter>
+    </ClCompile>
+    <ClCompile Include="string_classes\ID_String.cpp">
+      <Filter>Исходные файлы\string_clases</Filter>
+    </ClCompile>
+    <ClCompile Include="string_classes\String.cpp">
+      <Filter>Исходные файлы\string_clases</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="control_elements\base_control.cpp">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClCompile>
+    <ClCompile Include="interface\Interface_Render.cpp">
+      <Filter>Исходные файлы\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="window\window-class.cpp">
+      <Filter>Исходные файлы\window</Filter>
+    </ClCompile>
+    <ClCompile Include="primitives\primitives.cpp">
+      <Filter>Исходные файлы\primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="viewport\viewport.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="viewport\viewport_events.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
