@@ -14,7 +14,7 @@
 #include "../control_elements/dropDownList.h"
 #include "../control_elements/textField.h"
 
-#include "../window/window-class.h"
+#include "../window/window.h"
 #include "../primitives/primitives.h"
 #include "../viewport/viewport.h"
 

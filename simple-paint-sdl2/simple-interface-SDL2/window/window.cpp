@@ -1,4 +1,4 @@
-#include "window-class.h"
+#include "window.h"
 
 Window::Window(string title, SDL_Rect* sizes, Uint32 flags)
 {
@@ -67,7 +67,7 @@ void Window::render()
 		render_toolup();
 	}
 	else {
-		SDL_SetRenderDrawColor(renderer, background_color.r, background_color.g, background_color.b, background_color.a);
+		SDL_SetDrawColor(renderer, background_color);
 		SDL_RenderFillRect(renderer, NULL);
 	}
 
@@ -146,6 +146,7 @@ void Window::show()
 void Window::hide()
 {
 	SDL_HideWindow(window);
+	render();
 }
 
 void Window::close()
@@ -183,6 +184,10 @@ void Window::mouseMotion(SDL_Event* event)
 	
 	SDL_GetMouseState(&mouse_coord.x, &mouse_coord.y);
 
-	hover_close = SDL_PointInRect(&mouse_coord, &close_button_coord);
-	render_toolup();
+	/*hover_close = SDL_PointInRect(&mouse_coord, &close_button_coord);
+	render_toolup();*/
+}
+
+void Window::mouseWheel(SDL_Event* event)
+{
 }

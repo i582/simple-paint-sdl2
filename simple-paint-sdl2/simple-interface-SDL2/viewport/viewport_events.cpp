@@ -34,6 +34,10 @@ void Viewport::mouseButtonUp(SDL_Event* event)
 
 void Viewport::mouseMotion(SDL_Event* event)
 {
+
+	///cout << event->motion.x << "  " << event->motion.y << endl;
+	//cout << "relative x and y " << event->motion.xrel << "  " << event->motion.yrel << endl;
+
 	SDL_GetMouseState(&pos_mouse.x, &pos_mouse.y);
 	update_coord(&pos_mouse.x, &pos_mouse.y);
 

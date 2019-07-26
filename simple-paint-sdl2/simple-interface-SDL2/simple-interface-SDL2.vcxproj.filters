@@ -37,11 +37,11 @@
     <Filter Include="Исходные файлы\color_scheme">
       <UniqueIdentifier>{26a923f7-1cfc-4303-8abd-66dce5913070}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Editor">
+      <UniqueIdentifier>{5b8f74e6-787e-4f33-ba72-4be61961c843}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="interface\color.h">
-      <Filter>Исходные файлы\interface</Filter>
-    </ClInclude>
     <ClInclude Include="interface\Interface.h">
       <Filter>Исходные файлы\interface</Filter>
     </ClInclude>
@@ -66,9 +66,6 @@
     <ClInclude Include="control_elements\base_control.h">
       <Filter>Исходные файлы\control_element</Filter>
     </ClInclude>
-    <ClInclude Include="window\window-class.h">
-      <Filter>Исходные файлы\window</Filter>
-    </ClInclude>
     <ClInclude Include="primitives\primitives.h">
       <Filter>Исходные файлы\primitives</Filter>
     </ClInclude>
@@ -83,6 +80,12 @@
     </ClInclude>
     <ClInclude Include="color_scheme\color.h">
       <Filter>Исходные файлы\color_scheme</Filter>
+    </ClInclude>
+    <ClInclude Include="window\window.h">
+      <Filter>Исходные файлы\window</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor\editor.h">
+      <Filter>Исходные файлы\Editor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -128,9 +131,6 @@
     <ClCompile Include="interface\Interface_Render.cpp">
       <Filter>Исходные файлы\interface</Filter>
     </ClCompile>
-    <ClCompile Include="window\window-class.cpp">
-      <Filter>Исходные файлы\window</Filter>
-    </ClCompile>
     <ClCompile Include="primitives\primitives.cpp">
       <Filter>Исходные файлы\primitives</Filter>
     </ClCompile>
@@ -151,6 +151,15 @@
     </ClCompile>
     <ClCompile Include="color_scheme\color.cpp">
       <Filter>Исходные файлы\color_scheme</Filter>
+    </ClCompile>
+    <ClCompile Include="window\window.cpp">
+      <Filter>Исходные файлы\window</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\editor.cpp">
+      <Filter>Исходные файлы\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\editor_event.cpp">
+      <Filter>Исходные файлы\Editor</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

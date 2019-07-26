@@ -3,7 +3,7 @@
 void Interface::onEvent()
 {
 	while (running) {
-		while (SDL_PollEvent(&event)) {
+		while (SDL_WaitEvent(&event)) {
 
 			switch (event.type)
 			{
@@ -77,7 +77,7 @@ void Interface::onEvent()
 				quit();
 				break;
 
-			default: break;
+			default:break;
 			}
 		}
 	}

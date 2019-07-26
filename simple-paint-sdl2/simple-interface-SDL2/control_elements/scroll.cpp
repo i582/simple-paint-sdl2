@@ -73,15 +73,19 @@ void Scroll::mouseMotion(SDL_Event* event)
 	SDL_GetMouseState(&pos_mouse.x, &pos_mouse.y);
 	parent->update_coord(&pos_mouse.x, &pos_mouse.y);
 
-	if (is_push)
+	cout << "relative x and y " << event->motion.xrel << "  " << event->motion.yrel << endl;
+
+	cout << "state " << event->motion.state << endl;
+	
+	if (event->motion.state == 1)
 	{
-		/*if (v_slider_hover(pos_mouse.x, pos_mouse.y)) 
-		{*/
-			slider_sizes.y = pos_mouse.y - slider_sizes.h / 2;
+		if (v_slider_hover(pos_mouse.x, pos_mouse.y)) 
+		{
+			slider_sizes.y += event->motion.yrel;
 			
 			render();
 			parent->update();
-		//}
+		}
 	}
 }
 

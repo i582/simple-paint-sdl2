@@ -29,11 +29,11 @@
     <ClInclude Include="control_elements\label.h" />
     <ClInclude Include="control_elements\scroll.h" />
     <ClInclude Include="control_elements\textField.h" />
-    <ClInclude Include="interface\color.h" />
+    <ClInclude Include="Editor\editor.h" />
     <ClInclude Include="interface\Interface.h" />
     <ClInclude Include="primitives\primitives.h" />
     <ClInclude Include="viewport\viewport.h" />
-    <ClInclude Include="window\window-class.h" />
+    <ClInclude Include="window\window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="canvas\canvas.cpp" />
@@ -47,6 +47,8 @@
     <ClCompile Include="control_elements\label.cpp" />
     <ClCompile Include="control_elements\scroll.cpp" />
     <ClCompile Include="control_elements\textField.cpp" />
+    <ClCompile Include="Editor\editor.cpp" />
+    <ClCompile Include="Editor\editor_event.cpp" />
     <ClCompile Include="interface\Interface.cpp" />
     <ClCompile Include="interface\Interface_OnEvent.cpp" />
     <ClCompile Include="interface\Interface_OnEvent_Function.cpp" />
@@ -57,7 +59,7 @@
     <ClCompile Include="primitives\primitives.cpp" />
     <ClCompile Include="viewport\viewport.cpp" />
     <ClCompile Include="viewport\viewport_events.cpp" />
-    <ClCompile Include="window\window-class.cpp" />
+    <ClCompile Include="window\window.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

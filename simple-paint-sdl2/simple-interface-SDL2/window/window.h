@@ -8,27 +8,29 @@
 using namespace std;
 
 class Window {
-private:
+public:
 	int width;
 	int height;
-
-	string title;
 
 	int x;
 	int y;
 
-	Uint32 flags;
+	string title;
 
-	bool no_border;
+private:
+	Uint32 flags;
 	SDL_Color background_color;
 
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 
 	SDL_Point mouse_coord;
-	SDL_Rect close_button_coord;
+	
 
 	/*no-border*/
+	bool no_border;
+
+	SDL_Rect close_button_coord;
 	bool hover_close;
 
 public:
@@ -55,4 +57,5 @@ public:
 	void mouseButtonDown(SDL_Event* event);
 	void mouseButtonUp(SDL_Event* event);
 	void mouseMotion(SDL_Event* event);
+	void mouseWheel(SDL_Event* event);
 };
