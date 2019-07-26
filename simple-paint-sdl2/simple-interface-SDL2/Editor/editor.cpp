@@ -4,14 +4,14 @@ Editor::Editor(int width, int height)
 {
 	this->running = true;
 	SDL_Rect r = { -1, -1, width, height };
-	this->window = new Window("Editor", &r, NULL, &Colors::background);
-	this->window->init();
+	this->main_window = new MainWindow("Editor", &r, NULL);
+	this->main_window->render();
 }
 
 Editor::~Editor()
 {
-	if (window != nullptr)
-		delete window;
+	if (main_window != nullptr)
+		delete main_window;
 }
 
 bool Editor::init()
@@ -33,18 +33,13 @@ bool Editor::init()
 
 void Editor::setup()
 {
-	window->update();
-	window->show();
+	main_window->update();
+	main_window->show();
 }
 
 void Editor::update()
 {
-	window->update();
-
-
-	/*viewport = new Viewport(window->getRenderer(), 20, 20, 1000, 660);
-	canvas = new Canvas(window->getRenderer(), viewport->get_render_target(), 100, 100, 500, 500);
-	viewport->set_canvas(canvas);*/
+	main_window->update();
 }
 
 void Editor::quit()

@@ -40,6 +40,9 @@
     <Filter Include="Исходные файлы\Editor">
       <UniqueIdentifier>{5b8f74e6-787e-4f33-ba72-4be61961c843}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\window\main-window">
+      <UniqueIdentifier>{948457e1-0ae6-4bc9-8f19-e5ee4da1a390}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="interface\Interface.h">
@@ -86,6 +89,9 @@
     </ClInclude>
     <ClInclude Include="Editor\editor.h">
       <Filter>Исходные файлы\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="window\window_main\main-window.h">
+      <Filter>Исходные файлы\window\main-window</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +166,15 @@
     </ClCompile>
     <ClCompile Include="Editor\editor_event.cpp">
       <Filter>Исходные файлы\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="window\window_event.cpp">
+      <Filter>Исходные файлы\window</Filter>
+    </ClCompile>
+    <ClCompile Include="window\window_main\main-window.cpp">
+      <Filter>Исходные файлы\window\main-window</Filter>
+    </ClCompile>
+    <ClCompile Include="window\window_main\main-window_event.cpp">
+      <Filter>Исходные файлы\window\main-window</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

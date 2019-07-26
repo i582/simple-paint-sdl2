@@ -17,9 +17,8 @@ public:
 
 	string title;
 
-private:
+protected:
 	Uint32 flags;
-	SDL_Color background_color;
 
 	SDL_Window* window;
 	SDL_Renderer* renderer;
@@ -29,33 +28,33 @@ private:
 
 	/*no-border*/
 	bool no_border;
-
 	SDL_Rect close_button_coord;
 	bool hover_close;
 
 public:
 	Window(string title, SDL_Rect* sizes, Uint32 flags);
-	Window(string title, SDL_Rect* sizes, Uint32 flags, SDL_Color* background_color);
 	~Window();
 
-private:
-	void render();
-	void render_toolup();
+protected:
 	int SDL_WindowHitTest (SDL_Window* win, void* callback_data);
 	int SDL_SetDrawColor(SDL_Renderer* renderer, SDL_Color color);
 
 public:
-	bool init();
-
+	virtual bool init();
+	virtual void setup() = 0;
 	void show();
 	void hide();
 	void close();
 
+	virtual void render();
 	void update();
-	SDL_Renderer* getRenderer();
 
-	void mouseButtonDown(SDL_Event* event);
-	void mouseButtonUp(SDL_Event* event);
-	void mouseMotion(SDL_Event* event);
-	void mouseWheel(SDL_Event* event);
+	SDL_Renderer* getRenderer();
+	
+	virtual void mouseButtonDown(SDL_Event* event);
+	virtual void mouseButtonUp(SDL_Event* event);
+	virtual void mouseMotion(SDL_Event* event);
+	virtual void mouseWheel(SDL_Event* event);
+	virtual void keyDown(SDL_Event* event);
+	virtual void keyUp(SDL_Event* event);
 };

@@ -88,20 +88,20 @@ bool Interface::init()
 		return false;
 	}
 
-	SDL_Rect win_sizes = { -1, -1, 200, 300 };
-	Window* win = new Window("Window", &win_sizes, SDL_WINDOW_BORDERLESS , &Colors::background);
-	win->init();
-	//win->show();
-	all_windows.push_back(win);
+	//SDL_Rect win_sizes = { -1, -1, 200, 300 };
+	//Window* win = new Window("Window", &win_sizes, SDL_WINDOW_BORDERLESS);
+	//win->init();
+	////win->show();
+	//all_windows.push_back(win);
 
-	win_sizes = { 200, 200, 500, 100 };
-	Window* win1 = new Window("Window1", &win_sizes, SDL_WINDOW_BORDERLESS , &Colors::background);
-	win1->init();
-	//win1->show();
-	all_windows.push_back(win1);
+	//win_sizes = { 200, 200, 500, 100 };
+	//Window* win1 = new Window("Window1", &win_sizes, SDL_WINDOW_BORDERLESS);
+	//win1->init();
+	////win1->show();
+	//all_windows.push_back(win1);
 
-	tex = SDL_CreateTexture(renderer,
-		SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, 600, 500);
+	//tex = SDL_CreateTexture(renderer,
+	//	SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, 600, 500);
 
 	return true;
 }

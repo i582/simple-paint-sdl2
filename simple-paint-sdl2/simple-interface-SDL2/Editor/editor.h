@@ -5,20 +5,16 @@
 #include "SDL_ttf.h"
 
 #include "../color_scheme/color.h"
-#include "../window/window.h"
+#include "../window/window_main/main-window.h"
 #include "../primitives/primitives.h"
-#include "../viewport/viewport.h"
 
 using namespace std;
 
 class Editor {
 private:
 	bool running;
-	Window* window;
+	MainWindow* main_window;
 	SDL_Event event;
-
-	Viewport* viewport;
-	Canvas* canvas;
 
 public:
 	Editor(int width, int height);
