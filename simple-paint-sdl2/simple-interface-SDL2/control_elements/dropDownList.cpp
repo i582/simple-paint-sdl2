@@ -14,7 +14,7 @@ void DropDownList::render()
 		clearRect.w += 2;
 		clearRect.h += 2;
 
-		SDL_SetRenderColor(renderer, Colors.background);
+		SDL_SetRenderColor(renderer, Colors::background);
 		SDL_RenderFillRect(renderer, &clearRect);
 		return;
 	}
@@ -36,15 +36,15 @@ void DropDownList::render()
 	border.y--;
 	border.w += 2;
 	border.h += 2;
-	SDL_SetRenderColor(renderer, Colors.element_border);
+	SDL_SetRenderColor(renderer, Colors::element_border);
 	SDL_RenderFillRect(renderer, &border);
 
 
 	// Отрисовка тела
 	if (block)
-		SDL_SetRenderColor(renderer, Colors.element_blocked);
+		SDL_SetRenderColor(renderer, Colors::element_blocked);
 	else
-		SDL_SetRenderColor(renderer, Colors.element_background_unfocus);
+		SDL_SetRenderColor(renderer, Colors::element_background_unfocus);
 
 	SDL_RenderFillRect(renderer, sizes);
 	renderLabel(label, sizes, LEFT_ALIGN);
@@ -65,9 +65,9 @@ void DropDownList::render()
 		for (size_t i = 0; i < List.size(); i++)
 		{
 			if (List.at(i)->is_block()) 
-				SDL_SetRenderColor(renderer, Colors.element_blocked);
+				SDL_SetRenderColor(renderer, Colors::element_blocked);
 			else
-				SDL_SetRenderColor(renderer, Colors.element_background);
+				SDL_SetRenderColor(renderer, Colors::element_background);
 
 			SDL_RenderFillRect(renderer, &renderRect);
 			renderLabel(List.at(i)->text, &renderRect, LEFT_ALIGN);
@@ -86,7 +86,7 @@ void DropDownList::render()
 		//SDL_UpdateTexture(destTexture, NULL, surface->pixels, surface->pitch);
 
 		SDL_Rect clearRect = { renderRect.x, renderRect.y, renderRect.w, (int)(renderRect.h * List.size()) };
-		SDL_SetRenderDrawColor(renderer, Colors.background.r, Colors.background.g, Colors.background.b, Colors.background.a);
+		SDL_SetRenderDrawColor(renderer, Colors::background.r, Colors::background.g, Colors::background.b, Colors::background.a);
 		SDL_RenderFillRect(renderer, &clearRect);
 
 	

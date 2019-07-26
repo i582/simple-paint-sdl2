@@ -16,7 +16,7 @@ void TextField::add(string newLine)
 
 void TextField::render()
 {
-	SDL_SetRenderColor(renderer, Colors.element_background);
+	SDL_SetRenderColor(renderer, Colors::element_background);
 	SDL_RenderFillRect(renderer, sizes);
 
 	SDL_Rect rect = { sizes->x + 5, sizes->y + 10, sizes->w - 10, 15 };

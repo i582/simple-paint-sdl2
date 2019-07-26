@@ -3,7 +3,7 @@
 void Interface::render()
 {
 	
-	SDL_SetRenderDrawColor(renderer, Colors.canvas_background.r, Colors.canvas_background.g, Colors.canvas_background.b, Colors.canvas_background.a);
+	SDL_SetRenderDrawColor(renderer, Colors::canvas_background.r, Colors::canvas_background.g, Colors::canvas_background.b, Colors::canvas_background.a);
 	SDL_RenderFillRect(renderer, NULL);
 
 	SDL_RenderPresent(renderer);
@@ -31,14 +31,14 @@ void Interface::render()
 	
 	
 	/*SDL_SetRenderTarget(renderer, tex);
-	SDL_SetRenderDrawColor(renderer, Colors.background.r, Colors.background.g, Colors.background.b, Colors.canvas_background.a);
+	SDL_SetRenderDrawColor(renderer, Colors::background.r, Colors::background.g, Colors::background.b, Colors::canvas_background.a);
 	SDL_RenderFillRect(renderer, NULL);
 
 	SDL_RenderPresent(renderer);
 
 
 	Primitives::renderer = renderer;
-	Primitives::color = &Colors.element_border_click;
+	Primitives::color = &Colors::element_border_click;
 	Primitives::tex = tex;
 */
 	//Primitives::line(500, 0, 200, 400);

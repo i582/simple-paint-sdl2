@@ -4,7 +4,7 @@
 #include "SDL_ttf.h"
 #include "vector"
 
-#include "Color.h"
+#include "../color_scheme/color.h"
 
 #include "../control_elements/base_control.h"
 #include "../control_elements/button.h"
@@ -13,10 +13,6 @@
 #include "../control_elements/label.h"
 #include "../control_elements/dropDownList.h"
 #include "../control_elements/textField.h"
-
-#include "../string_classes/String.h"
-#include "../string_classes/ID_String.h"
-#include "../string_classes/BIN_String.h"
 
 #include "../window/window-class.h"
 #include "../primitives/primitives.h"
@@ -40,8 +36,6 @@ private:
 	short screenWidth;
 	short screenHeight;
 
-	COLOR Colors;
-
 	// элементы интерфейса
 	vector <Button*> Buttons;
 	vector <Input*> Inputs;
@@ -52,16 +46,6 @@ private:
 	//
 
 
-
-	// Элементы приложения
-	bool ready_fill_classes;
-
-	int count_ready;
-	int count_element;
-	vector <String*> ptrBaseClass;
-	vector <int> type_ptrBaseClasses;
-
-	int nowOperation;
 
 
 	/**/

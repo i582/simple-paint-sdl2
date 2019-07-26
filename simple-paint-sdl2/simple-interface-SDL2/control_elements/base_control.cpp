@@ -39,7 +39,7 @@ void Control::renderLabel(string text, SDL_Rect* place)
 	SDL_Surface* textSurface = nullptr;
 	SDL_Rect text_rect;
 
-	textSurface = TTF_RenderUTF8_Blended(font, text.c_str(), Colors.element_text);
+	textSurface = TTF_RenderUTF8_Blended(font, text.c_str(), Colors::element_text);
 	if (textSurface == nullptr)
 		return;
 
@@ -67,7 +67,7 @@ void Control::renderLabel(string text, SDL_Rect* place, int _text_align)
 	SDL_Surface* textSurface = nullptr;
 	SDL_Rect text_rect;
 
-	textSurface = TTF_RenderUTF8_Blended(font, text.c_str(), Colors.element_text);
+	textSurface = TTF_RenderUTF8_Blended(font, text.c_str(), Colors::element_text);
 	if (textSurface == nullptr)
 		return;
 

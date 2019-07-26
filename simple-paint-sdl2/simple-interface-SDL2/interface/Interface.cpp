@@ -9,13 +9,6 @@ Interface::Interface()
 
 	screenWidth = 1280;
 	screenHeight = 720;
-
-	count_ready = 0;
-	count_element = 0;
-
-	nowOperation = 0;
-
-	ready_fill_classes = false;
 }
 
 Interface::Interface(short width, short height)
@@ -28,11 +21,6 @@ Interface::Interface(short width, short height)
 	screenWidth = width;
 	screenHeight = height;
 
-	count_ready = 0;
-	count_element = 0;
-
-	ready_fill_classes = false;
-	nowOperation = 0;
 }
 
 Interface::~Interface()
@@ -68,12 +56,6 @@ Interface::~Interface()
 	Labels.clear();
 	TextFields.clear();
 
-	for (size_t i = 0; i < ptrBaseClass.size(); i++)
-		delete ptrBaseClass.at(i);
-
-	ptrBaseClass.clear();
-	type_ptrBaseClasses.clear();
-
 	TTF_Quit();
 }
 
@@ -107,13 +89,13 @@ bool Interface::init()
 	}
 
 	SDL_Rect win_sizes = { -1, -1, 200, 300 };
-	Window* win = new Window("Window", &win_sizes, SDL_WINDOW_BORDERLESS , &Colors.background);
+	Window* win = new Window("Window", &win_sizes, SDL_WINDOW_BORDERLESS , &Colors::background);
 	win->init();
 	//win->show();
 	all_windows.push_back(win);
 
 	win_sizes = { 200, 200, 500, 100 };
-	Window* win1 = new Window("Window1", &win_sizes, SDL_WINDOW_BORDERLESS , &Colors.background);
+	Window* win1 = new Window("Window1", &win_sizes, SDL_WINDOW_BORDERLESS , &Colors::background);
 	win1->init();
 	//win1->show();
 	all_windows.push_back(win1);

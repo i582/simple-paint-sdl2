@@ -3,14 +3,13 @@
 #include "SDL.h"
 #include "iostream"
 #include "vector"
-#include "../interface/color.h"
+#include "../color_scheme/color.h"
 
 class Viewport;
 
 class Scroll {
 private:
 	SDL_Renderer* renderer;
-	COLOR Colors;
 	SDL_Rect sizes;
 
 	SDL_Rect slider_sizes;

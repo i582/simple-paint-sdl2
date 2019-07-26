@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="canvas\canvas.h" />
+    <ClInclude Include="color_scheme\color.h" />
     <ClInclude Include="control_elements\button.h" />
     <ClInclude Include="control_elements\base_control.h" />
     <ClInclude Include="control_elements\dropDownList.h" />
@@ -31,16 +32,13 @@
     <ClInclude Include="interface\color.h" />
     <ClInclude Include="interface\Interface.h" />
     <ClInclude Include="primitives\primitives.h" />
-    <ClInclude Include="string_classes\BIN_String.h" />
-    <ClInclude Include="string_classes\Dec_String.h" />
-    <ClInclude Include="string_classes\ID_String.h" />
-    <ClInclude Include="string_classes\String.h" />
     <ClInclude Include="viewport\viewport.h" />
     <ClInclude Include="window\window-class.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="canvas\canvas.cpp" />
     <ClCompile Include="canvas\canvas_event.cpp" />
+    <ClCompile Include="color_scheme\color.cpp" />
     <ClCompile Include="control_elements\button.cpp" />
     <ClCompile Include="control_elements\base_control.cpp" />
     <ClCompile Include="control_elements\dropDownList.cpp" />
@@ -57,10 +55,6 @@
     <ClCompile Include="interface\Interface_Setup.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="primitives\primitives.cpp" />
-    <ClCompile Include="string_classes\BIN_String.cpp" />
-    <ClCompile Include="string_classes\Dec_String.cpp" />
-    <ClCompile Include="string_classes\ID_String.cpp" />
-    <ClCompile Include="string_classes\String.cpp" />
     <ClCompile Include="viewport\viewport.cpp" />
     <ClCompile Include="viewport\viewport_events.cpp" />
     <ClCompile Include="window\window-class.cpp" />

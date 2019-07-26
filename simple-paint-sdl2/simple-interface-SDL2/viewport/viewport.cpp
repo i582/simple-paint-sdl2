@@ -32,7 +32,7 @@ void Viewport::init()
 	SDL_SetRenderTarget(renderer, texture);
 
 	Primitives::renderer = renderer;
-	Primitives::color = &Colors.viewport_back;
+	Primitives::color = &Colors::viewport_back;
 	Primitives::fill_rect(NULL);
 
 
@@ -61,7 +61,7 @@ void Viewport::clear()
 	SDL_SetRenderTarget(renderer, texture);
 
 	Primitives::renderer = renderer;
-	Primitives::color = &Colors.viewport_back;
+	Primitives::color = &Colors::viewport_back;
 	Primitives::fill_rect(NULL);
 
 	SDL_SetRenderTarget(renderer, NULL);

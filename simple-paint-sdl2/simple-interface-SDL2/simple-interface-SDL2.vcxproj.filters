@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Исходные файлы\string_clases">
-      <UniqueIdentifier>{9e33fd75-cc52-4c91-9099-2f5bce6aacf1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Исходные файлы\interface">
       <UniqueIdentifier>{a90c679f-3f0f-4b45-93a0-29db2cc71371}</UniqueIdentifier>
     </Filter>
@@ -36,6 +33,9 @@
     </Filter>
     <Filter Include="Исходные файлы\viewport\scroll">
       <UniqueIdentifier>{242e737e-4cab-465c-8222-425112489911}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\color_scheme">
+      <UniqueIdentifier>{26a923f7-1cfc-4303-8abd-66dce5913070}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -63,18 +63,6 @@
     <ClInclude Include="control_elements\textField.h">
       <Filter>Исходные файлы\control_element</Filter>
     </ClInclude>
-    <ClInclude Include="string_classes\BIN_String.h">
-      <Filter>Исходные файлы\string_clases</Filter>
-    </ClInclude>
-    <ClInclude Include="string_classes\Dec_String.h">
-      <Filter>Исходные файлы\string_clases</Filter>
-    </ClInclude>
-    <ClInclude Include="string_classes\ID_String.h">
-      <Filter>Исходные файлы\string_clases</Filter>
-    </ClInclude>
-    <ClInclude Include="string_classes\String.h">
-      <Filter>Исходные файлы\string_clases</Filter>
-    </ClInclude>
     <ClInclude Include="control_elements\base_control.h">
       <Filter>Исходные файлы\control_element</Filter>
     </ClInclude>
@@ -92,6 +80,9 @@
     </ClInclude>
     <ClInclude Include="control_elements\scroll.h">
       <Filter>Исходные файлы\viewport\scroll</Filter>
+    </ClInclude>
+    <ClInclude Include="color_scheme\color.h">
+      <Filter>Исходные файлы\color_scheme</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -128,18 +119,6 @@
     <ClCompile Include="control_elements\textField.cpp">
       <Filter>Исходные файлы\control_element</Filter>
     </ClCompile>
-    <ClCompile Include="string_classes\BIN_String.cpp">
-      <Filter>Исходные файлы\string_clases</Filter>
-    </ClCompile>
-    <ClCompile Include="string_classes\Dec_String.cpp">
-      <Filter>Исходные файлы\string_clases</Filter>
-    </ClCompile>
-    <ClCompile Include="string_classes\ID_String.cpp">
-      <Filter>Исходные файлы\string_clases</Filter>
-    </ClCompile>
-    <ClCompile Include="string_classes\String.cpp">
-      <Filter>Исходные файлы\string_clases</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -169,6 +148,9 @@
     </ClCompile>
     <ClCompile Include="control_elements\scroll.cpp">
       <Filter>Исходные файлы\viewport\scroll</Filter>
+    </ClCompile>
+    <ClCompile Include="color_scheme\color.cpp">
+      <Filter>Исходные файлы\color_scheme</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

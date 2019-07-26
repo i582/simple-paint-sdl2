@@ -9,7 +9,7 @@ void Button::render()
 		clearRect.w += 2;
 		clearRect.h += 2;
 
-		SDL_SetRenderColor(renderer, Colors.background);
+		SDL_SetRenderColor(renderer, Colors::background);
 		SDL_RenderFillRect(renderer, &clearRect);
 		SDL_RenderPresent(renderer);
 		return;
@@ -22,20 +22,20 @@ void Button::render()
 	border.h += 2;
 
 	if (click && !block)
-		SDL_SetRenderColor(renderer, Colors.element_border_click);
+		SDL_SetRenderColor(renderer, Colors::element_border_click);
 	else
-		SDL_SetRenderColor(renderer, Colors.element_border);
+		SDL_SetRenderColor(renderer, Colors::element_border);
 		
 	SDL_RenderFillRect(renderer, &border);
 
 
 	if (block)
-		SDL_SetRenderColor(renderer, Colors.element_blocked);
+		SDL_SetRenderColor(renderer, Colors::element_blocked);
 	else
 		if (click)
-			SDL_SetRenderColor(renderer, Colors.element_background_click);
+			SDL_SetRenderColor(renderer, Colors::element_background_click);
 		else
-			SDL_SetRenderColor(renderer, Colors.element_background);
+			SDL_SetRenderColor(renderer, Colors::element_background);
 
 	SDL_RenderFillRect(renderer, sizes);
 

@@ -4,7 +4,7 @@
 #include "SDL_image.h"
 #include "iostream"
 #include "vector"
-#include "../interface/color.h"
+#include "../color_scheme/color.h"
 using namespace std;
 
 class Window {
@@ -20,8 +20,6 @@ private:
 	Uint32 flags;
 
 	bool no_border;
-
-	COLOR Colors;
 	SDL_Color background_color;
 
 	SDL_Window* window;
@@ -35,11 +33,7 @@ private:
 
 public:
 	Window(string title, SDL_Rect* sizes, Uint32 flags);
-
 	Window(string title, SDL_Rect* sizes, Uint32 flags, SDL_Color* background_color);
-
-	
-
 	~Window();
 
 private:

@@ -4,7 +4,7 @@
 #include "SDL_image.h"
 #include "iostream"
 #include "vector"
-#include "../interface/color.h"
+#include "../color_scheme/color.h"
 
 using namespace std;
 
@@ -24,8 +24,6 @@ protected:
 	string label; 
 	TTF_Font* font; 
 	int font_size; 
-
-	COLOR Colors;
 
 	int text_align;
 

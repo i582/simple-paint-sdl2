@@ -14,7 +14,7 @@ Window::Window(string title, SDL_Rect* sizes, Uint32 flags)
 
 	this->no_border = flags & 0x00000010;
 
-	this->background_color = Colors.element_background;
+	this->background_color = Colors::element_background;
 
 	window = nullptr;
 	renderer = nullptr;
@@ -58,10 +58,10 @@ void Window::render()
 	if (no_border) 
 	{
 
-		SDL_SetDrawColor(renderer, Colors.background);
+		SDL_SetDrawColor(renderer, Colors::background);
 		SDL_RenderFillRect(renderer, NULL);
 
-		SDL_SetDrawColor(renderer, Colors.element_border);
+		SDL_SetDrawColor(renderer, Colors::element_border);
 		SDL_RenderDrawRect(renderer, NULL);
 
 		render_toolup();
@@ -77,7 +77,7 @@ void Window::render()
 void Window::render_toolup()
 {
 	SDL_Rect up_tool = { 0, 0, width, 15 };
-	SDL_SetDrawColor(renderer, Colors.element_border);
+	SDL_SetDrawColor(renderer, Colors::element_border);
 	SDL_RenderDrawLine(renderer, up_tool.x, up_tool.h, up_tool.w, up_tool.h);
 
 	SDL_Texture* icon_close = IMG_LoadTexture(renderer, "sfx/icon_close.png");
@@ -87,13 +87,13 @@ void Window::render_toolup()
 	SDL_Rect but_close_position = { width - 13, 5, icon_close_width, icon_close_height };
 
 	if (hover_close)
-		SDL_SetDrawColor(renderer, Colors.element_background_focus);
+		SDL_SetDrawColor(renderer, Colors::element_background_focus);
 	else
-		SDL_SetDrawColor(renderer, Colors.background);
+		SDL_SetDrawColor(renderer, Colors::background);
 
 	SDL_RenderFillRect(renderer, &close_button_coord);
 
-	SDL_SetDrawColor(renderer, Colors.element_border);
+	SDL_SetDrawColor(renderer, Colors::element_border);
 	SDL_RenderDrawLine(renderer, close_button_coord.x, 0, close_button_coord.x, close_button_coord.h);
 
 	SDL_RenderCopy(renderer, icon_close, NULL, &but_close_position);

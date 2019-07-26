@@ -5,7 +5,7 @@
 #include "SDL_image.h"
 #include "iostream"
 #include "vector"
-#include "../interface/color.h"
+#include "../color_scheme/color.h"
 #include "../canvas/canvas.h"
 #include "../control_elements/scroll.h"
 using namespace std;
@@ -28,8 +28,6 @@ private:
 	double size_factor;
 
 	SDL_Point pos_mouse;
-
-	COLOR Colors;
 
 	Scroll* v_scroll;
 

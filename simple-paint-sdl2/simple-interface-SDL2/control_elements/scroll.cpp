@@ -30,10 +30,10 @@ void Scroll::render()
 {
 	SDL_SetRenderTarget(renderer, parent->texture);
 
-	SDL_SetRenderDrawColor(renderer, Colors.scroll_back.r, Colors.scroll_back.g, Colors.scroll_back.b, 0xFF);
+	SDL_SetRenderDrawColor(renderer, Colors::scroll_back.r, Colors::scroll_back.g, Colors::scroll_back.b, 0xFF);
 	SDL_RenderFillRect(renderer, &sizes);
 
-	SDL_SetRenderDrawColor(renderer, Colors.scroll_slider.r, Colors.scroll_slider.g, Colors.scroll_slider.b, 0xFF);
+	SDL_SetRenderDrawColor(renderer, Colors::scroll_slider.r, Colors::scroll_slider.g, Colors::scroll_slider.b, 0xFF);
 	SDL_RenderFillRect(renderer, &slider_sizes);
 
 	SDL_RenderPresent(renderer);
@@ -78,7 +78,7 @@ void Scroll::mouseMotion(SDL_Event* event)
 		/*if (v_slider_hover(pos_mouse.x, pos_mouse.y)) 
 		{*/
 			slider_sizes.y = pos_mouse.y - slider_sizes.h / 2;
-			parent->set_canvas_position();  slider_sizes.h / slider_sizes.y * 1000 - 500
+			
 			render();
 			parent->update();
 		//}

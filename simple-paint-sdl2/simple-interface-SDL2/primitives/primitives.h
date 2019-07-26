@@ -2,7 +2,7 @@
 #include "SDL.h"
 #include "iostream"
 #include "vector"
-#include "../interface/color.h"
+#include "../color_scheme/color.h"
 #include "queue"
 
 class Primitives{

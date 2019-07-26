@@ -21,15 +21,15 @@ void ItemList::render()
 	border.y--;
 	border.w += 2;
 	border.h += 2;
-	SDL_SetRenderColor(renderer, Colors.element_border);
+	SDL_SetRenderColor(renderer, Colors::element_border);
 	SDL_RenderFillRect(renderer, &border);
 
 
 	// Отрисовка тела
 	if (block)
-		SDL_SetRenderColor(renderer, Colors.element_blocked);
+		SDL_SetRenderColor(renderer, Colors::element_blocked);
 	else
-		SDL_SetRenderColor(renderer, Colors.element_background);
+		SDL_SetRenderColor(renderer, Colors::element_background);
 	SDL_RenderFillRect(renderer, sizes);
 	renderLabel(label, sizes);
 
@@ -45,9 +45,9 @@ void ItemList::render()
 		for (size_t i = 0; i < List.size(); i++)
 		{
 			if (List.at(i)->is_hover())
-				SDL_SetRenderColor(renderer, Colors.element_list_hover);
+				SDL_SetRenderColor(renderer, Colors::element_list_hover);
 			else
-				SDL_SetRenderColor(renderer, Colors.element_background);
+				SDL_SetRenderColor(renderer, Colors::element_background);
 
 			SDL_RenderFillRect(renderer, &render_rect);
 
@@ -58,7 +58,7 @@ void ItemList::render()
 	else 
 	{
 		SDL_Rect clear_rect = { render_rect.x, render_rect.y, render_rect.w, (int)(render_rect.h * List.size()) };
-		SDL_SetRenderColor(renderer, Colors.background);
+		SDL_SetRenderColor(renderer, Colors::background);
 		SDL_RenderFillRect(renderer, &clear_rect);
 	}
 

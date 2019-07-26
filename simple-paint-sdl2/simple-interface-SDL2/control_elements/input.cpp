@@ -10,7 +10,7 @@ void Input::render()
 		clearRect.h += 2;
 
 
-		SDL_SetRenderColor(renderer, Colors.background);
+		SDL_SetRenderColor(renderer, Colors::background);
 		SDL_RenderFillRect(renderer, &clearRect);
 		SDL_RenderPresent(renderer);
 		return;
@@ -23,21 +23,21 @@ void Input::render()
 	border.h += 2;
 
 	if (focus && !block)
-		SDL_SetRenderColor(renderer, Colors.element_border_click);
+		SDL_SetRenderColor(renderer, Colors::element_border_click);
 	else
-		SDL_SetRenderColor(renderer, Colors.element_border);
+		SDL_SetRenderColor(renderer, Colors::element_border);
 
 	SDL_RenderFillRect(renderer, &border);
 
 
 
 	if (block)
-		SDL_SetRenderColor(renderer, Colors.element_blocked);
+		SDL_SetRenderColor(renderer, Colors::element_blocked);
 	else
 		if (focus)
-			SDL_SetRenderColor(renderer, Colors.element_background_focus);
+			SDL_SetRenderColor(renderer, Colors::element_background_focus);
 		else
-			SDL_SetRenderColor(renderer, Colors.element_background_unfocus);
+			SDL_SetRenderColor(renderer, Colors::element_background_unfocus);
 	
 	
 	SDL_RenderFillRect(renderer, sizes);
