@@ -62,6 +62,17 @@ void Interface::onEvent()
 
 				break;
 			}
+
+			case SDL_MOUSEWHEEL: 
+			{
+
+				if (viewport->on_hover(mouse_coord.x, mouse_coord.y)) {
+					viewport->mouseWheel(&event);
+
+				}
+				break;
+			}
+
 			case SDL_QUIT:
 				quit();
 				break;

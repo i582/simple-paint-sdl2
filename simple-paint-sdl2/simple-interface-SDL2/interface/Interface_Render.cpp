@@ -81,7 +81,12 @@ void Interface::render()
 	SDL_RenderCopy(renderer, tex, NULL, &ren_rec);
 	SDL_RenderPresent(renderer);*/
 
-	viewport = new Viewport(renderer, 1000, 660, 20, 20);
-	viewport->init();
-	viewport->update();
+	viewport = new Viewport(renderer, 20, 20, 1000, 660);
+	canvas = new Canvas(renderer, viewport->get_render_target(), 100, 100, 500, 500);
+	
+	viewport->set_canvas(canvas);
+
+
+	
+	cout << endl;
 }

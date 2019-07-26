@@ -1,4 +1,5 @@
 #include "primitives.h"
+#include <ctime>
 
 SDL_Renderer* Primitives::renderer = nullptr;
 SDL_Color* Primitives::color = nullptr;
@@ -305,6 +306,8 @@ void Primitives::rounded_fill_rect(SDL_Rect* input_rect)
 
 void Primitives::fill(int x, int y)
 {
+	unsigned int start_time = clock();
+
 	SDL_RenderPresent(renderer);
 
 	int width, height;
@@ -384,6 +387,10 @@ void Primitives::fill(int x, int y)
 
 	SDL_FreeSurface(surface);
 	SDL_DestroyTexture(ready);
+
+	time_t end_time = clock();
+
+	std::cout << "runtime = " << (end_time - start_time) / 1000.0 << std::endl;
 	return;
 }
 

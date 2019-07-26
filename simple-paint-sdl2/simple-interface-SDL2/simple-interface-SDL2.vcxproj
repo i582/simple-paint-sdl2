@@ -19,12 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="canvas\canvas.h" />
     <ClInclude Include="control_elements\button.h" />
     <ClInclude Include="control_elements\base_control.h" />
     <ClInclude Include="control_elements\dropDownList.h" />
     <ClInclude Include="control_elements\input.h" />
     <ClInclude Include="control_elements\itemList.h" />
     <ClInclude Include="control_elements\label.h" />
+    <ClInclude Include="control_elements\scroll.h" />
     <ClInclude Include="control_elements\textField.h" />
     <ClInclude Include="interface\color.h" />
     <ClInclude Include="interface\Interface.h" />
@@ -37,12 +39,15 @@
     <ClInclude Include="window\window-class.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="canvas\canvas.cpp" />
+    <ClCompile Include="canvas\canvas_event.cpp" />
     <ClCompile Include="control_elements\button.cpp" />
     <ClCompile Include="control_elements\base_control.cpp" />
     <ClCompile Include="control_elements\dropDownList.cpp" />
     <ClCompile Include="control_elements\input.cpp" />
     <ClCompile Include="control_elements\itemList.cpp" />
     <ClCompile Include="control_elements\label.cpp" />
+    <ClCompile Include="control_elements\scroll.cpp" />
     <ClCompile Include="control_elements\textField.cpp" />
     <ClCompile Include="interface\Interface.cpp" />
     <ClCompile Include="interface\Interface_OnEvent.cpp" />

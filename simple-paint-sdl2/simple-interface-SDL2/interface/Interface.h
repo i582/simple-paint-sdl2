@@ -71,12 +71,12 @@ private:
 
 
 	Viewport* viewport;
+	Canvas* canvas;
 
 public:
 	Interface();
 	Interface(short width, short height);
 	~Interface();
-
 
 private:
 	void render();

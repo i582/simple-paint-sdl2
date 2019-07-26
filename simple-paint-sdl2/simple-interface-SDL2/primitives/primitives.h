@@ -5,7 +5,7 @@
 #include "../interface/color.h"
 #include "queue"
 
-class Primitives {
+class Primitives{
 public:
 	static SDL_Renderer* renderer;
 	static SDL_Color* color;

@@ -28,6 +28,15 @@
     <Filter Include="Исходные файлы\primitives">
       <UniqueIdentifier>{2d238724-7b23-4ad4-871f-caec7f45aad7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\canvas">
+      <UniqueIdentifier>{aff49dd2-72e6-4e79-8ff8-e54d96835f08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\viewport">
+      <UniqueIdentifier>{03693def-35ca-4918-859a-d0e620912f97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\viewport\scroll">
+      <UniqueIdentifier>{242e737e-4cab-465c-8222-425112489911}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="interface\color.h">
@@ -76,7 +85,13 @@
       <Filter>Исходные файлы\primitives</Filter>
     </ClInclude>
     <ClInclude Include="viewport\viewport.h">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\viewport</Filter>
+    </ClInclude>
+    <ClInclude Include="canvas\canvas.h">
+      <Filter>Исходные файлы\canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="control_elements\scroll.h">
+      <Filter>Исходные файлы\viewport\scroll</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -141,10 +156,19 @@
       <Filter>Исходные файлы\primitives</Filter>
     </ClCompile>
     <ClCompile Include="viewport\viewport.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\viewport</Filter>
     </ClCompile>
     <ClCompile Include="viewport\viewport_events.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\viewport</Filter>
+    </ClCompile>
+    <ClCompile Include="canvas\canvas.cpp">
+      <Filter>Исходные файлы\canvas</Filter>
+    </ClCompile>
+    <ClCompile Include="canvas\canvas_event.cpp">
+      <Filter>Исходные файлы\canvas</Filter>
+    </ClCompile>
+    <ClCompile Include="control_elements\scroll.cpp">
+      <Filter>Исходные файлы\viewport\scroll</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

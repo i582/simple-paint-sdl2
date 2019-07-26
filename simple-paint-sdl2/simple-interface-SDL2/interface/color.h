@@ -31,6 +31,11 @@ struct COLOR {
 
 		canvas_background = { 0xFF, 0xFF, 0xFF, 0xFF };
 		canvas_black = { 0x00, 0x00, 0x00, 0xFF };
+
+		viewport_back = { 0x33, 0x33, 0x33, 0xFF };
+
+		scroll_back = { 0x4A, 0x4A, 0x4A, 0xFF };
+		scroll_slider = { 0x69, 0x69, 0x69, 0x69 };
 	}
 
 	// Светлая тема
@@ -60,4 +65,9 @@ struct COLOR {
 
 	SDL_Color canvas_background;
 	SDL_Color canvas_black;
+
+	SDL_Color viewport_back;
+
+	SDL_Color scroll_back;
+	SDL_Color scroll_slider;
 };
