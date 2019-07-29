@@ -125,8 +125,14 @@ double Canvas::get_size_factor()
 	return size_factor;
 }
 
-void Canvas::update_coord(int* x, int* y)
+void Canvas::update_coord_with_scale(int* x, int* y)
 {
 	*x = (*x - this->x) / size_factor;
 	*y = (*y - this->y) / size_factor;
+}
+
+void Canvas::update_coord(int* x, int* y)
+{
+	*x -= this->x;
+	*y -= this->y;
 }

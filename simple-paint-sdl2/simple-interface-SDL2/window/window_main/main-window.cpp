@@ -26,7 +26,7 @@ void MainWindow::setup()
 {
 	show();
 
-	viewport = new Viewport(renderer, 30, 30, 1000, 640);
+	viewport = new Viewport(renderer, 50, 30, 1000, 640);
 	canvas = new Canvas(renderer, viewport->get_render_target(), 100, 100, 500, 500);
 	viewport->set_canvas(canvas);
 

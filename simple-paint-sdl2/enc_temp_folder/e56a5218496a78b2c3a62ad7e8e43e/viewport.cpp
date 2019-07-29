@@ -142,6 +142,7 @@ void Viewport::set_canvas_size_factor(double size_factor, int direction)
 		int x_pos_must = x_pos / canvas->get_size_factor() * size_factor;
 		int y_pos_must = y_pos / canvas->get_size_factor() * size_factor;
 
+
 		canvas->set_size_factor(size_factor);
 
 		SDL_GetMouseState(&pos_mouse.x, &pos_mouse.y);

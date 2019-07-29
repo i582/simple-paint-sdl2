@@ -9,6 +9,7 @@
 #include "../canvas/canvas.h"
 #include "../viewport/v_view_scroll.h"
 #include "../viewport/h_view_scroll.h"
+#include "../control_elements/scale_info.h"
 using namespace std;
 
 class V_ViewScroll;
@@ -33,7 +34,8 @@ private:
 
 	V_ViewScroll* v_scroll;
 	H_ViewScroll* h_scroll;
-	bool push_v_scroll;
+	
+	ScaleInfo* scale_info;
 
 public:
 	Viewport(SDL_Renderer* renderer, int x, int y, int width, int height);

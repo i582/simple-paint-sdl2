@@ -42,7 +42,7 @@ void V_ViewScroll::mouseButtonDown(SDL_Event* e)
 		if (slider_size.y > body_size.h - slider_size.h)
 			slider_size.y = body_size.h - slider_size.h;
 
-		slider_size.y = pos_y - slider_size.h / 2.;
+		slider_size.y = pos_y;
 		now_value = (slider_size.y / (double)body_size.h) * max_value;
 	}
 }

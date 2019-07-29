@@ -28,6 +28,7 @@
     <ClInclude Include="control_elements\input.h" />
     <ClInclude Include="control_elements\itemList.h" />
     <ClInclude Include="control_elements\label.h" />
+    <ClInclude Include="control_elements\scale_info.h" />
     <ClInclude Include="control_elements\scroll.h" />
     <ClInclude Include="control_elements\textField.h" />
     <ClInclude Include="control_elements\VScroll.h" />
@@ -52,6 +53,7 @@
     <ClCompile Include="control_elements\input.cpp" />
     <ClCompile Include="control_elements\itemList.cpp" />
     <ClCompile Include="control_elements\label.cpp" />
+    <ClCompile Include="control_elements\scale_info.cpp" />
     <ClCompile Include="control_elements\scroll.cpp" />
     <ClCompile Include="control_elements\textField.cpp" />
     <ClCompile Include="control_elements\VScroll.cpp" />

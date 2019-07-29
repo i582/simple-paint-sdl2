@@ -18,7 +18,7 @@ struct Colors
 	static SDL_Color canvas_black;
 
 	static SDL_Color viewport_back;
-
+	static SDL_Color viewport_border;
 
 
 	// scroll

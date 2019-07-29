@@ -64,5 +64,7 @@ public:
 	/**
 	 *  \Преобразует координаты мыши в координаты относительно верхнего левого угла canvas
 	 */
+	void update_coord_with_scale(int* x, int* y);
+
 	void update_coord(int* x, int* y);
 };

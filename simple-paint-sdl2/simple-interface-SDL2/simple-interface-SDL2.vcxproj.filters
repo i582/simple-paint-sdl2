@@ -111,6 +111,9 @@
     <ClInclude Include="control_elements\scroll.h">
       <Filter>Исходные файлы\control_element</Filter>
     </ClInclude>
+    <ClInclude Include="control_elements\scale_info.h">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="control_elements\button.cpp">
@@ -188,10 +191,13 @@
     <ClCompile Include="control_elements\HScroll.cpp">
       <Filter>Исходные файлы\control_element</Filter>
     </ClCompile>
-    <ClCompile Include="viewport\h_view_scroll.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="control_elements\scroll.cpp">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClCompile>
+    <ClCompile Include="viewport\h_view_scroll.cpp">
+      <Filter>Исходные файлы\viewport\scroll</Filter>
+    </ClCompile>
+    <ClCompile Include="control_elements\scale_info.cpp">
       <Filter>Исходные файлы\control_element</Filter>
     </ClCompile>
   </ItemGroup>
