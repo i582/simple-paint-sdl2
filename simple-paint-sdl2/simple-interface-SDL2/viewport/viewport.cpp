@@ -1,5 +1,6 @@
 #include "viewport.h"
-#include "../control_elements/scroll.h"
+#include "../viewport/v_view_scroll.h"
+#include "../viewport/h_view_scroll.h"
 
 Viewport::Viewport(SDL_Renderer* renderer, int x, int y, int width, int height)
 {
@@ -42,9 +43,14 @@ void Viewport::init()
 	int v_width = 16;
 	int v_height = this->height;
 
-	v_scroll = new Scroll(renderer, { width - v_width, 0, v_width, v_height }, 1000, 2000, 100);
-	v_scroll->set_viewport(this);
+	v_scroll = new V_ViewScroll(renderer, this, { width - v_width, 0, v_width, v_height }, 1000, 2000, 100);
 	v_scroll->set_step(2000 / size_factor);
+
+	int h_width = this->width;
+	int h_height = 16;
+
+	h_scroll = new H_ViewScroll(renderer, this, { 0, height - h_height, h_width, h_height }, 1000, 2000, 100);
+	h_scroll->set_step(2000 / size_factor);
 }
 
 void Viewport::update()
@@ -72,6 +78,7 @@ void Viewport::clear()
 void Viewport::render_scrolls()
 {
 	v_scroll->update();
+	h_scroll->update();
 }
 
 void Viewport::set_canvas(Canvas* new_canvas)
@@ -113,7 +120,7 @@ void Viewport::set_canvas_size_factor(double size_factor, int direction)
 		canvas->set_size_factor(size_factor);
 		canvas->center_align(width, height);
 	}
-	else 
+	else
 	{
 		// TODO: Сделать увеличение к курсору
 		canvas->set_size_factor(size_factor);

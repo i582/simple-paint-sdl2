@@ -5,10 +5,11 @@
 #include "vector"
 #include "../color_scheme/color.h"
 
-class Viewport;
+using namespace std;
 
-class Scroll {
-private:
+class Scroll 
+{
+protected:
 	SDL_Renderer* renderer;
 
 	SDL_Rect body_size;
@@ -20,16 +21,14 @@ private:
 
 	bool is_focus;
 
-	Viewport* parent;
-
 public:
 	Scroll(SDL_Renderer* renderer, SDL_Rect size, int now_value, int max_value, int step_size);
 
 public:
-	void update();
+	virtual void update() = 0;
 
-	void set_viewport(Viewport* parent);
-	void set_step(int step);
+
+	virtual void set_step(int step) = 0;
 
 	bool body_hover(int x, int y);
 	bool slider_hover(int x, int y);
@@ -39,8 +38,8 @@ public:
 	double get_value();
 	void set_value(double value);
 
-	void mouseButtonDown(SDL_Event* e);
-	void mouseButtonUp(SDL_Event* e);
-	void mouseMotion(SDL_Event* e);
+	virtual void mouseButtonDown(SDL_Event* e) = 0;
+	virtual void mouseButtonUp(SDL_Event* e) = 0;
+	virtual void mouseMotion(SDL_Event* e) = 0;
 
 };

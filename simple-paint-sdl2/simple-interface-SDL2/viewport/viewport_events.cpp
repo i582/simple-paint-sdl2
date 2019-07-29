@@ -76,11 +76,7 @@ void Viewport::mouseMotion(SDL_Event* event)
 
 		int new_y = this->height / 2 - canvas->get_height() / 2 + procent * canvas->get_height();
 
-		cout << "shift " << new_y << endl;
-
 		canvas->set_position(width / 2 - canvas->get_width() / 2, new_y);
-
-
 
 
 		clear();
@@ -91,7 +87,8 @@ void Viewport::mouseMotion(SDL_Event* event)
 	}
 
 
-	if (canvas->on_hover(pos_mouse.x, pos_mouse.y)) {
+	if (canvas->on_hover(pos_mouse.x, pos_mouse.y)) 
+	{
 		canvas->mouseMotion(event, pos_mouse);
 	}
 
@@ -135,7 +132,6 @@ void Viewport::mouseWheel(SDL_Event* event)
 	int new_ys = canvas->get_y();
 	double procents = (new_ys - (this->height / 2. - canvas->get_height() / 2.)) / (double)canvas->get_height();
 
-	cout << "procent equal " << procents << endl;
 
 	v_scroll->set_value(procents);
 	v_scroll->update();

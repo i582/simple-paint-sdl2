@@ -7,10 +7,12 @@
 #include "vector"
 #include "../color_scheme/color.h"
 #include "../canvas/canvas.h"
-#include "../control_elements/scroll.h"
+#include "../viewport/v_view_scroll.h"
+#include "../viewport/h_view_scroll.h"
 using namespace std;
 
-class Scroll;
+class V_ViewScroll;
+class H_ViewScroll;
 
 class Viewport {
 private:
@@ -29,7 +31,8 @@ private:
 
 	SDL_Point pos_mouse;
 
-	Scroll* v_scroll;
+	V_ViewScroll* v_scroll;
+	H_ViewScroll* h_scroll;
 	bool push_v_scroll;
 
 public:
@@ -37,7 +40,8 @@ public:
 	~Viewport();
 
 public:
-	friend Scroll;
+	friend V_ViewScroll;
+	friend H_ViewScroll;
 
 private:
 	void init();

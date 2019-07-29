@@ -99,6 +99,18 @@
     <ClInclude Include="tools\tool.h">
       <Filter>Исходные файлы\tools</Filter>
     </ClInclude>
+    <ClInclude Include="control_elements\VScroll.h">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClInclude>
+    <ClInclude Include="viewport\v_view_scroll.h">
+      <Filter>Исходные файлы\viewport\scroll</Filter>
+    </ClInclude>
+    <ClInclude Include="control_elements\HScroll.h">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClInclude>
+    <ClInclude Include="viewport\h_view_scroll.h">
+      <Filter>Исходные файлы\viewport\scroll</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="control_elements\button.cpp">
@@ -169,6 +181,18 @@
     </ClCompile>
     <ClCompile Include="tools\tool.cpp">
       <Filter>Исходные файлы\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="control_elements\VScroll.cpp">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClCompile>
+    <ClCompile Include="viewport\v_view_scroll.cpp">
+      <Filter>Исходные файлы\viewport\scroll</Filter>
+    </ClCompile>
+    <ClCompile Include="control_elements\HScroll.cpp">
+      <Filter>Исходные файлы\control_element</Filter>
+    </ClCompile>
+    <ClCompile Include="viewport\h_view_scroll.cpp">
+      <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
