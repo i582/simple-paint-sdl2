@@ -16,14 +16,15 @@ Editor::~Editor()
 
 bool Editor::init()
 {
-	setlocale(LC_ALL, "Rus");
 
-	if (!(IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG)) {
+	if (!(IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG)) 
+	{
 		cout << "SDL_image could not initialize! SDL_image Error: %s\n" << IMG_GetError();
 		return false;
 	}
 
-	if (TTF_Init() == -1) {
+	if (TTF_Init() == -1) 
+	{
 		cout << "SDL_ttf could not initialize! SDL_ttf Error: %s\n" << TTF_GetError();
 		return false;
 	}

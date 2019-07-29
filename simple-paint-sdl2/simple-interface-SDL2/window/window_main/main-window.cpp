@@ -26,10 +26,17 @@ void MainWindow::setup()
 {
 	show();
 
-	viewport = new Viewport(renderer, 20, 20, 1000, 660);
+	viewport = new Viewport(renderer, 30, 30, 1000, 640);
 	canvas = new Canvas(renderer, viewport->get_render_target(), 100, 100, 500, 500);
 	viewport->set_canvas(canvas);
 
+	Tool* tool1 = new Tool(renderer, 5, 5);
+	Tool* tool2 = new Tool(renderer, 5, 35);
+	Tool* tool3 = new Tool(renderer, 5, 65);
+
+	tools.push_back(tool1);
+	tools.push_back(tool2);
+	tools.push_back(tool3);
 }
 
 void MainWindow::render()
@@ -40,4 +47,10 @@ void MainWindow::render()
 	viewport->update();
 
 	update();
+
+	for (auto& tool : tools)
+	{
+		tool->render();
+	}
+
 }

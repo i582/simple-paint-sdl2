@@ -30,6 +30,7 @@ private:
 	SDL_Point pos_mouse;
 
 	Scroll* v_scroll;
+	bool push_v_scroll;
 
 public:
 	Viewport(SDL_Renderer* renderer, int x, int y, int width, int height);
@@ -49,6 +50,7 @@ public:
 
 	void set_canvas(Canvas* new_canvas);
 	SDL_Texture* get_render_target();
+	SDL_Rect get_size();
 
 	/* События */
 	void mouseButtonDown(SDL_Event* event);

@@ -14,6 +14,18 @@ void MainWindow::mouseButtonUp(SDL_Event* event)
 {
 	SDL_GetMouseState(&mouse_coord.x, &mouse_coord.y);
 
+	for (auto& tool : tools)
+	{
+		if (tool->on_hover(mouse_coord.x, mouse_coord.y))
+		{
+			tool->set_selected(true);
+		}
+		else
+		{
+			tool->set_selected(false);
+		}
+	}
+
 	if (viewport->on_hover(mouse_coord.x, mouse_coord.y))
 	{
 		viewport->mouseButtonUp(event);
@@ -23,6 +35,14 @@ void MainWindow::mouseButtonUp(SDL_Event* event)
 void MainWindow::mouseMotion(SDL_Event* event)
 {
 	SDL_GetMouseState(&mouse_coord.x, &mouse_coord.y);
+
+	for (auto& tool : tools)
+	{
+		if (tool->on_hover(mouse_coord.x, mouse_coord.y))
+			tool->set_hover(true);
+		else
+			tool->set_hover(false);
+	}
 
 	if (viewport->on_hover(mouse_coord.x, mouse_coord.y)) 
 	{

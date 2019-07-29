@@ -21,4 +21,12 @@ struct Colors
 
 	static SDL_Color scroll_back;
 	static SDL_Color scroll_slider;
+
+
+	// tools
+	static SDL_Color tool;
+	static SDL_Color tool_hover;
+	static SDL_Color tool_selected;
+	static SDL_Color tool_border;
+	//
 };

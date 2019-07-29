@@ -69,8 +69,8 @@ void Canvas::set_size_factor(double size_factor)
 
 void Canvas::shift_position(int x, int y)
 {
-	this->x -= x;
-	this->y -= y;
+	this->x += x;
+	this->y += y;
 }
 
 void Canvas::center_align(int width, int height)
@@ -88,14 +88,36 @@ bool Canvas::full_in_viewport(int width, int height)
 
 void Canvas::get_size(int* width, int* height)
 {
-	*width = this->width * size_factor;
-	*height = this->height * size_factor;
+	if (width != nullptr)
+		*width = this->width * size_factor;
+	if (height != nullptr)
+		*height = this->height * size_factor;
+}
+
+int Canvas::get_width()
+{
+	return width * size_factor;
+}
+
+int Canvas::get_height()
+{
+	return height * size_factor;
 }
 
 void Canvas::get_position(int* x, int* y)
 {
 	*x = this->x;
 	*y = this->y;
+}
+
+int Canvas::get_y()
+{
+	return y;
+}
+
+int Canvas::get_x()
+{
+	return x;
 }
 
 double Canvas::get_size_factor()

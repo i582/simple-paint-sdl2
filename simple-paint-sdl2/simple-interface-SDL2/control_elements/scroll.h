@@ -10,40 +10,37 @@ class Viewport;
 class Scroll {
 private:
 	SDL_Renderer* renderer;
-	SDL_Rect sizes;
 
-	SDL_Rect slider_sizes;
+	SDL_Rect body_size;
+	SDL_Rect slider_size;
 
 	int max_value;
 	int now_value;
-	int size_one_step;
+	int step_size;
 
-	bool is_push;
-
-	SDL_Point pos_mouse;
-
-	SDL_Texture* parent_target;
-	SDL_Rect parent_sizes;
+	bool is_focus;
 
 	Viewport* parent;
 
 public:
-	Scroll(SDL_Renderer* renderer, int width, int height, int x, int y, int now_value, int max_value, int size_one_step);
+	Scroll(SDL_Renderer* renderer, SDL_Rect size, int now_value, int max_value, int step_size);
 
 public:
-	void render();
+	void update();
 
-	void set_parent(Viewport* parent);
+	void set_viewport(Viewport* parent);
+	void set_step(int step);
 
-	bool v_scroll_hover(int x, int y);
-	bool v_slider_hover(int x, int y);
+	bool body_hover(int x, int y);
+	bool slider_hover(int x, int y);
 
-	void mouseButtonDown(SDL_Event* event);
-	void mouseButtonUp(SDL_Event* event);
-	void mouseMotion(SDL_Event* event);
+	bool on_focus();
 
-	/**
-	 *  \ѕреобразует координаты мыши в координаты относительно верхнего левого угла родительского объекта
-	 */
-	void update_coord(int* x, int* y);
+	double get_value();
+	void set_value(double value);
+
+	void mouseButtonDown(SDL_Event* e);
+	void mouseButtonUp(SDL_Event* e);
+	void mouseMotion(SDL_Event* e);
+
 };

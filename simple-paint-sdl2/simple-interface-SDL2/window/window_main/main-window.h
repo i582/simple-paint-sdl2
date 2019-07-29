@@ -1,12 +1,17 @@
 #pragma once
-
+#include "vector"
 #include "../window.h"
 #include "../../viewport/viewport.h"
+
+#include "../../tools/tool.h"
 
 class MainWindow : public Window {
 private:
 	Viewport* viewport;
 	Canvas* canvas;
+
+
+	vector <Tool*> tools;
 
 public:
 	MainWindow(string title, SDL_Rect* sizes, Uint32 flags);

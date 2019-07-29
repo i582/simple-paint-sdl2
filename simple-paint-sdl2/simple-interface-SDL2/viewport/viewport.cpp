@@ -35,14 +35,16 @@ void Viewport::init()
 	Primitives::color = &Colors::viewport_back;
 	Primitives::fill_rect(NULL);
 
-
 	SDL_SetRenderTarget(renderer, NULL);
+
+
 
 	int v_width = 16;
 	int v_height = this->height;
 
-	v_scroll = new Scroll(renderer, v_width, v_height, width - v_width, 0, 500, 1000, 100);
-	v_scroll->set_parent(this);
+	v_scroll = new Scroll(renderer, { width - v_width, 0, v_width, v_height }, 1000, 2000, 100);
+	v_scroll->set_viewport(this);
+	v_scroll->set_step(2000 / size_factor);
 }
 
 void Viewport::update()
@@ -69,7 +71,7 @@ void Viewport::clear()
 
 void Viewport::render_scrolls()
 {
-	v_scroll->render();
+	v_scroll->update();
 }
 
 void Viewport::set_canvas(Canvas* new_canvas)
@@ -84,6 +86,11 @@ void Viewport::set_canvas(Canvas* new_canvas)
 SDL_Texture* Viewport::get_render_target()
 {
 	return texture;
+}
+
+SDL_Rect Viewport::get_size()
+{
+	return {x, y, width, height};
 }
 
 bool Viewport::on_hover(int x, int y)
@@ -101,15 +108,14 @@ void Viewport::set_canvas_position(int x, int y)
 
 void Viewport::set_canvas_size_factor(double size_factor, int direction)
 {
-	
-
 	if (canvas->full_in_viewport(width, height)) 
 	{
 		canvas->set_size_factor(size_factor);
 		canvas->center_align(width, height);
 	}
-	else {
-		// todo Сделать увеличение к курсору
+	else 
+	{
+		// TODO: Сделать увеличение к курсору
 		canvas->set_size_factor(size_factor);
 		canvas->center_align(width, height);
 	}

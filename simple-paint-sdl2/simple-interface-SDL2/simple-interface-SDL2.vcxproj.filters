@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Исходные файлы\interface">
-      <UniqueIdentifier>{a90c679f-3f0f-4b45-93a0-29db2cc71371}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Исходные файлы\control_element">
       <UniqueIdentifier>{17d260cc-08c0-4213-b63b-400710440895}</UniqueIdentifier>
     </Filter>
@@ -43,11 +40,14 @@
     <Filter Include="Исходные файлы\window\main-window">
       <UniqueIdentifier>{948457e1-0ae6-4bc9-8f19-e5ee4da1a390}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\toolbar">
+      <UniqueIdentifier>{3a673795-f807-4d0c-9239-acb39729a32f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\tools">
+      <UniqueIdentifier>{0d09ff5f-540f-44b8-88be-1c3672934b4b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="interface\Interface.h">
-      <Filter>Исходные файлы\interface</Filter>
-    </ClInclude>
     <ClInclude Include="control_elements\button.h">
       <Filter>Исходные файлы\control_element</Filter>
     </ClInclude>
@@ -93,23 +93,14 @@
     <ClInclude Include="window\window_main\main-window.h">
       <Filter>Исходные файлы\window\main-window</Filter>
     </ClInclude>
+    <ClInclude Include="toolbar\toolbar.h">
+      <Filter>Исходные файлы\toolbar</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\tool.h">
+      <Filter>Исходные файлы\tools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="interface\Interface.cpp">
-      <Filter>Исходные файлы\interface</Filter>
-    </ClCompile>
-    <ClCompile Include="interface\Interface_OnEvent.cpp">
-      <Filter>Исходные файлы\interface</Filter>
-    </ClCompile>
-    <ClCompile Include="interface\Interface_OnEvent_Function.cpp">
-      <Filter>Исходные файлы\interface</Filter>
-    </ClCompile>
-    <ClCompile Include="interface\Interface_OnExecute.cpp">
-      <Filter>Исходные файлы\interface</Filter>
-    </ClCompile>
-    <ClCompile Include="interface\Interface_Setup.cpp">
-      <Filter>Исходные файлы\interface</Filter>
-    </ClCompile>
     <ClCompile Include="control_elements\button.cpp">
       <Filter>Исходные файлы\control_element</Filter>
     </ClCompile>
@@ -133,9 +124,6 @@
     </ClCompile>
     <ClCompile Include="control_elements\base_control.cpp">
       <Filter>Исходные файлы\control_element</Filter>
-    </ClCompile>
-    <ClCompile Include="interface\Interface_Render.cpp">
-      <Filter>Исходные файлы\interface</Filter>
     </ClCompile>
     <ClCompile Include="primitives\primitives.cpp">
       <Filter>Исходные файлы\primitives</Filter>
@@ -175,6 +163,12 @@
     </ClCompile>
     <ClCompile Include="window\window_main\main-window_event.cpp">
       <Filter>Исходные файлы\window\main-window</Filter>
+    </ClCompile>
+    <ClCompile Include="toolbar\toolbar.cpp">
+      <Filter>Исходные файлы\toolbar</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\tool.cpp">
+      <Filter>Исходные файлы\tools</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

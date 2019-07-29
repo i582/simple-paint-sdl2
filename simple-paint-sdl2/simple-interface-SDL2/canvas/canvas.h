@@ -53,7 +53,12 @@ public:
 	bool full_in_viewport(int width, int height);
 
 	void get_size(int* width, int* height);
+	int get_width();
+	int get_height();
+
 	void get_position(int* x, int* y);
+	int get_y();
+	int get_x();
 	double get_size_factor();
 
 	/**
