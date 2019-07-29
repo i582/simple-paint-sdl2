@@ -11,6 +11,7 @@ public:
 
 public:
 	void set_step(int step);
+	void shift(int delta);
 
 	virtual void update() = 0;
 

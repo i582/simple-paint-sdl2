@@ -10,6 +10,24 @@ Scroll::Scroll(SDL_Renderer* renderer, SDL_Rect size, int now_value, int max_val
 	this->step_size = step_size;
 
 	this->is_focus = false;
+	this->display = false;
+}
+
+void Scroll::hide()
+{
+	display = false;
+	update();
+}
+
+void Scroll::show()
+{
+	display = true;
+	update();
+}
+
+bool Scroll::is_show()
+{
+	return display;
 }
 
 bool Scroll::body_hover(int x, int y)

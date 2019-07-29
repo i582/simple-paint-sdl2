@@ -78,9 +78,6 @@
     <ClInclude Include="canvas\canvas.h">
       <Filter>Исходные файлы\canvas</Filter>
     </ClInclude>
-    <ClInclude Include="control_elements\scroll.h">
-      <Filter>Исходные файлы\viewport\scroll</Filter>
-    </ClInclude>
     <ClInclude Include="color_scheme\color.h">
       <Filter>Исходные файлы\color_scheme</Filter>
     </ClInclude>
@@ -110,6 +107,9 @@
     </ClInclude>
     <ClInclude Include="viewport\h_view_scroll.h">
       <Filter>Исходные файлы\viewport\scroll</Filter>
+    </ClInclude>
+    <ClInclude Include="control_elements\scroll.h">
+      <Filter>Исходные файлы\control_element</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -152,9 +152,6 @@
     <ClCompile Include="canvas\canvas_event.cpp">
       <Filter>Исходные файлы\canvas</Filter>
     </ClCompile>
-    <ClCompile Include="control_elements\scroll.cpp">
-      <Filter>Исходные файлы\viewport\scroll</Filter>
-    </ClCompile>
     <ClCompile Include="color_scheme\color.cpp">
       <Filter>Исходные файлы\color_scheme</Filter>
     </ClCompile>
@@ -193,6 +190,9 @@
     </ClCompile>
     <ClCompile Include="viewport\h_view_scroll.cpp">
       <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="control_elements\scroll.cpp">
+      <Filter>Исходные файлы\control_element</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

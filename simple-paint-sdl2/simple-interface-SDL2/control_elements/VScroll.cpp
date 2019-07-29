@@ -16,3 +16,15 @@ void VScroll::set_step(int step)
 	slider_size.h = body_size.h * (step_size / (double)max_value);
 	slider_size.y = body_size.h * (now_value / (double)max_value) - slider_size.h / 2;
 }
+
+void VScroll::shift(int delta)
+{
+	slider_size.y += delta;
+
+	if (slider_size.y < 0) slider_size.y = 0;
+	if (slider_size.y + slider_size.h > body_size.h) slider_size.y = body_size.h - slider_size.h;
+
+	now_value = (slider_size.y / ((double)body_size.h - slider_size.h)) * max_value;
+
+	update();
+}

@@ -19,3 +19,15 @@ void HScroll::set_step(int step)
 	slider_size.w = body_size.w * (step_size / (double)max_value);
 	slider_size.x = body_size.w * (now_value / (double)max_value) - slider_size.w / 2;
 }
+
+void HScroll::shift(int delta)
+{
+	slider_size.x += delta;
+
+	if (slider_size.x < 0) slider_size.x = 0;
+	if (slider_size.x + slider_size.w > body_size.w) slider_size.x = body_size.w - slider_size.w;
+
+	now_value = (slider_size.x / ((double)body_size.w - slider_size.w)) * max_value;
+
+	update();
+}

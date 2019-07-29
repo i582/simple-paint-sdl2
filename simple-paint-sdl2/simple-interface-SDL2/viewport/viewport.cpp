@@ -41,16 +41,14 @@ void Viewport::init()
 
 
 	int v_width = 16;
-	int v_height = this->height;
+	int v_height = this->height - 16;
 
 	v_scroll = new V_ViewScroll(renderer, this, { width - v_width, 0, v_width, v_height }, 1000, 2000, 100);
-	v_scroll->set_step(2000 / size_factor);
 
-	int h_width = this->width;
+	int h_width = this->width - 16;
 	int h_height = 16;
 
-	h_scroll = new H_ViewScroll(renderer, this, { 0, height - h_height, h_width, h_height }, 1000, 2000, 100);
-	h_scroll->set_step(2000 / size_factor);
+	h_scroll = new H_ViewScroll(renderer, this, { 0, height - h_height, h_width, h_height }, 1000, 3000, 100);
 }
 
 void Viewport::update()

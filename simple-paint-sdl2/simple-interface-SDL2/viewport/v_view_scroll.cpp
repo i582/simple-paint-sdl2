@@ -15,8 +15,11 @@ void V_ViewScroll::update()
 	SDL_SetRenderDrawColor(renderer, Colors::scroll_back.r, Colors::scroll_back.g, Colors::scroll_back.b, 0xFF);
 	SDL_RenderFillRect(renderer, &body_size);
 
-	SDL_SetRenderDrawColor(renderer, Colors::scroll_slider.r, Colors::scroll_slider.g, Colors::scroll_slider.b, 0xFF);
-	SDL_RenderFillRect(renderer, &slider_size);
+	if (display)
+	{
+		SDL_SetRenderDrawColor(renderer, Colors::scroll_slider.r, Colors::scroll_slider.g, Colors::scroll_slider.b, 0xFF);
+		SDL_RenderFillRect(renderer, &slider_size);
+	}
 
 	SDL_RenderPresent(renderer);
 
@@ -33,14 +36,14 @@ void V_ViewScroll::mouseButtonDown(SDL_Event* e)
 
 	if (!slider_hover(pos_x, pos_y))
 	{
-		slider_size.y = pos_y - slider_size.h / 2.;
-		now_value = (slider_size.y / (double)body_size.h) * max_value;
-
 		if (slider_size.y < 0)
 			slider_size.y = 0;
 
 		if (slider_size.y > body_size.h - slider_size.h)
 			slider_size.y = body_size.h - slider_size.h;
+
+		slider_size.y = pos_y - slider_size.h / 2.;
+		now_value = (slider_size.y / (double)body_size.h) * max_value;
 	}
 }
 
@@ -61,7 +64,6 @@ void V_ViewScroll::mouseMotion(SDL_Event * e)
 		if (slider_size.y > body_size.h - slider_size.h)
 			slider_size.y = body_size.h - slider_size.h;
 
-		now_value = ((double)slider_size.y / ((double)body_size.h - slider_size.h)) * max_value;
-		cout << now_value << endl;
+		now_value = (slider_size.y / ((double)body_size.h - slider_size.h)) * max_value;
 	}
 }

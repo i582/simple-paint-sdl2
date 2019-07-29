@@ -19,9 +19,13 @@ struct Colors
 
 	static SDL_Color viewport_back;
 
+
+
+	// scroll
 	static SDL_Color scroll_back;
 	static SDL_Color scroll_slider;
-
+	static SDL_Color scroll_corner;
+	//
 
 	// tools
 	static SDL_Color tool;

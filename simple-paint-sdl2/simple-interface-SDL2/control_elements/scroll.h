@@ -21,14 +21,18 @@ protected:
 
 	bool is_focus;
 
+	bool display;
+
 public:
 	Scroll(SDL_Renderer* renderer, SDL_Rect size, int now_value, int max_value, int step_size);
 
 public:
 	virtual void update() = 0;
-
-
 	virtual void set_step(int step) = 0;
+
+	void hide();
+	void show();
+	bool is_show();
 
 	bool body_hover(int x, int y);
 	bool slider_hover(int x, int y);
@@ -37,6 +41,9 @@ public:
 
 	double get_value();
 	void set_value(double value);
+
+	virtual void shift(int delta) = 0;
+
 
 	virtual void mouseButtonDown(SDL_Event* e) = 0;
 	virtual void mouseButtonUp(SDL_Event* e) = 0;
