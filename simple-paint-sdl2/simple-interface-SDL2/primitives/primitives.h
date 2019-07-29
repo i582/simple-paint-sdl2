@@ -76,6 +76,7 @@ public:
 	static void circle(int x, int y, int rad);
 	static void circle(SDL_Point* center, int rad);
 
+	static void circle_smooth(int x, int y, int rad);
 	/*
 	 * Отрисовка закрашенного круга
 	 */
@@ -100,7 +101,7 @@ public:
 
 
 	/*
-	 * Заливка области с цветом как и у пикселя в точке p
+	 * Заливка области с цветом как и у пикселя в точке p {x, y}
 	 */
 	static void fill(int x, int y);
 	static void fill(SDL_Point* p);

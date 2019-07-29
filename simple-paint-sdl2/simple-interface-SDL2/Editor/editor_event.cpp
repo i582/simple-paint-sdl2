@@ -50,6 +50,24 @@ void Editor::onEvent()
 			break;
 		}
 
+		case SDL_WINDOWEVENT:
+		{
+
+			switch (event.window.event)
+			{
+
+			case SDL_WINDOWEVENT_RESIZED:
+			{
+				main_window->render();
+				break;
+			}
+
+			default:break;
+			}
+
+			break;
+		}
+
 		default:break;
 		}
 	}

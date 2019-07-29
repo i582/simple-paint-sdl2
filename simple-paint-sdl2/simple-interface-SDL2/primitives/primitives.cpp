@@ -243,6 +243,7 @@ void Primitives::circle(int x, int y, int rad)
 {
 	SDL_SetRenderDrawColor(renderer, color->r, color->g, color->b, color->a);
 
+
 	int x1 = 0;
 	int y1 = rad;
 
@@ -251,10 +252,13 @@ void Primitives::circle(int x, int y, int rad)
 
 	while (y1 != -1) 
 	{
-		SDL_RenderDrawPoint(renderer, x + x1, y + y1);
-		SDL_RenderDrawPoint(renderer, x + x1, y - y1);
-		SDL_RenderDrawPoint(renderer, x - x1, y + y1);
-		SDL_RenderDrawPoint(renderer, x - x1, y - y1);
+		//SDL_RenderDrawPoint(renderer, x + x1, y + y1); // низ право
+		//SDL_RenderDrawPoint(renderer, x + x1, y - y1); // верх право
+		//SDL_RenderDrawPoint(renderer, x - x1, y + y1); // низ лево
+		SDL_RenderDrawPoint(renderer, x - x1, y - y1); // вверх лево
+
+		
+		
 
 		error = 2 * (delta + y1) - 1;
 

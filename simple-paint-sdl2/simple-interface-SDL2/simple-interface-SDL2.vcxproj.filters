@@ -46,6 +46,12 @@
     <Filter Include="Исходные файлы\tools">
       <UniqueIdentifier>{0d09ff5f-540f-44b8-88be-1c3672934b4b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\layer">
+      <UniqueIdentifier>{f150f8a3-c23b-4b5a-b8f0-24caf17864fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\layers">
+      <UniqueIdentifier>{3a97ebf5-ab81-48b0-85b0-46017c4682b5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="control_elements\button.h">
@@ -113,6 +119,12 @@
     </ClInclude>
     <ClInclude Include="control_elements\scale_info.h">
       <Filter>Исходные файлы\control_element</Filter>
+    </ClInclude>
+    <ClInclude Include="layer\layer.h">
+      <Filter>Исходные файлы\layer</Filter>
+    </ClInclude>
+    <ClInclude Include="layers\layers.h">
+      <Filter>Исходные файлы\layers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +211,9 @@
     </ClCompile>
     <ClCompile Include="control_elements\scale_info.cpp">
       <Filter>Исходные файлы\control_element</Filter>
+    </ClCompile>
+    <ClCompile Include="layers\layers.cpp">
+      <Filter>Исходные файлы\layers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

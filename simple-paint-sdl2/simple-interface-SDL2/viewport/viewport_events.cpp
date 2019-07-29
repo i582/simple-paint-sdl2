@@ -136,6 +136,7 @@ void Viewport::mouseWheel(SDL_Event* event)
 		this->set_canvas_size_factor(size_factor, event->wheel.y < 0 ? -1 : 1);
 
 
+
 		// update scale in info
 		scale_info->set_scale(size_factor);
 

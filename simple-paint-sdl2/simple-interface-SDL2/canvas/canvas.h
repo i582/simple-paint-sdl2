@@ -7,6 +7,8 @@
 #include "../color_scheme/color.h"
 #include "../primitives/primitives.h"
 
+#include "../layers/layers.h"
+
 using namespace std;
 
 class Canvas {
@@ -19,6 +21,8 @@ private:
 
 	SDL_Renderer* renderer;
 	SDL_Texture* texture;
+
+	Layers* layers;
 
 	double size_factor;
 

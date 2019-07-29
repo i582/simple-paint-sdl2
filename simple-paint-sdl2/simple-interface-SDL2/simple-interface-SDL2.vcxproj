@@ -33,6 +33,8 @@
     <ClInclude Include="control_elements\textField.h" />
     <ClInclude Include="control_elements\VScroll.h" />
     <ClInclude Include="Editor\editor.h" />
+    <ClInclude Include="layers\layers.h" />
+    <ClInclude Include="layer\layer.h" />
     <ClInclude Include="primitives\primitives.h" />
     <ClInclude Include="toolbar\toolbar.h" />
     <ClInclude Include="tools\tool.h" />
@@ -59,6 +61,7 @@
     <ClCompile Include="control_elements\VScroll.cpp" />
     <ClCompile Include="Editor\editor.cpp" />
     <ClCompile Include="Editor\editor_event.cpp" />
+    <ClCompile Include="layers\layers.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="primitives\primitives.cpp" />
     <ClCompile Include="toolbar\toolbar.cpp" />

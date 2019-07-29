@@ -25,9 +25,21 @@ Canvas::~Canvas()
 
 void Canvas::init()
 {
-	texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, width, height);
 
-	SDL_SetRenderTarget(renderer, texture);
+	layers = new Layers(renderer);
+
+
+	texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, width, height);
+	Layer* layer1 = new Layer(texture, 0xFF);
+	layers->add(layer1);
+
+	texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, width, height);
+	Layer* layer2 = new Layer(texture, 0xF0, SDL_BLENDMODE_BLEND);
+	layers->add(layer2);
+
+	
+
+	SDL_SetRenderTarget(renderer, layer1->texture);
 
 	SDL_Texture* image = IMG_LoadTexture(renderer, "sfx/4.png");
 	SDL_Rect image_rect = {0, 0, width, height};
@@ -35,15 +47,27 @@ void Canvas::init()
 	
 	SDL_RenderPresent(renderer);
 
+
+
+	SDL_SetRenderTarget(renderer, layer2->texture);
+
+	SDL_Texture* image1 = IMG_LoadTexture(renderer, "sfx/first.png");
+	SDL_Rect image_rect1 = { 0, 0, width, height };
+	SDL_RenderCopy(renderer, image1, NULL, &image_rect1);
+
+	SDL_RenderPresent(renderer);
+
 	SDL_SetRenderTarget(renderer, NULL);
 }
 
 void Canvas::update()
 {
+	SDL_Texture* tex = layers->ready_texture();
+
 	SDL_SetRenderTarget(renderer, parentTarget);
 
 	SDL_Rect copy_rect = { x, y, width * size_factor, height * size_factor };
-	SDL_RenderCopy(renderer, texture, NULL, &copy_rect);
+	SDL_RenderCopy(renderer, tex, NULL, &copy_rect);
 	SDL_RenderPresent(renderer);
 
 	SDL_SetRenderTarget(renderer, NULL);
