@@ -141,13 +141,13 @@ void Viewport::mouseWheel(SDL_Event* event)
 
 		// update vertical scroll slider position
 		int new_y = canvas->get_y();
-		double procents = (new_y - (this->height / 2. - canvas->get_height() / 2.)) / (double)canvas->get_height();
+		double procents = ((this->height / 2. - canvas->get_height() / 2.) - new_y) / (double)canvas->get_height();
 		v_scroll->set_value(procents);
 		v_scroll->update();
 
 		// update horizontal scroll slider position
 		int new_x = canvas->get_x();
-		double x_procent = (new_x - (this->width / 2. - canvas->get_width() / 2.)) / (double)canvas->get_width();
+		double x_procent = ((this->width / 2. - canvas->get_width() / 2.) - new_x) / (double)canvas->get_width();
 		h_scroll->set_value(x_procent);
 		h_scroll->update();
 
@@ -183,7 +183,7 @@ void Viewport::mouseWheel(SDL_Event* event)
 		}
 
 		double procent = h_scroll->get_value();
-		int new_x = this->width / 2 - canvas->get_width() / 2 - procent * canvas->get_width();
+		int new_x = this->width / 2. - canvas->get_width() / 2. - procent * canvas->get_width();
 		canvas->set_position(new_x, canvas->get_y());
 		clear();
 		canvas->update();
@@ -201,7 +201,7 @@ void Viewport::mouseWheel(SDL_Event* event)
 		}
 
 		double procent = v_scroll->get_value();
-		int new_y = this->height / 2 - canvas->get_height() / 2 - procent * canvas->get_height();
+		int new_y = this->height / 2. - canvas->get_height() / 2. - procent * canvas->get_height();
 		canvas->set_position(canvas->get_x(), new_y);
 		clear();
 		canvas->update();
