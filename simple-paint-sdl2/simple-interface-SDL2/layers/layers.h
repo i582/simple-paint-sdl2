@@ -25,6 +25,7 @@ public:
 
 	int get_size();
 	int get_upper_layer_id();
+	int get_upper_layer_id_in_point(int x, int y);
 
 	Layer* at(int index);
 	
