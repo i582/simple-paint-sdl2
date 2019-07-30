@@ -80,7 +80,6 @@ int Layers::get_upper_layer_id_in_point(int x, int y)
 	SDL_Point p = { x, y };
 	for (i = layers.size() - 1; i >= 0 &&
 		(layers.at(i)->is_block() || !SDL_PointInRect(&p, &layers.at(i)->size)); i--);
-	
 	return i;
 }
 

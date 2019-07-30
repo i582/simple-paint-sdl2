@@ -72,6 +72,8 @@ public:
 	int get_x();
 	double get_size_factor();
 
+	bool get_selected();
+
 	/**
 	 *  \Преобразует координаты мыши в координаты относительно верхнего левого угла canvas
 	 */

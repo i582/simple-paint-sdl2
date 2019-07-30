@@ -21,7 +21,7 @@ void Viewport::mouseButtonDown(SDL_Event* e)
 
 
 
-	if (canvas->on_hover(pos_mouse.x, pos_mouse.y)) 
+	if (canvas->on_hover(pos_mouse.x, pos_mouse.y) || canvas->get_selected())
 	{
 		canvas->mouseButtonDown(e);
 		update();
@@ -46,7 +46,7 @@ void Viewport::mouseButtonUp(SDL_Event* e)
 		return;
 	}
 
-	if (canvas->on_hover(pos_mouse.x, pos_mouse.y)) 
+	if (canvas->on_hover(pos_mouse.x, pos_mouse.y) || canvas->get_selected())
 	{
 		canvas->mouseButtonUp(e);
 		update();
@@ -95,7 +95,7 @@ void Viewport::mouseMotion(SDL_Event* e)
 	}
 
 
-	if (canvas->on_hover(pos_mouse.x, pos_mouse.y)) 
+	if (canvas->on_hover(pos_mouse.x, pos_mouse.y) || canvas->get_selected())
 	{
 		canvas->mouseMotion(e);
 		update();

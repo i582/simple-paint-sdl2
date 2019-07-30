@@ -144,6 +144,11 @@ double Canvas::get_size_factor()
 	return size_factor;
 }
 
+bool Canvas::get_selected()
+{
+	return is_selected;
+}
+
 void Canvas::update_coord_with_scale(int* x, int* y)
 {
 	*x = (int)((*x - this->x) / size_factor);

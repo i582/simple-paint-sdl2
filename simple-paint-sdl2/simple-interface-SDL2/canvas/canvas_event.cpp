@@ -29,7 +29,11 @@ void Canvas::mouseMotion(SDL_Event* e)
 
 	if (is_selected && selected_id != -1)
 	{
-		layers->at(selected_id)->shift(e->motion.xrel, e->motion.yrel);
+		layers->at(selected_id)->shift(
+			(int)(e->motion.xrel / get_size_factor()),
+			(int)(e->motion.yrel / get_size_factor())
+		);
+
 		update();
 	}
 }
