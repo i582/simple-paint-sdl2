@@ -1,6 +1,6 @@
 #include "viewport.h"
 
-void Viewport::mouseButtonDown(SDL_Event* event)
+void Viewport::mouseButtonDown(SDL_Event* e)
 {
 	SDL_GetMouseState(&pos_mouse.x, &pos_mouse.y);
 	update_coord(&pos_mouse.x, &pos_mouse.y);
@@ -8,13 +8,13 @@ void Viewport::mouseButtonDown(SDL_Event* event)
 
 	if (v_scroll->slider_hover(pos_mouse.x, pos_mouse.y) && v_scroll->is_show() && h_scroll->is_show())
 	{
-		v_scroll->mouseButtonDown(event);
+		v_scroll->mouseButtonDown(e);
 		return;
 	}
 	
 	if (h_scroll->slider_hover(pos_mouse.x, pos_mouse.y) && v_scroll->is_show() && h_scroll->is_show())
 	{
-		h_scroll->mouseButtonDown(event);
+		h_scroll->mouseButtonDown(e);
 		return;
 	}
 
@@ -23,11 +23,12 @@ void Viewport::mouseButtonDown(SDL_Event* event)
 
 	if (canvas->on_hover(pos_mouse.x, pos_mouse.y)) 
 	{
-		canvas->mouseButtonDown(event, pos_mouse);
+		canvas->mouseButtonDown(e);
+		update();
 	}
 }
 
-void Viewport::mouseButtonUp(SDL_Event* event)
+void Viewport::mouseButtonUp(SDL_Event* e)
 {
 	SDL_GetMouseState(&pos_mouse.x, &pos_mouse.y);
 	update_coord(&pos_mouse.x, &pos_mouse.y);
@@ -35,27 +36,28 @@ void Viewport::mouseButtonUp(SDL_Event* event)
 	
 	if (v_scroll->on_focus() && v_scroll->is_show() && h_scroll->is_show())
 	{
-		v_scroll->mouseButtonUp(event);
+		v_scroll->mouseButtonUp(e);
 		return;
 	}
 
 	if (h_scroll->on_focus() && v_scroll->is_show() && h_scroll->is_show())
 	{
-		h_scroll->mouseButtonUp(event);
+		h_scroll->mouseButtonUp(e);
 		return;
 	}
 
 	if (canvas->on_hover(pos_mouse.x, pos_mouse.y)) 
 	{
-		canvas->mouseButtonUp(event, pos_mouse);
+		canvas->mouseButtonUp(e);
+		update();
 	}
 }
 
-void Viewport::mouseMotion(SDL_Event* event)
+void Viewport::mouseMotion(SDL_Event* e)
 {
 
-	//cout << event->motion.x << "  " << event->motion.y << endl;
-	//cout << "relative x and y " << event->motion.xrel << "  " << event->motion.yrel << endl;
+	//cout << e->motion.x << "  " << e->motion.y << endl;
+	//cout << "relative x and y " << e->motion.xrel << "  " << e->motion.yrel << endl;
 
 	SDL_GetMouseState(&pos_mouse.x, &pos_mouse.y);
 	update_coord(&pos_mouse.x, &pos_mouse.y);
@@ -63,10 +65,10 @@ void Viewport::mouseMotion(SDL_Event* event)
 	
 	if (v_scroll->on_focus() && v_scroll->is_show() && h_scroll->is_show())
 	{
-		v_scroll->mouseMotion(event);
+		v_scroll->mouseMotion(e);
 
 		double procent = v_scroll->get_value();
-		int new_y = this->height / 2 - canvas->get_height() / 2 - procent * canvas->get_height();
+		int new_y = (int)(this->height / 2 - canvas->get_height() / 2 - procent * canvas->get_height());
 		canvas->set_position(canvas->get_x(), new_y);
 
 
@@ -79,10 +81,10 @@ void Viewport::mouseMotion(SDL_Event* event)
 
 	if (h_scroll->on_focus() && v_scroll->is_show() && h_scroll->is_show())
 	{
-		h_scroll->mouseMotion(event);
+		h_scroll->mouseMotion(e);
 
 		double procent = h_scroll->get_value();
-		int new_x = this->width / 2 - canvas->get_width() / 2 - procent * canvas->get_width();
+		int new_x = (int)(this->width / 2 - canvas->get_width() / 2 - procent * canvas->get_width());
 		canvas->set_position(new_x, canvas->get_y());
 
 		clear();
@@ -95,20 +97,21 @@ void Viewport::mouseMotion(SDL_Event* event)
 
 	if (canvas->on_hover(pos_mouse.x, pos_mouse.y)) 
 	{
-		canvas->mouseMotion(event, pos_mouse);
+		canvas->mouseMotion(e);
+		update();
 	}
 
 	
 }
 
-void Viewport::mouseWheel(SDL_Event* event)
+void Viewport::mouseWheel(SDL_Event* e)
 {
 	
 	
 	if (SDL_GetModState() & KMOD_ALT)
 	{
 
-		if (event->wheel.y > 0)
+		if (e->wheel.y > 0)
 		{
 			if (size_factor > 5)
 				size_factor += 3;
@@ -119,7 +122,7 @@ void Viewport::mouseWheel(SDL_Event* event)
 			else
 				size_factor += 0.1;
 		}
-		else if (event->wheel.y < 0)
+		else if (e->wheel.y < 0)
 		{
 			if (size_factor > 5)
 				size_factor -= 3;
@@ -133,7 +136,7 @@ void Viewport::mouseWheel(SDL_Event* event)
 
 		SDL_GetMouseState(&pos_mouse.x, &pos_mouse.y);
 		update_coord(&pos_mouse.x, &pos_mouse.y);
-		this->set_canvas_size_factor(size_factor, event->wheel.y < 0 ? -1 : 1);
+		this->set_canvas_size_factor(size_factor, e->wheel.y < 0 ? -1 : 1);
 
 
 
@@ -158,10 +161,10 @@ void Viewport::mouseWheel(SDL_Event* event)
 			v_scroll->show();
 			h_scroll->show();
 
-			v_scroll->set_step(1000 / size_factor);
+			v_scroll->set_step((int)(1000 / size_factor));
 			v_scroll->update();
 
-			h_scroll->set_step(1000 / size_factor);
+			h_scroll->set_step((int)(1000 / size_factor));
 			h_scroll->update();
 		}
 		else
@@ -174,17 +177,17 @@ void Viewport::mouseWheel(SDL_Event* event)
 	}
 	else if (SDL_GetModState() & KMOD_CTRL && v_scroll->is_show() && h_scroll->is_show())
 	{
-		if (event->wheel.y > 0)
+		if (e->wheel.y > 0)
 		{
 			h_scroll->shift(-10);
 		}
-		else if (event->wheel.y < 0)
+		else if (e->wheel.y < 0)
 		{
 			h_scroll->shift(10);
 		}
 
 		double procent = h_scroll->get_value();
-		int new_x = this->width / 2. - canvas->get_width() / 2. - procent * canvas->get_width();
+		int new_x = (int)(this->width / 2. - canvas->get_width() / 2. - procent * canvas->get_width());
 		canvas->set_position(new_x, canvas->get_y());
 		clear();
 		canvas->update();
@@ -192,17 +195,17 @@ void Viewport::mouseWheel(SDL_Event* event)
 	}
 	else if (v_scroll->is_show() && h_scroll->is_show())
 	{
-		if (event->wheel.y > 0)
+		if (e->wheel.y > 0)
 		{
 			v_scroll->shift(-10);
 		}
-		else if (event->wheel.y < 0)
+		else if (e->wheel.y < 0)
 		{
 			v_scroll->shift(10);
 		}
 
 		double procent = v_scroll->get_value();
-		int new_y = this->height / 2. - canvas->get_height() / 2. - procent * canvas->get_height();
+		int new_y = (int)(this->height / 2. - canvas->get_height() / 2. - procent * canvas->get_height());
 		canvas->set_position(canvas->get_x(), new_y);
 		clear();
 		canvas->update();
@@ -211,6 +214,6 @@ void Viewport::mouseWheel(SDL_Event* event)
 	
 }
 
-void Viewport::keyDown(SDL_Event* event)
+void Viewport::keyDown(SDL_Event* e)
 {
 }

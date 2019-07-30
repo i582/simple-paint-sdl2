@@ -14,7 +14,7 @@ class Editor {
 private:
 	bool running;
 	MainWindow* main_window;
-	SDL_Event event;
+	SDL_Event e;
 
 public:
 	Editor(int width, int height);

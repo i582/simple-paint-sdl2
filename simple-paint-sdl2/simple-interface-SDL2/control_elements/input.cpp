@@ -46,30 +46,30 @@ void Input::render()
 	SDL_RenderPresent(renderer);
 }
 
-void Input::onEvent(SDL_Event* event)
+void Input::onEvent(SDL_Event* e)
 {
 	SDL_StartTextInput();
 	while (focus) {
-		while (SDL_PollEvent(event)) {
-			switch (event->type)
+		while (SDL_PollEvent(e)) {
+			switch (e->type)
 			{
 
 			case SDL_KEYDOWN:
 			{
-				if (event->key.keysym.sym == SDLK_BACKSPACE && label.length() > 0)
+				if (e->key.keysym.sym == SDLK_BACKSPACE && label.length() > 0)
 					label.pop_back();
-				else if (event->key.keysym.sym == SDLK_c && SDL_GetModState() & KMOD_CTRL)
+				else if (e->key.keysym.sym == SDLK_c && SDL_GetModState() & KMOD_CTRL)
 					SDL_SetClipboardText(label.c_str());
-				else if (event->key.keysym.sym == SDLK_v && SDL_GetModState() & KMOD_CTRL)
+				else if (e->key.keysym.sym == SDLK_v && SDL_GetModState() & KMOD_CTRL)
 					label = SDL_GetClipboardText();
 
 				break;
 			}
 
 			case SDL_TEXTINPUT:
-				if (!((event->text.text[0] == 'c' || event->text.text[0] == 'C') && (event->text.text[0] == 'v' || event->text.text[0] == 'V') && SDL_GetModState() & KMOD_CTRL))
+				if (!((e->text.text[0] == 'c' || e->text.text[0] == 'C') && (e->text.text[0] == 'v' || e->text.text[0] == 'V') && SDL_GetModState() & KMOD_CTRL))
 					if ((int)label.size() * (font_size - 2) + 10 < sizes->w)
-						label += event->text.text;
+						label += e->text.text;
 
 				break;
 

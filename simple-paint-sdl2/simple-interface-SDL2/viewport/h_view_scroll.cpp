@@ -46,8 +46,8 @@ void H_ViewScroll::mouseButtonDown(SDL_Event* e)
 		if (slider_size.x > body_size.w - slider_size.w)
 			slider_size.x = body_size.w - slider_size.w;
 
-		slider_size.x = pos_x - slider_size.w / 2.;
-		now_value = (slider_size.x / (double)body_size.w) * max_value;
+		slider_size.x = (int)(pos_x - slider_size.w / 2.);
+		now_value = (int)((slider_size.x / (double)body_size.w) * max_value);
 	}
 }
 
@@ -68,7 +68,7 @@ void H_ViewScroll::mouseMotion(SDL_Event * e)
 		if (slider_size.x > body_size.w - slider_size.w + body_size.x)
 			slider_size.x = body_size.w - slider_size.w + body_size.x;
 
-		now_value = (slider_size.x / ((double)body_size.w - slider_size.w)) * max_value;
+		now_value = (int)((slider_size.x / ((double)body_size.w - slider_size.w)) * max_value);
 	}
 }
 

@@ -1,30 +1,40 @@
 #include "canvas.h"
+#include "../viewport/viewport.h"
 
-void Canvas::mouseButtonDown(SDL_Event* event, SDL_Point _pos_mouse)
+void Canvas::mouseButtonDown(SDL_Event* e)
 {
-	pos_mouse = _pos_mouse;
-	update_coord(&this->pos_mouse.x, &this->pos_mouse.y);
-
-
-}
-
-void Canvas::mouseButtonUp(SDL_Event* event, SDL_Point _pos_mouse)
-{
-	pos_mouse = _pos_mouse;
+	SDL_GetMouseState(&pos_mouse.x, &pos_mouse.y);
+	parent->update_coord(&pos_mouse.x, &pos_mouse.y);
 	update_coord_with_scale(&pos_mouse.x, &pos_mouse.y);
 
-
+	is_selected = true;
+	selected_id = layers->get_upper_layer_id();
 }
 
-void Canvas::mouseMotion(SDL_Event* event, SDL_Point _pos_mouse)
+void Canvas::mouseButtonUp(SDL_Event* e)
 {
-	pos_mouse = _pos_mouse;
+	SDL_GetMouseState(&pos_mouse.x, &pos_mouse.y);
+	parent->update_coord(&pos_mouse.x, &pos_mouse.y);
 	update_coord_with_scale(&pos_mouse.x, &pos_mouse.y);
 
-
+	is_selected = false;
+	
 }
 
-void Canvas::keyDown(SDL_Event* event)
+void Canvas::mouseMotion(SDL_Event* e)
+{
+	SDL_GetMouseState(&pos_mouse.x, &pos_mouse.y);
+	parent->update_coord(&pos_mouse.x, &pos_mouse.y);
+	update_coord_with_scale(&pos_mouse.x, &pos_mouse.y);
+
+	if (is_selected)
+	{
+		layers->at(selected_id)->shift(e->motion.xrel, e->motion.yrel);
+		update();
+	}
+}
+
+void Canvas::keyDown(SDL_Event* e)
 {
 	SDL_GetMouseState(&pos_mouse.x, &pos_mouse.y);
 	update_coord_with_scale(&pos_mouse.x, &pos_mouse.y);

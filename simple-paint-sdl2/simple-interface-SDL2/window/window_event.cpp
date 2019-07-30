@@ -1,10 +1,10 @@
 #include "window.h"
 
-void Window::mouseButtonDown(SDL_Event* event)
+void Window::mouseButtonDown(SDL_Event* e)
 {
 	SDL_GetMouseState(&mouse_coord.x, &mouse_coord.y);
 
-	switch (event->window.windowID)
+	switch (e->window.windowID)
 	{
 	case 1: {
 		// code
@@ -15,11 +15,11 @@ void Window::mouseButtonDown(SDL_Event* event)
 	}
 }
 
-void Window::mouseButtonUp(SDL_Event* event)
+void Window::mouseButtonUp(SDL_Event* e)
 {
 	SDL_GetMouseState(&mouse_coord.x, &mouse_coord.y);
 
-	switch (event->window.windowID)
+	switch (e->window.windowID)
 	{
 	case 1: {
 		// code
@@ -30,11 +30,11 @@ void Window::mouseButtonUp(SDL_Event* event)
 	}
 }
 
-void Window::mouseMotion(SDL_Event* event)
+void Window::mouseMotion(SDL_Event* e)
 {
 	SDL_GetMouseState(&mouse_coord.x, &mouse_coord.y);
 
-	switch (event->window.windowID)
+	switch (e->window.windowID)
 	{
 	case 1: {
 		// code
@@ -45,11 +45,11 @@ void Window::mouseMotion(SDL_Event* event)
 	}
 }
 
-void Window::mouseWheel(SDL_Event* event)
+void Window::mouseWheel(SDL_Event* e)
 {
 	SDL_GetMouseState(&mouse_coord.x, &mouse_coord.y);
 
-	switch (event->window.windowID)
+	switch (e->window.windowID)
 	{
 	case 1: {
 		// code
@@ -60,11 +60,11 @@ void Window::mouseWheel(SDL_Event* event)
 	}
 }
 
-void Window::keyDown(SDL_Event* event)
+void Window::keyDown(SDL_Event* e)
 {
 	SDL_GetMouseState(&mouse_coord.x, &mouse_coord.y);
 
-	switch (event->window.windowID)
+	switch (e->window.windowID)
 	{
 	case 1: {
 		// code
@@ -75,11 +75,11 @@ void Window::keyDown(SDL_Event* event)
 	}
 }
 
-void Window::keyUp(SDL_Event* event)
+void Window::keyUp(SDL_Event* e)
 {
 	SDL_GetMouseState(&mouse_coord.x, &mouse_coord.y);
 
-	switch (event->window.windowID)
+	switch (e->window.windowID)
 	{
 	case 1: {
 		// code

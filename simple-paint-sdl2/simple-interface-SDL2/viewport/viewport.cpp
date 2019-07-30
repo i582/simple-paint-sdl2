@@ -139,8 +139,8 @@ void Viewport::set_canvas_size_factor(double size_factor, int direction)
 		int x_pos = pos_mouse.x;
 		int y_pos = pos_mouse.y;
 
-		int x_pos_must = x_pos / canvas->get_size_factor() * size_factor;
-		int y_pos_must = y_pos / canvas->get_size_factor() * size_factor;
+		int x_pos_must = (int)(x_pos / canvas->get_size_factor() * size_factor);
+		int y_pos_must = (int)(y_pos / canvas->get_size_factor() * size_factor);
 
 		canvas->set_size_factor(size_factor);
 

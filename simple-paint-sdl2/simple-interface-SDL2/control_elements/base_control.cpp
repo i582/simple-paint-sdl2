@@ -89,7 +89,7 @@ void Control::renderLabel(string text, SDL_Rect* place, int _text_align)
 	SDL_DestroyTexture(textTexture);
 }
 
-void Control::onEvent(SDL_Event* event)
+void Control::onEvent(SDL_Event* e)
 {
 	// virtual
 }

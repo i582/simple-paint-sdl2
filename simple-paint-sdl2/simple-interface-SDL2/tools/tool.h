@@ -29,8 +29,8 @@ public:
 	void set_hover(bool value);
 	void set_selected(bool value);
 
-	void mouseButtonDown(SDL_Event* event);
-	void mouseButtonUp(SDL_Event* event);
+	void mouseButtonDown(SDL_Event* e);
+	void mouseButtonUp(SDL_Event* e);
 
 	bool on_hover(int x, int y);
 };

@@ -14,7 +14,7 @@ public:
 public:
 
 	void render();
-	void onEvent(SDL_Event* event);
+	void onEvent(SDL_Event* e);
 	void in_focus();
 	void out_focus();
 	string get_value();

@@ -51,10 +51,10 @@ public:
 
 	SDL_Renderer* getRenderer();
 	
-	virtual void mouseButtonDown(SDL_Event* event);
-	virtual void mouseButtonUp(SDL_Event* event);
-	virtual void mouseMotion(SDL_Event* event);
-	virtual void mouseWheel(SDL_Event* event);
-	virtual void keyDown(SDL_Event* event);
-	virtual void keyUp(SDL_Event* event);
+	virtual void mouseButtonDown(SDL_Event* e);
+	virtual void mouseButtonUp(SDL_Event* e);
+	virtual void mouseMotion(SDL_Event* e);
+	virtual void mouseWheel(SDL_Event* e);
+	virtual void keyDown(SDL_Event* e);
+	virtual void keyUp(SDL_Event* e);
 };

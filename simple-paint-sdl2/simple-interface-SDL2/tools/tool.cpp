@@ -36,7 +36,7 @@ void Tool::set_selected(bool value)
 	render();
 }
 
-void Tool::mouseButtonUp(SDL_Event* event)
+void Tool::mouseButtonUp(SDL_Event* e)
 {
 	selected = true;
 	render();

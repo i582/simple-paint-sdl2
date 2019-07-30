@@ -19,9 +19,9 @@ private:
 public:
 	void update();
 
-	void mouseButtonDown(SDL_Event* event);
-	void mouseButtonUp(SDL_Event* event);
-	void mouseMotion(SDL_Event* event);
+	void mouseButtonDown(SDL_Event* e);
+	void mouseButtonUp(SDL_Event* e);
+	void mouseMotion(SDL_Event* e);
 
 	/* Вспомогательные */
 	bool on_hover(int x, int y);

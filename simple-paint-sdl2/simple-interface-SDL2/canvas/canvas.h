@@ -11,6 +11,8 @@
 
 using namespace std;
 
+class Viewport;
+
 class Canvas {
 private:
 	int width;
@@ -28,10 +30,15 @@ private:
 
 	SDL_Point pos_mouse;
 
-	SDL_Texture* parentTarget;
+	Viewport* parent;
+	SDL_Texture* target;
+
+
+	bool is_selected;
+	int selected_id;
 
 public:
-	Canvas(SDL_Renderer* renderer, SDL_Texture* parentTarget, int x, int y, int width, int height);
+	Canvas(SDL_Renderer* renderer, Viewport* parent, int x, int y, int width, int height);
 	~Canvas();
 
 private:
@@ -41,10 +48,10 @@ public:
 	void update();
 
 	/* События */
-	void mouseButtonDown(SDL_Event* event, SDL_Point pos_mouse);
-	void mouseButtonUp(SDL_Event* event, SDL_Point pos_mouse);
-	void mouseMotion(SDL_Event* event, SDL_Point pos_mouse);
-	void keyDown(SDL_Event* event);
+	void mouseButtonDown(SDL_Event* e);
+	void mouseButtonUp(SDL_Event* e);
+	void mouseMotion(SDL_Event* e);
+	void keyDown(SDL_Event* e);
 
 	/* Вспомогательные */
 	bool on_hover(int x, int y);

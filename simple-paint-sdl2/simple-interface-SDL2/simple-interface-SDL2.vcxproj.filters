@@ -215,5 +215,8 @@
     <ClCompile Include="layers\layers.cpp">
       <Filter>Исходные файлы\layers</Filter>
     </ClCompile>
+    <ClCompile Include="layer\layer.cpp">
+      <Filter>Исходные файлы\layer</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

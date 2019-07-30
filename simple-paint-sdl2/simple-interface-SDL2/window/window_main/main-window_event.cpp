@@ -1,16 +1,16 @@
 #include "main-window.h"
 
-void MainWindow::mouseButtonDown(SDL_Event* event)
+void MainWindow::mouseButtonDown(SDL_Event* e)
 {
 	SDL_GetMouseState(&mouse_coord.x, &mouse_coord.y);
 
 	if (viewport->on_hover(mouse_coord.x, mouse_coord.y))
 	{
-		viewport->mouseButtonDown(event);
+		viewport->mouseButtonDown(e);
 	}
 }
 
-void MainWindow::mouseButtonUp(SDL_Event* event)
+void MainWindow::mouseButtonUp(SDL_Event* e)
 {
 	SDL_GetMouseState(&mouse_coord.x, &mouse_coord.y);
 
@@ -28,11 +28,11 @@ void MainWindow::mouseButtonUp(SDL_Event* event)
 
 	if (viewport->on_hover(mouse_coord.x, mouse_coord.y))
 	{
-		viewport->mouseButtonUp(event);
+		viewport->mouseButtonUp(e);
 	}
 }
 
-void MainWindow::mouseMotion(SDL_Event* event)
+void MainWindow::mouseMotion(SDL_Event* e)
 {
 	SDL_GetMouseState(&mouse_coord.x, &mouse_coord.y);
 
@@ -46,31 +46,31 @@ void MainWindow::mouseMotion(SDL_Event* event)
 
 	if (viewport->on_hover(mouse_coord.x, mouse_coord.y)) 
 	{
-		viewport->mouseMotion(event);
+		viewport->mouseMotion(e);
 	}
 }
 
-void MainWindow::mouseWheel(SDL_Event* event)
+void MainWindow::mouseWheel(SDL_Event* e)
 {
 	SDL_GetMouseState(&mouse_coord.x, &mouse_coord.y);
 
 	if (viewport->on_hover(mouse_coord.x, mouse_coord.y))
 	{
-		viewport->mouseWheel(event);
+		viewport->mouseWheel(e);
 	}
 }
 
-void MainWindow::keyDown(SDL_Event* event)
+void MainWindow::keyDown(SDL_Event* e)
 {
 	SDL_GetMouseState(&mouse_coord.x, &mouse_coord.y);
 
 	if (viewport->on_hover(mouse_coord.x, mouse_coord.y))
 	{
-		viewport->keyDown(event);
+		viewport->keyDown(e);
 	}
 }
 
-void MainWindow::keyUp(SDL_Event* event)
+void MainWindow::keyUp(SDL_Event* e)
 {
 	SDL_GetMouseState(&mouse_coord.x, &mouse_coord.y);
 

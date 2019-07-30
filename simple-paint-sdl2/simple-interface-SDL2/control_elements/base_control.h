@@ -42,7 +42,7 @@ protected:
 	virtual void render();
 	virtual void renderLabel(string text, SDL_Rect* place);
 	virtual void renderLabel(string text, SDL_Rect* place, int _text_align);
-	virtual void onEvent(SDL_Event* event);
+	virtual void onEvent(SDL_Event* e);
 
 public:
 

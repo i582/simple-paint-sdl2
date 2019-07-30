@@ -27,7 +27,7 @@ void MainWindow::setup()
 	show();
 
 	viewport = new Viewport(renderer, 50, 30, 1000, 640);
-	canvas = new Canvas(renderer, viewport->get_render_target(), 100, 100, 500, 500);
+	canvas = new Canvas(renderer, viewport, 100, 100, 500, 500);
 	viewport->set_canvas(canvas);
 
 	Tool* tool1 = new Tool(renderer, 5, 5);
