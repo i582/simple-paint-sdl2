@@ -14,6 +14,7 @@ public:
 
 public:
 	void update();
+	void update_scroll_pos();
 
 	void mouseButtonDown(SDL_Event* e);
 	void mouseButtonUp(SDL_Event* e);

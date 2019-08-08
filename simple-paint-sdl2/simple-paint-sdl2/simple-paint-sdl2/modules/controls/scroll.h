@@ -11,6 +11,7 @@ class Scroll
 {
 protected:
 	SDL_Renderer* renderer;
+	SDL_Event e;
 
 	SDL_Rect body_size;
 	SDL_Rect slider_size;
@@ -44,6 +45,7 @@ public:
 
 	virtual void shift(int delta) = 0;
 
+	void on_event();
 
 	virtual void mouseButtonDown(SDL_Event* e) = 0;
 	virtual void mouseButtonUp(SDL_Event* e) = 0;

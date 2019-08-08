@@ -20,7 +20,6 @@ public:
 	MainWindow(string title, SDL_Rect* sizes, Uint32 flags);
 
 public:
-	bool init();
 	void setup();
 	void render();
 

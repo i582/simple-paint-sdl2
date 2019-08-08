@@ -10,6 +10,7 @@ H_ViewScroll::H_ViewScroll(SDL_Renderer* renderer, Viewport* parent,
 
 void H_ViewScroll::update()
 {
+
 	SDL_SetRenderTarget(renderer, parent->texture);
 
 	SDL_SetRenderDrawColor(renderer, Colors::scroll_back.r, Colors::scroll_back.g, Colors::scroll_back.b, 0xFF);
@@ -28,6 +29,13 @@ void H_ViewScroll::update()
 	SDL_RenderPresent(renderer);
 
 	SDL_SetRenderTarget(renderer, NULL);
+}
+
+void H_ViewScroll::update_scroll_pos()
+{
+	int new_x = parent->canvas->get_x();
+	double x_procent = ((parent->width / 2. - parent->canvas->get_width() / 2.) - new_x) / (double)parent->canvas->get_width();
+	set_value(x_procent);
 }
 
 void H_ViewScroll::mouseButtonDown(SDL_Event* e)
@@ -69,6 +77,12 @@ void H_ViewScroll::mouseMotion(SDL_Event * e)
 			slider_size.x = body_size.w - slider_size.w + body_size.x;
 
 		now_value = (int)((slider_size.x / ((double)body_size.w - slider_size.w)) * max_value);
+
+		double procent = this->get_value();
+		int new_x = (int)(parent->width / 2 - parent->canvas->get_width() / 2 - procent * parent->canvas->get_width());
+		parent->canvas->set_position(new_x, parent->canvas->get_y());
+
+		parent->update();
 	}
 }
 

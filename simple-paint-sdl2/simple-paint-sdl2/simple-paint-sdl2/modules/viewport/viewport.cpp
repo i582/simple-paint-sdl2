@@ -33,23 +33,21 @@ void Viewport::init()
 	
 	SDL_SetRenderTarget(renderer, texture);
 
-	Primitives::renderer = renderer;
-	Primitives::color = &Colors::viewport_back;
-	Primitives::fill_rect(NULL);
+	SDL_SetRenderDrawColor(renderer, Colors::viewport_back.r, Colors::viewport_back.g, Colors::viewport_back.b, 0xFF);
+	SDL_RenderFillRect(renderer, NULL);
 
 	SDL_SetRenderTarget(renderer, NULL);
 
 
-
 	int v_width = 16;
 	int v_height = this->height - 16;
+	v_scroll = new V_ViewScroll(renderer, this, { width - v_width, 0, v_width, v_height }, 1000, 3000, 100);
 
-	v_scroll = new V_ViewScroll(renderer, this, { width - v_width, 0, v_width, v_height }, 1000, 2000, 100);
 
 	int h_width = this->width - 16 - 55;
 	int h_height = 16;
-
 	h_scroll = new H_ViewScroll(renderer, this, { 55, height - h_height, h_width, h_height }, 1000, 3000, 100);
+
 
 	SDL_Rect scale_size = {0, this->height - 16, 55, 16};
 	scale_info = new ScaleInfo(renderer, texture, scale_size, 1, "././resources/fonts/verdana.ttf", 10);
@@ -57,6 +55,10 @@ void Viewport::init()
 
 void Viewport::update()
 {
+	clear();
+
+	canvas->update();
+
 	render_scrolls();
 	scale_info->update();
 
@@ -80,15 +82,33 @@ void Viewport::clear()
 {
 	SDL_SetRenderTarget(renderer, texture);
 
-	Primitives::renderer = renderer;
-	Primitives::color = &Colors::viewport_back;
-	Primitives::fill_rect(NULL);
+	SDL_SetRenderDrawColor(renderer, Colors::viewport_back.r, Colors::viewport_back.g, Colors::viewport_back.b, 0xFF);
+	SDL_RenderFillRect(renderer, NULL);
 
 	SDL_SetRenderTarget(renderer, NULL);
 }
 
+void Viewport::setup_scrolls()
+{
+	v_scroll->set_step((int)(this->canvas->get_width() / size_factor / size_factor));
+	h_scroll->set_step((int)(this->canvas->get_height() / size_factor / size_factor));
+	v_scroll->update_scroll_pos();
+	h_scroll->update_scroll_pos();
+}
+
 void Viewport::render_scrolls()
 {
+	if (!canvas->full_in_viewport())
+	{
+		v_scroll->show();
+		h_scroll->show();
+	}
+	else
+	{
+		v_scroll->hide();
+		h_scroll->hide();
+	}
+
 	v_scroll->update();
 	h_scroll->update();
 }
@@ -97,9 +117,10 @@ void Viewport::set_canvas(Canvas* new_canvas)
 {
 	this->canvas = new_canvas;
 
-	canvas->center_align(width, height);
+	set_canvas_size_factor(size_factor);
+	canvas->center_align();
 
-	this->canvas_update();
+	setup_scrolls();
 }
 
 void Viewport::set_layer_viewer(LayerViewer* layer_viewer)
@@ -124,18 +145,12 @@ bool Viewport::on_hover(int x, int y)
 	return SDL_PointInRect(&p, &r);
 }
 
-void Viewport::set_canvas_position(int x, int y)
+void Viewport::set_canvas_size_factor(double size_factor)
 {
-	canvas->set_position(x, y);
-	canvas_update();
-}
-
-void Viewport::set_canvas_size_factor(double size_factor, int direction)
-{
-	if (canvas->full_in_viewport(width, height)) 
+	if (canvas->full_in_viewport()) 
 	{
 		canvas->set_size_factor(size_factor);
-		canvas->center_align(width, height);
+		canvas->center_align();
 	}
 	else
 	{	
@@ -162,14 +177,6 @@ void Viewport::set_canvas_size_factor(double size_factor, int direction)
 		canvas->shift_position(shift_x, shift_y);
 	}
 
-	canvas_update();
-}
-
-void Viewport::canvas_update()
-{
-	this->clear();
-	canvas->update();
-	this->update();
 }
 
 void Viewport::update_coord(int* x, int* y)

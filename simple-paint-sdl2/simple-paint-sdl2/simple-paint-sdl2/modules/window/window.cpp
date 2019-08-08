@@ -31,24 +31,6 @@ Window::~Window()
 		SDL_DestroyRenderer(renderer);
 }
 
-void Window::render()
-{
-	if (no_border) 
-	{
-		SDL_SetDrawColor(renderer, Colors::background);
-		SDL_RenderFillRect(renderer, NULL);
-
-		SDL_SetDrawColor(renderer, Colors::element_border);
-		SDL_RenderDrawRect(renderer, NULL);
-	}
-	else 
-	{
-		SDL_SetDrawColor(renderer, Colors::background);
-		SDL_RenderFillRect(renderer, NULL);
-	}
-
-	SDL_RenderPresent(renderer);
-}
 
 int Window::SDL_WindowHitTest(SDL_Window* win, void* callback_data)
 {
@@ -80,7 +62,7 @@ bool Window::init()
 		return false;
 	}
 
-	SDL_WindowHitTest(window, NULL);
+	setup();
 	
 	return true;
 }
@@ -98,11 +80,6 @@ void Window::hide()
 void Window::close()
 {
 	SDL_DestroyWindow(window);
-}
-
-void Window::update()
-{
-	SDL_RenderPresent(renderer);
 }
 
 SDL_Renderer* Window::getRenderer()

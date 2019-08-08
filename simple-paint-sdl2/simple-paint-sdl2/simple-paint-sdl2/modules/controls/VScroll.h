@@ -15,6 +15,8 @@ public:
 
 	virtual void update() = 0;
 
+	void on_event();
+
 	virtual void mouseButtonDown(SDL_Event* e) = 0;
 	virtual void mouseButtonUp(SDL_Event* e) = 0;
 	virtual void mouseMotion(SDL_Event* e) = 0;
