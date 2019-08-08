@@ -7,7 +7,12 @@
 
 enum TOOLS
 {
-	NULL_TOOLS
+	TOOL_0,
+	TOOL_1,
+	TOOL_2,
+	TOOL_3,
+	TOOL_4,
+	TOOL_5,
 };
 
 class Tool 
@@ -17,11 +22,13 @@ private:
 	SDL_Rect sizes;
 	SDL_Texture* icon;
 
+	int type;
+
 	bool hover;
 	bool selected;
 	
 public:
-	Tool(SDL_Renderer* renderer, int x, int y);
+	Tool(SDL_Renderer* renderer, int type, int x, int y);
 
 public:
 	void render();
@@ -29,8 +36,8 @@ public:
 	void set_hover(bool value);
 	void set_selected(bool value);
 
-	void mouseButtonDown(SDL_Event* e);
-	void mouseButtonUp(SDL_Event* e);
+	bool is_selected();
+	int get_tool_type();
 
 	bool on_hover(int x, int y);
 };

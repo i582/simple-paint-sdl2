@@ -3,7 +3,7 @@
 #include "../../window.h"
 #include "../../../viewport/viewport.h"
 
-#include "../../../toolbar/tools/tool.h"
+#include "../../../toolbar/toolbar.h"
 #include "../../../layer_viewer/layer_viewer.h"
 
 class MainWindow : public Window {
@@ -13,7 +13,7 @@ private:
 
 	LayerViewer* layer_viewer;
 
-	vector <Tool*> tools;
+	Toolbar* toolbar;
 	
 
 public:

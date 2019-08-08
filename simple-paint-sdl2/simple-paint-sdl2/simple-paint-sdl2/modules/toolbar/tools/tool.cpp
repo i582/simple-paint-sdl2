@@ -1,10 +1,11 @@
 #include "tool.h"
 
-Tool::Tool(SDL_Renderer* renderer, int x, int y)
+Tool::Tool(SDL_Renderer* renderer, int type, int x, int y)
 {
 	this->renderer = renderer;
 	this->sizes = { x, y, 30, 25 };
 	this->icon = IMG_LoadTexture(renderer, "../sfx/tool_icons/rect.png");
+	this->type = type;
 
 	this->hover = false;
 	this->selected = false;
@@ -30,19 +31,21 @@ void Tool::render()
 void Tool::set_hover(bool value)
 {
 	hover = value;
-	render();
 }
 
 void Tool::set_selected(bool value)
 {
 	selected = value;
-	render();
 }
 
-void Tool::mouseButtonUp(SDL_Event* e)
+bool Tool::is_selected()
 {
-	selected = true;
-	render();
+	return selected;
+}
+
+int Tool::get_tool_type()
+{
+	return type;
 }
 
 bool Tool::on_hover(int x, int y)
