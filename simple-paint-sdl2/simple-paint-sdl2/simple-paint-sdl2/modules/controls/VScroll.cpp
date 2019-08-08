@@ -28,3 +28,31 @@ void VScroll::shift(int delta)
 
 	update();
 }
+
+void VScroll::on_event()
+{
+	while (SDL_WaitEvent(&e) && is_focus)
+	{
+		switch (e.type)
+		{
+
+		case SDL_MOUSEMOTION:
+		{
+			mouseMotion(&e);
+			break;
+		}
+
+		case SDL_MOUSEBUTTONDOWN:
+		{
+			mouseButtonDown(&e);
+			break;
+		}
+
+		case SDL_MOUSEBUTTONUP:
+		{
+			mouseButtonUp(&e);
+			break;
+		}
+		}
+	}
+}

@@ -5,23 +5,6 @@ MainWindow::MainWindow(string title, SDL_Rect* sizes, Uint32 flags) : Window(tit
 	init();
 }
 
-bool MainWindow::init()
-{
-	if ((window = SDL_CreateWindow(title.c_str(), x == -1 ? SDL_WINDOWPOS_CENTERED : x, y == -1 ? SDL_WINDOWPOS_CENTERED : y, width, height, flags | SDL_WINDOW_HIDDEN)) == nullptr) {
-		cout << "Error of initialize new Window: " << SDL_GetError() << endl;
-		return false;
-	}
-
-	if ((renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED)) == nullptr) {
-		cout << "Renderer could not be created! SDL Error: %s\n" << SDL_GetError();
-		return false;
-	}
-
-	setup();
-
-	return true;
-}
-
 void MainWindow::setup()
 {
 	show();
@@ -55,11 +38,10 @@ void MainWindow::render()
 
 	viewport->update();
 
-	update();
-
 	for (auto& tool : tools)
 	{
 		tool->render();
 	}
 
+	SDL_RenderPresent(renderer);
 }

@@ -59,9 +59,12 @@ public:
 	void update();
 	void clear();
 
+	void setup_scrolls();
 	void render_scrolls();
 
 	void set_canvas(Canvas* new_canvas);
+	void set_canvas_size_factor(double size_factor);
+
 	void set_layer_viewer(LayerViewer* layer_viewer);
 
 	SDL_Texture* get_render_target();
@@ -77,10 +80,6 @@ public:
 
 	/* ¬спомогательные */
 	bool on_hover(int x, int y);
-
-	void set_canvas_position(int x, int y);
-	void set_canvas_size_factor(double size_factor, int direction);
-	void canvas_update();
 
 	/**
 	 *  \ѕреобразует координаты мыши в координаты относительно верхнего левого угла вьюпорта

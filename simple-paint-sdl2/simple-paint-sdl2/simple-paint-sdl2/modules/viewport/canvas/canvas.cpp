@@ -54,11 +54,12 @@ void Canvas::init()
 	SDL_DestroyTexture(image);
 
 	SDL_SetRenderTarget(renderer, NULL);
+
+	center_align();
 }
 
 void Canvas::update()
 {
-
 	SDL_Texture* tex = layers->ready_texture();
 
 	SDL_SetRenderTarget(renderer, target);
@@ -96,25 +97,15 @@ void Canvas::shift_position(int x, int y)
 	this->y += y;
 }
 
-void Canvas::center_align(int width, int height)
+void Canvas::center_align()
 {
-	int new_x = (int)(width / 2. - this->width * size_factor / 2.);
-	int new_y = (int)(height / 2. - this->height * size_factor / 2.);
-
-	set_position(new_x, new_y);
+	this->x = (int)(parent->width / 2. - this->width * size_factor / 2.);
+	this->y = (int)(parent->height / 2. - this->height * size_factor / 2.);
 }
 
-bool Canvas::full_in_viewport(int width, int height)
+bool Canvas::full_in_viewport()
 {
-	return ((this->width * size_factor) <= width) && ((this->height * size_factor) <= height);
-}
-
-void Canvas::get_size(int* width, int* height)
-{
-	if (width != nullptr)
-		*width = (int)(this->width * size_factor);
-	if (height != nullptr)
-		*height = (int)(this->height * size_factor);
+	return ((this->width * size_factor) <= parent->width) && ((this->height * size_factor) <= parent->height);
 }
 
 int Canvas::get_width()

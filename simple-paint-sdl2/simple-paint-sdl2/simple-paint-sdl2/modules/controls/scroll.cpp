@@ -16,13 +16,11 @@ Scroll::Scroll(SDL_Renderer* renderer, SDL_Rect size, int now_value, int max_val
 void Scroll::hide()
 {
 	display = false;
-	update();
 }
 
 void Scroll::show()
 {
 	display = true;
-	update();
 }
 
 bool Scroll::is_show()

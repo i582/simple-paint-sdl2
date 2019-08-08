@@ -3,6 +3,7 @@
 Editor::Editor(int width, int height)
 {
 	this->running = true;
+
 	SDL_Rect r = { -1, -1, width, height };
 	this->main_window = new MainWindow("Editor", &r, NULL);
 	this->main_window->render();
@@ -16,7 +17,6 @@ Editor::~Editor()
 
 bool Editor::init()
 {
-
 	if (!(IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG)) 
 	{
 		cout << "SDL_image could not initialize! SDL_image Error: %s\n" << IMG_GetError();
@@ -34,13 +34,12 @@ bool Editor::init()
 
 void Editor::setup()
 {
-	main_window->update();
 	main_window->show();
 }
 
 void Editor::update()
 {
-	main_window->update();
+	main_window->render();
 }
 
 void Editor::quit()

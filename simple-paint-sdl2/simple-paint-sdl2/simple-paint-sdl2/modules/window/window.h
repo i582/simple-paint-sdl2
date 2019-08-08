@@ -40,21 +40,20 @@ protected:
 	int SDL_SetDrawColor(SDL_Renderer* renderer, SDL_Color color);
 
 public:
-	virtual bool init();
+	bool init();
 	virtual void setup() = 0;
 	void show();
 	void hide();
 	void close();
 
-	virtual void render();
-	void update();
+	virtual void render() = 0;
 
 	SDL_Renderer* getRenderer();
 	
-	virtual void mouseButtonDown(SDL_Event* e);
-	virtual void mouseButtonUp(SDL_Event* e);
-	virtual void mouseMotion(SDL_Event* e);
-	virtual void mouseWheel(SDL_Event* e);
-	virtual void keyDown(SDL_Event* e);
-	virtual void keyUp(SDL_Event* e);
+	virtual void mouseButtonDown(SDL_Event* e) = 0;
+	virtual void mouseButtonUp(SDL_Event* e) = 0;
+	virtual void mouseMotion(SDL_Event* e) = 0;
+	virtual void mouseWheel(SDL_Event* e) = 0;
+	virtual void keyDown(SDL_Event* e) = 0;
+	virtual void keyUp(SDL_Event* e) = 0;
 };

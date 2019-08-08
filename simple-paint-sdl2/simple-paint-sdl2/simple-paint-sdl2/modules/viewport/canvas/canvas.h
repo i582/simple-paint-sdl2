@@ -60,10 +60,10 @@ public:
 
 	void shift_position(int x, int y);
 
-	void center_align(int width, int height);
-	bool full_in_viewport(int width, int height);
+	void center_align();
+	bool full_in_viewport();
 
-	void get_size(int* width, int* height);
+
 	int get_width();
 	int get_height();
 
