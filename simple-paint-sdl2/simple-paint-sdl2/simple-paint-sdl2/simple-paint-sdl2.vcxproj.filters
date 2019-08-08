@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Исходные файлы\editor">
+      <UniqueIdentifier>{0567c436-9b9a-4c5e-9a45-3188b8b78d6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\window">
+      <UniqueIdentifier>{e4e2334e-455f-4c34-aa5a-7f81e263df0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\window\types">
+      <UniqueIdentifier>{dcb1550e-d68f-4064-84ea-6b3cb5a0b239}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\window\types\main">
+      <UniqueIdentifier>{a0056f62-ecb4-4282-af63-f406db3cb058}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\viewport">
+      <UniqueIdentifier>{130ab38b-6f41-414c-a034-1e9630bfb309}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\viewport\canvas">
+      <UniqueIdentifier>{1f277eef-d79c-4a28-826d-9ecdc897e37e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\viewport\canvas\layers">
+      <UniqueIdentifier>{06f7e433-2fa7-4a8a-9a22-2f6d4c6a7797}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\viewport\canvas\layers\layer">
+      <UniqueIdentifier>{55b29340-4313-4243-ac05-67e0e699cd96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\primitives">
+      <UniqueIdentifier>{a354f628-c2a3-4ed8-a655-76e6e171bfe7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\toolbar">
+      <UniqueIdentifier>{039f25d2-6fa3-46a7-9ab2-acea9b963ea5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\toolbar\tools">
+      <UniqueIdentifier>{7a0a82f3-f33f-4214-916d-839d33a0b031}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\controls">
+      <UniqueIdentifier>{f39089e7-12ef-48a0-8b0d-2c6f1a596e59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\colors">
+      <UniqueIdentifier>{6d295403-96ca-41c3-885c-2808341c9312}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\layer_viewer">
+      <UniqueIdentifier>{f23539f7-c25c-4790-928e-2bddbbe54d23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\viewport\scrolls">
+      <UniqueIdentifier>{dda87e9d-0513-4070-a5bf-6a6e21613fc7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\editor\editor.cpp">
+      <Filter>Исходные файлы\editor</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\editor\editor_event.cpp">
+      <Filter>Исходные файлы\editor</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\window\window.cpp">
+      <Filter>Исходные файлы\window</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\window\window_event.cpp">
+      <Filter>Исходные файлы\window</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\window\types\main\main-window.cpp">
+      <Filter>Исходные файлы\window\types\main</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\window\types\main\main-window_event.cpp">
+      <Filter>Исходные файлы\window\types\main</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\viewport\viewport.cpp">
+      <Filter>Исходные файлы\viewport</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\viewport\viewport_events.cpp">
+      <Filter>Исходные файлы\viewport</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\viewport\canvas\canvas.cpp">
+      <Filter>Исходные файлы\viewport\canvas</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\viewport\canvas\canvas_event.cpp">
+      <Filter>Исходные файлы\viewport\canvas</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\viewport\canvas\layers\layers.cpp">
+      <Filter>Исходные файлы\viewport\canvas\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\viewport\canvas\layers\layer\layer.cpp">
+      <Filter>Исходные файлы\viewport\canvas\layers\layer</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\primitives\primitives.cpp">
+      <Filter>Исходные файлы\primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\toolbar\toolbar.cpp">
+      <Filter>Исходные файлы\toolbar</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\toolbar\tools\tool.cpp">
+      <Filter>Исходные файлы\toolbar\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\controls\base_control.cpp">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\controls\button.cpp">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\controls\dropDownList.cpp">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\controls\HScroll.cpp">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\controls\input.cpp">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\controls\itemList.cpp">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\controls\label.cpp">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\controls\scale_info.cpp">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\controls\scroll.cpp">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\controls\textField.cpp">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\controls\VScroll.cpp">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\colors\color.cpp">
+      <Filter>Исходные файлы\colors</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\layer_viewer\layer_viewer.cpp">
+      <Filter>Исходные файлы\layer_viewer</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\viewport\scrolls\h_view_scroll.cpp">
+      <Filter>Исходные файлы\viewport\scrolls</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\viewport\scrolls\v_view_scroll.cpp">
+      <Filter>Исходные файлы\viewport\scrolls</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="modules\editor\editor.h">
+      <Filter>Исходные файлы\editor</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\window\window.h">
+      <Filter>Исходные файлы\window</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\window\types\main\main-window.h">
+      <Filter>Исходные файлы\window\types\main</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\viewport\viewport.h">
+      <Filter>Исходные файлы\viewport</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\viewport\canvas\canvas.h">
+      <Filter>Исходные файлы\viewport\canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\viewport\canvas\layers\layers.h">
+      <Filter>Исходные файлы\viewport\canvas\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\viewport\canvas\layers\layer\layer.h">
+      <Filter>Исходные файлы\viewport\canvas\layers\layer</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\primitives\primitives.h">
+      <Filter>Исходные файлы\primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\toolbar\toolbar.h">
+      <Filter>Исходные файлы\toolbar</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\toolbar\tools\tool.h">
+      <Filter>Исходные файлы\toolbar\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\controls\base_control.h">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\controls\button.h">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\controls\dropDownList.h">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\controls\HScroll.h">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\controls\input.h">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\controls\itemList.h">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\controls\label.h">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\controls\scale_info.h">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\controls\scroll.h">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\controls\textField.h">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\controls\VScroll.h">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\colors\color.h">
+      <Filter>Исходные файлы\colors</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\layer_viewer\layer_viewer.h">
+      <Filter>Исходные файлы\layer_viewer</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\viewport\scrolls\h_view_scroll.h">
+      <Filter>Исходные файлы\viewport\scrolls</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\viewport\scrolls\v_view_scroll.h">
+      <Filter>Исходные файлы\viewport\scrolls</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

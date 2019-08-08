@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{0CCA7576-68F1-449D-B1C2-29A98730C71B}</ProjectGuid>
+    <RootNamespace>simplepaintsdl2</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\SDL2\SDL2_ttf-2.0.15\include;C:\SDL2\SDL2_image-2.0.4\include;C:\SDL2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\SDL2\SDL2_ttf-2.0.15\lib\x86;C:\SDL2\SDL2_image-2.0.4\lib\x86;C:\SDL2\lib\x86;$(LibraryPath)</LibraryPath>
+    <CodeAnalysisRuleSet>NativeRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2test.lib;SDL2_ttf.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="modules\colors\color.cpp" />
+    <ClCompile Include="modules\controls\base_control.cpp" />
+    <ClCompile Include="modules\controls\button.cpp" />
+    <ClCompile Include="modules\controls\dropDownList.cpp" />
+    <ClCompile Include="modules\controls\HScroll.cpp" />
+    <ClCompile Include="modules\controls\input.cpp" />
+    <ClCompile Include="modules\controls\itemList.cpp" />
+    <ClCompile Include="modules\controls\label.cpp" />
+    <ClCompile Include="modules\controls\scale_info.cpp" />
+    <ClCompile Include="modules\controls\scroll.cpp" />
+    <ClCompile Include="modules\controls\textField.cpp" />
+    <ClCompile Include="modules\controls\VScroll.cpp" />
+    <ClCompile Include="modules\editor\editor.cpp" />
+    <ClCompile Include="modules\editor\editor_event.cpp" />
+    <ClCompile Include="modules\layer_viewer\layer_viewer.cpp" />
+    <ClCompile Include="modules\primitives\primitives.cpp" />
+    <ClCompile Include="modules\toolbar\toolbar.cpp" />
+    <ClCompile Include="modules\toolbar\tools\tool.cpp" />
+    <ClCompile Include="modules\viewport\canvas\canvas.cpp" />
+    <ClCompile Include="modules\viewport\canvas\canvas_event.cpp" />
+    <ClCompile Include="modules\viewport\canvas\layers\layers.cpp" />
+    <ClCompile Include="modules\viewport\canvas\layers\layer\layer.cpp" />
+    <ClCompile Include="modules\viewport\scrolls\h_view_scroll.cpp" />
+    <ClCompile Include="modules\viewport\scrolls\v_view_scroll.cpp" />
+    <ClCompile Include="modules\viewport\viewport.cpp" />
+    <ClCompile Include="modules\viewport\viewport_events.cpp" />
+    <ClCompile Include="modules\window\types\main\main-window.cpp" />
+    <ClCompile Include="modules\window\types\main\main-window_event.cpp" />
+    <ClCompile Include="modules\window\window.cpp" />
+    <ClCompile Include="modules\window\window_event.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="modules\colors\color.h" />
+    <ClInclude Include="modules\controls\base_control.h" />
+    <ClInclude Include="modules\controls\button.h" />
+    <ClInclude Include="modules\controls\dropDownList.h" />
+    <ClInclude Include="modules\controls\HScroll.h" />
+    <ClInclude Include="modules\controls\input.h" />
+    <ClInclude Include="modules\controls\itemList.h" />
+    <ClInclude Include="modules\controls\label.h" />
+    <ClInclude Include="modules\controls\scale_info.h" />
+    <ClInclude Include="modules\controls\scroll.h" />
+    <ClInclude Include="modules\controls\textField.h" />
+    <ClInclude Include="modules\controls\VScroll.h" />
+    <ClInclude Include="modules\editor\editor.h" />
+    <ClInclude Include="modules\layer_viewer\layer_viewer.h" />
+    <ClInclude Include="modules\primitives\primitives.h" />
+    <ClInclude Include="modules\toolbar\toolbar.h" />
+    <ClInclude Include="modules\toolbar\tools\tool.h" />
+    <ClInclude Include="modules\viewport\canvas\canvas.h" />
+    <ClInclude Include="modules\viewport\canvas\layers\layers.h" />
+    <ClInclude Include="modules\viewport\canvas\layers\layer\layer.h" />
+    <ClInclude Include="modules\viewport\scrolls\h_view_scroll.h" />
+    <ClInclude Include="modules\viewport\scrolls\v_view_scroll.h" />
+    <ClInclude Include="modules\viewport\viewport.h" />
+    <ClInclude Include="modules\window\types\main\main-window.h" />
+    <ClInclude Include="modules\window\window.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
