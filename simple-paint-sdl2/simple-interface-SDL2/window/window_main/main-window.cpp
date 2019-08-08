@@ -27,7 +27,13 @@ void MainWindow::setup()
 	show();
 
 	viewport = new Viewport(renderer, 50, 30, 1000, 640);
-	canvas = new Canvas(renderer, viewport, 100, 100, 500, 500);
+	canvas = new Canvas(renderer, viewport, 100, 100, 1000, 1000);
+
+	layer_viewer = new LayerViewer(renderer, { 1052, 470, 295, 201 }, canvas->get_layers());
+
+	viewport->set_layer_viewer(layer_viewer);
+
+	// must be last
 	viewport->set_canvas(canvas);
 
 	Tool* tool1 = new Tool(renderer, 5, 5);
@@ -37,6 +43,9 @@ void MainWindow::setup()
 	tools.push_back(tool1);
 	tools.push_back(tool2);
 	tools.push_back(tool3);
+
+
+	container = new Container(renderer, { 1100, 30, 200, 200 });
 }
 
 void MainWindow::render()
@@ -44,7 +53,11 @@ void MainWindow::render()
 	SDL_SetDrawColor(renderer, Colors::background);
 	SDL_RenderFillRect(renderer, NULL);
 
+	layer_viewer->update();
+
 	viewport->update();
+
+	container->update();
 
 	update();
 

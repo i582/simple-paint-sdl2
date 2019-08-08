@@ -35,6 +35,13 @@ void Primitives::rect(SDL_Rect* input_rect)
 	SDL_RenderPresent(renderer);
 }
 
+void Primitives::rect(SDL_Rect* input_rect, SDL_Color color)
+{
+	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+	SDL_RenderDrawRect(renderer, input_rect);
+	SDL_RenderPresent(renderer);
+}
+
 void Primitives::rect(SDL_Rect input_rect)
 {
 	SDL_SetRenderDrawColor(renderer, color->r, color->g, color->b, color->a);
@@ -53,6 +60,13 @@ void Primitives::fill_rect(SDL_Rect input_rect)
 {
 	SDL_SetRenderDrawColor(renderer, color->r, color->g, color->b, color->a);
 	SDL_RenderFillRect(renderer, &input_rect);
+	SDL_RenderPresent(renderer);
+}
+
+void Primitives::fill_rect(SDL_Rect* input_rect, SDL_Color color)
+{
+	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+	SDL_RenderFillRect(renderer, input_rect);
 	SDL_RenderPresent(renderer);
 }
 
@@ -348,7 +362,7 @@ void Primitives::fill(int x, int y)
 	
 	queue_pixel.push(psrc);
 
-
+	
 	
 
 	Uint32* first_pixel = (Uint32*)surface->pixels;
@@ -381,8 +395,7 @@ void Primitives::fill(int x, int y)
 
 	if (SDL_MUSTLOCK(surface)) SDL_UnlockSurface(surface);
 
-
-
+	
 
 	SDL_Texture* ready = SDL_CreateTextureFromSurface(renderer, surface);
 	SDL_Rect ren_rec = { 0, 0, width, height };
@@ -402,3 +415,6 @@ void Primitives::fill(SDL_Point* p)
 {
 	fill(p->x, p->y);
 }
+
+
+

@@ -23,7 +23,10 @@ public:
 
 	SDL_Texture* ready_texture();
 
+	SDL_Texture* layer_view(int id);
+
 	int get_size();
+	SDL_Rect get_size_layers();
 	int get_upper_layer_id();
 	int get_upper_layer_id_in_point(int x, int y);
 

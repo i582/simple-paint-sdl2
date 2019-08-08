@@ -17,8 +17,8 @@ void Canvas::mouseButtonUp(SDL_Event* e)
 	parent->update_coord(&pos_mouse.x, &pos_mouse.y);
 	update_coord_with_scale(&pos_mouse.x, &pos_mouse.y);
 
+
 	is_selected = false;
-	
 }
 
 void Canvas::mouseMotion(SDL_Event* e)

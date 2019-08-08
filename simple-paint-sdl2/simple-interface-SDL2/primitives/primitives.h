@@ -28,12 +28,14 @@ public:
 	 */
 	static void rect(SDL_Rect* input_rect);
 	static void rect(SDL_Rect input_rect);
+	static void rect(SDL_Rect* input_rect, SDL_Color color);
 
 	/*
 	 * Отрисовка закрашенного прямоугольника
 	 */
 	static void fill_rect(SDL_Rect* input_rect);
 	static void fill_rect(SDL_Rect input_rect);
+	static void fill_rect(SDL_Rect* input_rect, SDL_Color color);
 
 	/*
 	 * Отрисовка линии шириной в 1 пиксель
@@ -76,7 +78,6 @@ public:
 	static void circle(int x, int y, int rad);
 	static void circle(SDL_Point* center, int rad);
 
-	static void circle_smooth(int x, int y, int rad);
 	/*
 	 * Отрисовка закрашенного круга
 	 */

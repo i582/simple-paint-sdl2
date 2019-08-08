@@ -1,6 +1,7 @@
 #include "viewport.h"
 #include "../viewport/v_view_scroll.h"
 #include "../viewport/h_view_scroll.h"
+#include "ctime"
 
 Viewport::Viewport(SDL_Renderer* renderer, int x, int y, int width, int height)
 {
@@ -57,7 +58,6 @@ void Viewport::init()
 void Viewport::update()
 {
 	render_scrolls();
-
 	scale_info->update();
 
 	SDL_SetRenderTarget(renderer, NULL);
@@ -100,6 +100,11 @@ void Viewport::set_canvas(Canvas* new_canvas)
 	canvas->center_align(width, height);
 
 	this->canvas_update();
+}
+
+void Viewport::set_layer_viewer(LayerViewer* layer_viewer)
+{
+	this->layer_viewer = layer_viewer;
 }
 
 SDL_Texture* Viewport::get_render_target()

@@ -1,5 +1,6 @@
 #include "canvas.h"
 #include "../viewport/viewport.h"
+#include "ctime"
 
 Canvas::Canvas(SDL_Renderer* renderer, Viewport* parent, int x, int y, int width, int height)
 {
@@ -57,6 +58,7 @@ void Canvas::init()
 
 void Canvas::update()
 {
+
 	SDL_Texture* tex = layers->ready_texture();
 
 	SDL_SetRenderTarget(renderer, target);
@@ -66,6 +68,8 @@ void Canvas::update()
 	SDL_RenderPresent(renderer);
 
 	SDL_SetRenderTarget(renderer, NULL);
+
+	SDL_DestroyTexture(tex);
 }
 
 bool Canvas::on_hover(int x, int y)
@@ -147,6 +151,11 @@ double Canvas::get_size_factor()
 bool Canvas::get_selected()
 {
 	return is_selected;
+}
+
+Layers* Canvas::get_layers()
+{
+	return layers;
 }
 
 void Canvas::update_coord_with_scale(int* x, int* y)

@@ -73,6 +73,7 @@ public:
 	double get_size_factor();
 
 	bool get_selected();
+	Layers* get_layers();
 
 	/**
 	 *  \Преобразует координаты мыши в координаты относительно верхнего левого угла canvas

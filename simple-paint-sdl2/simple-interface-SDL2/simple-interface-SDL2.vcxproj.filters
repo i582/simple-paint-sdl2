@@ -52,6 +52,12 @@
     <Filter Include="Исходные файлы\layers">
       <UniqueIdentifier>{3a97ebf5-ab81-48b0-85b0-46017c4682b5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\layer_viewer">
+      <UniqueIdentifier>{f3da9bdd-141e-4327-b7c6-0edd8510b26b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\container">
+      <UniqueIdentifier>{e4d4b0b6-c457-443e-bf5f-a366fb6fe402}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="control_elements\button.h">
@@ -125,6 +131,18 @@
     </ClInclude>
     <ClInclude Include="layers\layers.h">
       <Filter>Исходные файлы\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="layer_viewer\layer_viewer.h">
+      <Filter>Исходные файлы\layer_viewer</Filter>
+    </ClInclude>
+    <ClInclude Include="container\Container.h">
+      <Filter>Исходные файлы\container</Filter>
+    </ClInclude>
+    <ClInclude Include="ContainerVScroll.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="container\ContainerVScroll.h">
+      <Filter>Исходные файлы\container</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +235,18 @@
     </ClCompile>
     <ClCompile Include="layer\layer.cpp">
       <Filter>Исходные файлы\layer</Filter>
+    </ClCompile>
+    <ClCompile Include="layer_viewer\layer_viewer.cpp">
+      <Filter>Исходные файлы\layer_viewer</Filter>
+    </ClCompile>
+    <ClCompile Include="container\Container.cpp">
+      <Filter>Исходные файлы\container</Filter>
+    </ClCompile>
+    <ClCompile Include="container\ContainerVScroll.cpp">
+      <Filter>Исходные файлы\container</Filter>
+    </ClCompile>
+    <ClCompile Include="container\Container_event.cpp">
+      <Filter>Исходные файлы\container</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

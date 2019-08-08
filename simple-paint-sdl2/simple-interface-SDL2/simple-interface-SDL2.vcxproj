@@ -21,6 +21,9 @@
   <ItemGroup>
     <ClInclude Include="canvas\canvas.h" />
     <ClInclude Include="color_scheme\color.h" />
+    <ClInclude Include="ContainerVScroll.h" />
+    <ClInclude Include="container\Container.h" />
+    <ClInclude Include="container\ContainerVScroll.h" />
     <ClInclude Include="control_elements\button.h" />
     <ClInclude Include="control_elements\base_control.h" />
     <ClInclude Include="control_elements\dropDownList.h" />
@@ -35,6 +38,7 @@
     <ClInclude Include="Editor\editor.h" />
     <ClInclude Include="layers\layers.h" />
     <ClInclude Include="layer\layer.h" />
+    <ClInclude Include="layer_viewer\layer_viewer.h" />
     <ClInclude Include="primitives\primitives.h" />
     <ClInclude Include="toolbar\toolbar.h" />
     <ClInclude Include="tools\tool.h" />
@@ -48,6 +52,9 @@
     <ClCompile Include="canvas\canvas.cpp" />
     <ClCompile Include="canvas\canvas_event.cpp" />
     <ClCompile Include="color_scheme\color.cpp" />
+    <ClCompile Include="container\Container.cpp" />
+    <ClCompile Include="container\ContainerVScroll.cpp" />
+    <ClCompile Include="container\Container_event.cpp" />
     <ClCompile Include="control_elements\button.cpp" />
     <ClCompile Include="control_elements\base_control.cpp" />
     <ClCompile Include="control_elements\dropDownList.cpp" />
@@ -63,6 +70,7 @@
     <ClCompile Include="Editor\editor_event.cpp" />
     <ClCompile Include="layers\layers.cpp" />
     <ClCompile Include="layer\layer.cpp" />
+    <ClCompile Include="layer_viewer\layer_viewer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="primitives\primitives.cpp" />
     <ClCompile Include="toolbar\toolbar.cpp" />

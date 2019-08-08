@@ -49,6 +49,7 @@ void Viewport::mouseButtonUp(SDL_Event* e)
 	if (canvas->on_hover(pos_mouse.x, pos_mouse.y) || canvas->get_selected())
 	{
 		canvas->mouseButtonUp(e);
+		layer_viewer->update();
 		update();
 	}
 }
@@ -98,7 +99,9 @@ void Viewport::mouseMotion(SDL_Event* e)
 	if (canvas->on_hover(pos_mouse.x, pos_mouse.y) || canvas->get_selected())
 	{
 		canvas->mouseMotion(e);
-		update();
+
+		if (canvas->get_selected())
+			update();
 	}
 
 	
