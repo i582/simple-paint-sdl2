@@ -30,6 +30,7 @@ void LayerView::setup()
 	texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, size.w, size.h);
 	
 	eye_checkbox = new Checkbox(renderer, texture, { 0, 0, 35, 35 }, EYE, true);
+	block_checkbox = new Checkbox(renderer, texture, { size.w - 35, 0, 35, 35 }, BLOCK, false);
 }
 
 void LayerView::update()
@@ -80,6 +81,7 @@ void LayerView::update()
 	SDL_SetRenderTarget(renderer, texture);
 	eye_checkbox->update();
 	//
+	block_checkbox->update();
 
 
 	SDL_SetRenderTarget(renderer, parent->texture);
@@ -105,6 +107,11 @@ void LayerView::mouseButtonUp(SDL_Event* e)
 	{
 		eye_checkbox->mouseButtonUp(e);
 	}
+
+	if (block_checkbox->is_hover(pos_mouse.x, pos_mouse.y))
+	{
+		block_checkbox->mouseButtonUp(e);
+	}
 }
 
 void LayerView::mouseMotion(SDL_Event* e)
@@ -123,6 +130,11 @@ int LayerView::get_layer_id()
 bool LayerView::layer_is_show()
 {
 	return eye_checkbox->is_checked();
+}
+
+bool LayerView::layer_is_blocked()
+{
+	return block_checkbox->is_checked();
 }
 
 bool LayerView::on_hover(int x, int y)

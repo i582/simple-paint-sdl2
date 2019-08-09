@@ -52,10 +52,8 @@ public:
 
 
 
-private:
-	void init();
-
 public:
+	void init();
 	void update();
 	void clear();
 
@@ -67,8 +65,10 @@ public:
 
 	void set_layer_viewer(LayersViewer* layers_viewer);
 
-	SDL_Texture* get_render_target();
+	const SDL_Texture* const get_render_target();
 	SDL_Rect get_size();
+
+	Canvas* const get_canvas();
 
 	/* События */
 	void mouseButtonDown(SDL_Event* e);
@@ -85,4 +85,9 @@ public:
 	 *  \Преобразует координаты мыши в координаты относительно верхнего левого угла вьюпорта
 	 */
 	void update_coord(int* x, int* y);
+
+
+
+
+	void set_size(int width, int height);
 };

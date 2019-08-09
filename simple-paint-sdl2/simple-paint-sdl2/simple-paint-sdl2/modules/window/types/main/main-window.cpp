@@ -35,3 +35,18 @@ void MainWindow::render()
 
 	SDL_RenderPresent(renderer);
 }
+
+void MainWindow::resized()
+{
+	viewport->set_size((int)(width * 0.74), (int)(height * 0.914));
+	viewport->init();
+	viewport->setup_scrolls();
+	viewport->get_canvas()->center_align();
+	render();
+}
+
+void MainWindow::set_size(int width, int height)
+{
+	this->width = width;
+	this->height = height;
+}

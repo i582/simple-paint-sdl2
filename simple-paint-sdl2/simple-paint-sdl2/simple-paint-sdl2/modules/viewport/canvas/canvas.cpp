@@ -15,7 +15,6 @@ Canvas::Canvas(SDL_Renderer* renderer, Viewport* parent, int x, int y, int width
 	this->size_factor = 1.0;
 
 	this->parent = parent;
-	target = parent->get_render_target();
 
 	init();
 }
@@ -42,8 +41,15 @@ void Canvas::init()
 	Layer* layer2 = new Layer(texture, "Layer 1", 0xA0);
 	//layer2->block();
 	layers->add(layer2);
+
+
+	texture = IMG_LoadTexture(renderer, "./././resources/images/first.png");
+	Layer* layer3 = new Layer(texture, "Layer 2", 0xFF);
+	layers->add(layer3);
 	
-	
+	texture = IMG_LoadTexture(renderer, "./././resources/images/4.png");
+	Layer* layer4 = new Layer(texture, "Layer 3", 0xFF);
+	layers->add(layer4);
 
 	SDL_SetRenderTarget(renderer, layer1->texture);
 
@@ -62,7 +68,7 @@ void Canvas::update()
 {
 	SDL_Texture* tex = layers->ready_texture();
 
-	SDL_SetRenderTarget(renderer, target);
+	SDL_SetRenderTarget(renderer, parent->texture);
 
 	SDL_Rect copy_rect = { x, y, (int)(width * size_factor), (int)(height * size_factor) };
 	SDL_RenderCopy(renderer, tex, NULL, &copy_rect);

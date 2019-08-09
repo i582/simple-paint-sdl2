@@ -14,7 +14,6 @@ void Layers::add(Layer* layer)
 
 SDL_Texture* Layers::ready_texture()
 {
-	//time_t start = clock();
 
 	int width;
 	int height;
@@ -55,9 +54,6 @@ SDL_Texture* Layers::ready_texture()
 
 	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 
-
-	//time_t end = clock();
-	//cout << "time equal " << (end - start) / 1000. << endl;
 
 	return texture;
 }

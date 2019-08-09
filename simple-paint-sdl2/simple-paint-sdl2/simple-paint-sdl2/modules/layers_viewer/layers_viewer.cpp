@@ -22,7 +22,7 @@ void LayersViewer::setup()
 
 	for (int i = 0; i < layers->get_size(); i++)
 	{
-		layer_views.push_back(new LayerView(renderer, this, i, { 0, 35 * i - ((i == 0) ? 0 : 1), size.w, 35 }, layers));
+		layer_views.push_back(new LayerView(renderer, this, i, { 0, 35 * i - ((i == 0) ? 0 : 1 * i), size.w, 35 }, layers));
 	}
 
 	
@@ -57,6 +57,8 @@ void LayersViewer::update_layer()
 	{
 		int layer_id = layer_view->get_layer_id();
 		layers->at(layer_id)->display = layer_view->layer_is_show();
+
+		layers->at(layer_id)->blocked = layer_view->layer_is_blocked();
 	}
 }
 

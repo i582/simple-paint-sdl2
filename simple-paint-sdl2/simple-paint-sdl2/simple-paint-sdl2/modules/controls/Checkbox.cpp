@@ -51,6 +51,21 @@ void Checkbox::setup()
 		break;
 	}
 
+	case BLOCK:
+	{
+		if (size.w == -1 && size.h == -1)
+		{
+			size.w = 25;
+			size.h = 25;
+		}
+
+		border = true;
+		image_select = IMG_LoadTexture(renderer, "././resources/images/checkbox/blocked.png");
+		image_unselect = IMG_LoadTexture(renderer, "././resources/images/checkbox/unselect_eye.png");
+
+		break;
+	}
+
 	default:
 		throw logic_error("Invalid style argument");
 		break;

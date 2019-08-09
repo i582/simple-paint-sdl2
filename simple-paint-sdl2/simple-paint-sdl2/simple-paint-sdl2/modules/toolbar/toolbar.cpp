@@ -34,6 +34,11 @@ void Toolbar::init()
 
 void Toolbar::update()
 {
+	SDL_SetRenderTarget(renderer, texture);
+	SDL_SetRenderDrawColor(renderer, Colors::background.r, Colors::background.g, Colors::background.b, 0xFF);
+	SDL_RenderFillRect(renderer, NULL);
+	SDL_SetRenderTarget(renderer, NULL);
+
 	render_tools();
 
 	SDL_RenderCopy(renderer, texture, NULL, &size);

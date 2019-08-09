@@ -31,7 +31,6 @@ private:
 	SDL_Point pos_mouse;
 
 	Viewport* parent;
-	SDL_Texture* target;
 
 
 	bool is_selected;
@@ -81,4 +80,5 @@ public:
 	void update_coord_with_scale(int* x, int* y);
 
 	void update_coord(int* x, int* y);
+
 };

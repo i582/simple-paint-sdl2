@@ -26,6 +26,7 @@ private:
 	LayersViewer* parent;
 
 	Checkbox* eye_checkbox;
+	Checkbox* block_checkbox;
 	
 	SDL_Point pos_mouse;
 
@@ -45,6 +46,7 @@ public:
 
 	int get_layer_id();
 	bool layer_is_show();
+	bool layer_is_blocked();
 	bool on_hover(int x, int y);
 
 	void update_coord(int* x, int* y);

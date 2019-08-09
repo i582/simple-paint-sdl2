@@ -4,7 +4,8 @@
 enum CheckboxStyles
 {
 	SIMPLE = 0x00000001,
-	EYE = 0x00000002
+	EYE = 0x00000002,
+	BLOCK = 0x00000003
 };
 
 class Checkbox : public _Control

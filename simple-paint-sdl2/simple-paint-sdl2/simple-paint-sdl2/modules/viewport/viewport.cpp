@@ -128,7 +128,7 @@ void Viewport::set_layer_viewer(LayersViewer* layers_viewer)
 	this->layers_viewer = layers_viewer;
 }
 
-SDL_Texture* Viewport::get_render_target()
+const SDL_Texture* const Viewport::get_render_target()
 {
 	return texture;
 }
@@ -136,6 +136,11 @@ SDL_Texture* Viewport::get_render_target()
 SDL_Rect Viewport::get_size()
 {
 	return {x, y, width, height};
+}
+
+Canvas* const Viewport::get_canvas()
+{
+	return canvas;
 }
 
 bool Viewport::on_hover(int x, int y)
@@ -183,4 +188,10 @@ void Viewport::update_coord(int* x, int* y)
 {
 	*x -= this->x;
 	*y -= this->y;
+}
+
+void Viewport::set_size(int width, int height)
+{
+	this->width = width;
+	this->height = height;
 }

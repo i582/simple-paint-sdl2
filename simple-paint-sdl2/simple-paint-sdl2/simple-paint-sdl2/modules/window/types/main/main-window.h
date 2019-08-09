@@ -8,6 +8,10 @@
 
 class MainWindow : public Window {
 private:
+	int width;
+	int height;
+
+
 	Viewport* viewport;
 	Canvas* canvas;
 
@@ -22,6 +26,9 @@ public:
 public:
 	void setup();
 	void render();
+
+	void resized();
+	void set_size(int width, int height);
 
 	void mouseButtonDown(SDL_Event* e);
 	void mouseButtonUp(SDL_Event* e);
