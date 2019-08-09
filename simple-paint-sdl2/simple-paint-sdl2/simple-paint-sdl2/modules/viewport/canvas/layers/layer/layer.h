@@ -53,7 +53,7 @@ public:
 	bool is_block();
 	void show();
 	void hide();
-	bool is_display();
+	bool is_show();
 
 	void shift(int dx, int dy);
 };

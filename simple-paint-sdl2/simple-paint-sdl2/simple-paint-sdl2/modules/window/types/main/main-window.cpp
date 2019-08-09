@@ -12,8 +12,8 @@ void MainWindow::setup()
 	viewport = new Viewport(renderer, 50, 30, 1000, 640);
 	canvas = new Canvas(renderer, viewport, 100, 100, 1000, 1000);
 
-	layer_viewer = new LayerViewer(renderer, { 1052, 470, 295, 201 }, canvas->get_layers());
-	viewport->set_layer_viewer(layer_viewer);
+	layers_viewer = new LayersViewer(renderer, viewport, { 1052, 470, 295, 201 }, canvas->get_layers());
+	viewport->set_layer_viewer(layers_viewer);
 
 	viewport->set_canvas(canvas);
 
@@ -27,7 +27,7 @@ void MainWindow::render()
 	SDL_SetDrawColor(renderer, Colors::background);
 	SDL_RenderFillRect(renderer, NULL);
 
-	layer_viewer->update();
+	layers_viewer->update();
 
 	viewport->update();
 

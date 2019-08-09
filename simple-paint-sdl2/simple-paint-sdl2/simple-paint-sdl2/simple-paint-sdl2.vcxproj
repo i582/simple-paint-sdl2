@@ -137,6 +137,7 @@
     <ClCompile Include="modules\colors\color.cpp" />
     <ClCompile Include="modules\controls\base_control.cpp" />
     <ClCompile Include="modules\controls\button.cpp" />
+    <ClCompile Include="modules\controls\Checkbox.cpp" />
     <ClCompile Include="modules\controls\dropDownList.cpp" />
     <ClCompile Include="modules\controls\HScroll.cpp" />
     <ClCompile Include="modules\controls\input.cpp" />
@@ -146,9 +147,11 @@
     <ClCompile Include="modules\controls\scroll.cpp" />
     <ClCompile Include="modules\controls\textField.cpp" />
     <ClCompile Include="modules\controls\VScroll.cpp" />
+    <ClCompile Include="modules\controls\_Control.cpp" />
     <ClCompile Include="modules\editor\editor.cpp" />
     <ClCompile Include="modules\editor\editor_event.cpp" />
-    <ClCompile Include="modules\layer_viewer\layer_viewer.cpp" />
+    <ClCompile Include="modules\layers_viewer\layers_viewer.cpp" />
+    <ClCompile Include="modules\layers_viewer\layer_view\layer_view.cpp" />
     <ClCompile Include="modules\primitives\primitives.cpp" />
     <ClCompile Include="modules\toolbar\toolbar.cpp" />
     <ClCompile Include="modules\toolbar\tools\tool.cpp" />
@@ -169,6 +172,7 @@
     <ClInclude Include="modules\colors\color.h" />
     <ClInclude Include="modules\controls\base_control.h" />
     <ClInclude Include="modules\controls\button.h" />
+    <ClInclude Include="modules\controls\Checkbox.h" />
     <ClInclude Include="modules\controls\dropDownList.h" />
     <ClInclude Include="modules\controls\HScroll.h" />
     <ClInclude Include="modules\controls\input.h" />
@@ -178,8 +182,10 @@
     <ClInclude Include="modules\controls\scroll.h" />
     <ClInclude Include="modules\controls\textField.h" />
     <ClInclude Include="modules\controls\VScroll.h" />
+    <ClInclude Include="modules\controls\_Control.h" />
     <ClInclude Include="modules\editor\editor.h" />
-    <ClInclude Include="modules\layer_viewer\layer_viewer.h" />
+    <ClInclude Include="modules\layers_viewer\layers_viewer.h" />
+    <ClInclude Include="modules\layers_viewer\layer_view\layer_view.h" />
     <ClInclude Include="modules\primitives\primitives.h" />
     <ClInclude Include="modules\toolbar\toolbar.h" />
     <ClInclude Include="modules\toolbar\tools\tool.h" />

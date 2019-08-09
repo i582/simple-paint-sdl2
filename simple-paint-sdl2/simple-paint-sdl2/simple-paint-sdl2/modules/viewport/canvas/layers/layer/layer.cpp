@@ -37,7 +37,7 @@ void Layer::hide()
 	display = false;
 }
 
-bool Layer::is_display()
+bool Layer::is_show()
 {
 	return display;
 }

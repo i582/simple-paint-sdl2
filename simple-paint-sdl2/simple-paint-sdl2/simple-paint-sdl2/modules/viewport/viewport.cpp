@@ -123,9 +123,9 @@ void Viewport::set_canvas(Canvas* new_canvas)
 	setup_scrolls();
 }
 
-void Viewport::set_layer_viewer(LayerViewer* layer_viewer)
+void Viewport::set_layer_viewer(LayersViewer* layers_viewer)
 {
-	this->layer_viewer = layer_viewer;
+	this->layers_viewer = layers_viewer;
 }
 
 SDL_Texture* Viewport::get_render_target()

@@ -4,14 +4,14 @@
 #include "../../../viewport/viewport.h"
 
 #include "../../../toolbar/toolbar.h"
-#include "../../../layer_viewer/layer_viewer.h"
+#include "../../../layers_viewer/layers_viewer.h"
 
 class MainWindow : public Window {
 private:
 	Viewport* viewport;
 	Canvas* canvas;
 
-	LayerViewer* layer_viewer;
+	LayersViewer* layers_viewer;
 
 	Toolbar* toolbar;
 	

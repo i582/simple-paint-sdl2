@@ -28,7 +28,7 @@ SDL_Texture* Layers::ready_texture()
 
 	for (auto& layer : layers)
 	{
-		if (!layer->is_display())
+		if (!layer->is_show())
 			continue;
 
 		src.x = -layer->size.x > 0 ? -layer->size.x : 0;
@@ -109,7 +109,7 @@ SDL_Rect Layers::get_size_layers()
 int Layers::get_upper_layer_id()
 {
 	int i;
-	for (i = layers.size() - 1; i >= 0 && layers.at(i)->is_block(); i--);
+	for (i = layers.size() - 1; i >= 0 && layers.at(i)->is_block() && !layers.at(i)->is_show(); i--);
 	return i;
 }
 
@@ -118,7 +118,7 @@ int Layers::get_upper_layer_id_in_point(int x, int y)
 	int i;
 	SDL_Point p = { x, y };
 	for (i = layers.size() - 1; i >= 0 &&
-		(layers.at(i)->is_block() || !SDL_PointInRect(&p, &layers.at(i)->size)); i--);
+		(layers.at(i)->is_block() || !layers.at(i)->is_show() || !SDL_PointInRect(&p, &layers.at(i)->size)); i--);
 	return i;
 }
 

@@ -10,7 +10,7 @@
 #include "../viewport/scrolls/v_view_scroll.h"
 #include "../viewport/scrolls/h_view_scroll.h"
 #include "../controls/scale_info.h"
-#include "../layer_viewer/layer_viewer.h"
+#include "../layers_viewer/layers_viewer.h"
 
 using namespace std;
 
@@ -39,7 +39,7 @@ private:
 	H_ViewScroll* h_scroll;
 	
 	ScaleInfo* scale_info;
-	LayerViewer* layer_viewer;
+	LayersViewer* layers_viewer;
 
 public:
 	Viewport(SDL_Renderer* renderer, int x, int y, int width, int height);
@@ -65,7 +65,7 @@ public:
 	void set_canvas(Canvas* new_canvas);
 	void set_canvas_size_factor(double size_factor);
 
-	void set_layer_viewer(LayerViewer* layer_viewer);
+	void set_layer_viewer(LayersViewer* layers_viewer);
 
 	SDL_Texture* get_render_target();
 	SDL_Rect get_size();

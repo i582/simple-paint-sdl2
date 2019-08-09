@@ -52,11 +52,20 @@
     <Filter Include="Исходные файлы\colors">
       <UniqueIdentifier>{6d295403-96ca-41c3-885c-2808341c9312}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\layer_viewer">
-      <UniqueIdentifier>{f23539f7-c25c-4790-928e-2bddbbe54d23}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Исходные файлы\viewport\scrolls">
       <UniqueIdentifier>{dda87e9d-0513-4070-a5bf-6a6e21613fc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\layers_viewer">
+      <UniqueIdentifier>{f23539f7-c25c-4790-928e-2bddbbe54d23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\layers_viewer\layer_view">
+      <UniqueIdentifier>{9c105929-446d-41de-91c4-7cbafcf6e254}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\controls\Control">
+      <UniqueIdentifier>{4ea235c5-898f-47f5-8240-a28885107d33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\controls\Checkbox">
+      <UniqueIdentifier>{5a45d06d-fcbb-4775-be6b-028fce16ade3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -144,14 +153,23 @@
     <ClCompile Include="modules\colors\color.cpp">
       <Filter>Исходные файлы\colors</Filter>
     </ClCompile>
-    <ClCompile Include="modules\layer_viewer\layer_viewer.cpp">
-      <Filter>Исходные файлы\layer_viewer</Filter>
-    </ClCompile>
     <ClCompile Include="modules\viewport\scrolls\h_view_scroll.cpp">
       <Filter>Исходные файлы\viewport\scrolls</Filter>
     </ClCompile>
     <ClCompile Include="modules\viewport\scrolls\v_view_scroll.cpp">
       <Filter>Исходные файлы\viewport\scrolls</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\layers_viewer\layers_viewer.cpp">
+      <Filter>Исходные файлы\layers_viewer</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\layers_viewer\layer_view\layer_view.cpp">
+      <Filter>Исходные файлы\layers_viewer\layer_view</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\controls\_Control.cpp">
+      <Filter>Исходные файлы\controls\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\controls\Checkbox.cpp">
+      <Filter>Исходные файлы\controls\Checkbox</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -221,14 +239,23 @@
     <ClInclude Include="modules\colors\color.h">
       <Filter>Исходные файлы\colors</Filter>
     </ClInclude>
-    <ClInclude Include="modules\layer_viewer\layer_viewer.h">
-      <Filter>Исходные файлы\layer_viewer</Filter>
-    </ClInclude>
     <ClInclude Include="modules\viewport\scrolls\h_view_scroll.h">
       <Filter>Исходные файлы\viewport\scrolls</Filter>
     </ClInclude>
     <ClInclude Include="modules\viewport\scrolls\v_view_scroll.h">
       <Filter>Исходные файлы\viewport\scrolls</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\layers_viewer\layers_viewer.h">
+      <Filter>Исходные файлы\layers_viewer</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\layers_viewer\layer_view\layer_view.h">
+      <Filter>Исходные файлы\layers_viewer\layer_view</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\controls\_Control.h">
+      <Filter>Исходные файлы\controls\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\controls\Checkbox.h">
+      <Filter>Исходные файлы\controls\Checkbox</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
