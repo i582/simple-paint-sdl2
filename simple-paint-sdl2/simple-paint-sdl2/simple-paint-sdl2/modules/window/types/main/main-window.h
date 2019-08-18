@@ -5,6 +5,8 @@
 
 #include "../../../toolbar/toolbar.h"
 #include "../../../layers_viewer/layers_viewer.h"
+#include "../../../container/container.h"
+
 
 class MainWindow : public Window {
 private:
@@ -18,6 +20,8 @@ private:
 	LayersViewer* layers_viewer;
 
 	Toolbar* toolbar;
+
+	Container* container;
 	
 
 public:
@@ -36,4 +40,5 @@ public:
 	void mouseWheel(SDL_Event* e);
 	void keyDown(SDL_Event* e);
 	void keyUp(SDL_Event* e);
+	void systemEvent(SDL_Event* e);
 };

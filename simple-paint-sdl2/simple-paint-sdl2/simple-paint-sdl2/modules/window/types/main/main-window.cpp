@@ -20,6 +20,8 @@ void MainWindow::setup()
 	
 	toolbar = new Toolbar(renderer, { 0, 30, 40, 640 });
 
+	container = new Container(renderer, { 1100, 30, 200, 200 });
+
 }
 
 void MainWindow::render()
@@ -32,6 +34,8 @@ void MainWindow::render()
 	viewport->update();
 
 	toolbar->update();
+
+	container->update();
 
 	SDL_RenderPresent(renderer);
 }

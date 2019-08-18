@@ -67,6 +67,9 @@
     <Filter Include="Исходные файлы\controls\Checkbox">
       <UniqueIdentifier>{5a45d06d-fcbb-4775-be6b-028fce16ade3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\container">
+      <UniqueIdentifier>{45edf2e6-9392-44da-b48c-e8810c5a682c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -91,9 +94,6 @@
       <Filter>Исходные файлы\window\types\main</Filter>
     </ClCompile>
     <ClCompile Include="modules\viewport\viewport.cpp">
-      <Filter>Исходные файлы\viewport</Filter>
-    </ClCompile>
-    <ClCompile Include="modules\viewport\viewport_events.cpp">
       <Filter>Исходные файлы\viewport</Filter>
     </ClCompile>
     <ClCompile Include="modules\viewport\canvas\canvas.cpp">
@@ -170,6 +170,18 @@
     </ClCompile>
     <ClCompile Include="modules\controls\Checkbox.cpp">
       <Filter>Исходные файлы\controls\Checkbox</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\container\Container.cpp">
+      <Filter>Исходные файлы\container</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\container\Container_event.cpp">
+      <Filter>Исходные файлы\container</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\container\ContainerVScroll.cpp">
+      <Filter>Исходные файлы\container</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\viewport\viewport_events.cpp">
+      <Filter>Исходные файлы\viewport</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -256,6 +268,12 @@
     </ClInclude>
     <ClInclude Include="modules\controls\Checkbox.h">
       <Filter>Исходные файлы\controls\Checkbox</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\container\Container.h">
+      <Filter>Исходные файлы\container</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\container\ContainerVScroll.h">
+      <Filter>Исходные файлы\container</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

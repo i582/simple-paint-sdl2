@@ -29,6 +29,7 @@ bool Editor::init()
 		return false;
 	}
 
+
 	return true;
 }
 

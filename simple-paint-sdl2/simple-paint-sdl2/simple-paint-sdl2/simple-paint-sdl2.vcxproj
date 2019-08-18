@@ -84,6 +84,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>false</WholeProgramOptimization>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -135,6 +136,9 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="modules\colors\color.cpp" />
+    <ClCompile Include="modules\container\Container.cpp" />
+    <ClCompile Include="modules\container\ContainerVScroll.cpp" />
+    <ClCompile Include="modules\container\Container_event.cpp" />
     <ClCompile Include="modules\controls\base_control.cpp" />
     <ClCompile Include="modules\controls\button.cpp" />
     <ClCompile Include="modules\controls\Checkbox.cpp" />
@@ -170,6 +174,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="modules\colors\color.h" />
+    <ClInclude Include="modules\container\Container.h" />
+    <ClInclude Include="modules\container\ContainerVScroll.h" />
     <ClInclude Include="modules\controls\base_control.h" />
     <ClInclude Include="modules\controls\button.h" />
     <ClInclude Include="modules\controls\Checkbox.h" />

@@ -41,12 +41,12 @@ void Viewport::init()
 
 	int v_width = 16;
 	int v_height = this->height - 16;
-	v_scroll = new V_ViewScroll(renderer, this, { width - v_width, 0, v_width, v_height }, 1000, 3000, 100);
+	v_scroll = new V_ViewScroll(renderer, this, { width - v_width, 0, v_width, v_height }, 0.5, 2000, 100);
 
 
 	int h_width = this->width - 16 - 55;
 	int h_height = 16;
-	h_scroll = new H_ViewScroll(renderer, this, { 55, height - h_height, h_width, h_height }, 1000, 3000, 100);
+	h_scroll = new H_ViewScroll(renderer, this, { 55, height - h_height, h_width, h_height }, 0.5, 2000, 100);
 
 
 	SDL_Rect scale_size = {0, this->height - 16, 55, 16};

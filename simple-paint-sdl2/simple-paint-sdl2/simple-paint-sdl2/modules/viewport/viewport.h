@@ -12,6 +12,7 @@
 #include "../controls/scale_info.h"
 #include "../layers_viewer/layers_viewer.h"
 
+
 using namespace std;
 
 class V_ViewScroll;
@@ -49,8 +50,6 @@ public:
 	friend V_ViewScroll;
 	friend H_ViewScroll;
 	friend Canvas;
-
-
 
 public:
 	void init();

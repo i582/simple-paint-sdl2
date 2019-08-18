@@ -21,7 +21,7 @@ void Viewport::mouseButtonDown(SDL_Event* e)
 	}
 
 
-
+	
 
 	if (canvas->on_hover(pos_mouse.x, pos_mouse.y) || canvas->get_selected())
 	{
@@ -47,10 +47,6 @@ void Viewport::mouseButtonUp(SDL_Event* e)
 
 void Viewport::mouseMotion(SDL_Event* e)
 {
-
-	//cout << e->motion.x << "  " << e->motion.y << endl;
-	//cout << "relative x and y " << e->motion.xrel << "  " << e->motion.yrel << endl;
-
 	SDL_GetMouseState(&pos_mouse.x, &pos_mouse.y);
 	update_coord(&pos_mouse.x, &pos_mouse.y);
 

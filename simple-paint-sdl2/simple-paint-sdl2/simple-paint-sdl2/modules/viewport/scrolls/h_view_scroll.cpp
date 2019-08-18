@@ -2,7 +2,7 @@
 #include "../viewport.h"
 
 H_ViewScroll::H_ViewScroll(SDL_Renderer* renderer, Viewport* parent,
-	SDL_Rect size, int now_value, int max_value, int step_size)
+	SDL_Rect size, double now_value, int max_value, int step_size)
 	: HScroll(renderer, size, now_value, max_value, step_size)
 {
 	this->parent = parent;
@@ -55,7 +55,7 @@ void H_ViewScroll::mouseButtonDown(SDL_Event* e)
 			slider_size.x = body_size.w - slider_size.w;
 
 		slider_size.x = (int)(pos_x - slider_size.w / 2.);
-		now_value = (int)((slider_size.x / (double)body_size.w) * max_value);
+		now_value = slider_size.x / (double)body_size.w;
 	}
 }
 
@@ -76,10 +76,11 @@ void H_ViewScroll::mouseMotion(SDL_Event * e)
 		if (slider_size.x > body_size.w - slider_size.w + body_size.x)
 			slider_size.x = body_size.w - slider_size.w + body_size.x;
 
-		now_value = (int)((slider_size.x / ((double)body_size.w - slider_size.w)) * max_value);
+		now_value = (slider_size.x - body_size.x) / ((double)body_size.w - slider_size.w);
+	
 
 		double procent = this->get_value();
-		int new_x = (int)(parent->width / 2 - parent->canvas->get_width() / 2 - procent * parent->canvas->get_width());
+		int new_x = (int)(parent->width / 2. - parent->canvas->get_width() / 2. - procent * this->max_value / 2 * parent->canvas->get_size_factor());
 		parent->canvas->set_position(new_x, parent->canvas->get_y());
 
 		parent->update();

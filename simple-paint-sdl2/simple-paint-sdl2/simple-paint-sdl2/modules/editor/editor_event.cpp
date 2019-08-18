@@ -1,5 +1,5 @@
 #include "editor.h"
-#include "ctime"
+
 void Editor::onEvent()
 {
 	while (running && SDL_WaitEvent(&e)) 
@@ -44,7 +44,7 @@ void Editor::onEvent()
 			break;
 		}
 
-		case SDL_QUIT: 
+		case SDL_QUIT:
 		{
 			quit();
 			break;
@@ -68,16 +68,22 @@ void Editor::onEvent()
 				cout << "SDL_WINDOWEVENT_SIZE_CHANGED" << endl;
 
 				main_window->set_size(e.window.data1, e.window.data2);
-				
+
 				main_window->resized();
 
-			
+
 				break;
 			}
 
 			default:break;
 			}
 
+			break;
+		}
+
+		case SDL_SYSWMEVENT:
+		{	
+			main_window->systemEvent(&e);
 			break;
 		}
 

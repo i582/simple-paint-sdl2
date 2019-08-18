@@ -140,8 +140,7 @@ bool LayerView::layer_is_blocked()
 bool LayerView::on_hover(int x, int y)
 {
 	SDL_Point p = { x, y };
-	SDL_Rect r = { size.x, size.y, size.w, size.h };
-	return SDL_PointInRect(&p, &r);
+	return SDL_PointInRect(&p, &size);
 }
 
 void LayerView::update_coord(int* x, int* y)

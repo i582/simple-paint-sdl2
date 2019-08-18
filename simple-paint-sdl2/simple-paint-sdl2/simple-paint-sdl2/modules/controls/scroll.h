@@ -17,7 +17,7 @@ protected:
 	SDL_Rect slider_size;
 
 	int max_value;
-	int now_value;
+	double now_value;
 	int step_size;
 
 	bool is_focus;
@@ -25,7 +25,7 @@ protected:
 	bool display;
 
 public:
-	Scroll(SDL_Renderer* renderer, SDL_Rect size, int now_value, int max_value, int step_size);
+	Scroll(SDL_Renderer* renderer, SDL_Rect size, double now_value, int max_value, int step_size);
 
 public:
 	virtual void update() = 0;
@@ -44,8 +44,6 @@ public:
 	void set_value(double value);
 
 	virtual void shift(int delta) = 0;
-
-	void on_event();
 
 	virtual void mouseButtonDown(SDL_Event* e) = 0;
 	virtual void mouseButtonUp(SDL_Event* e) = 0;
