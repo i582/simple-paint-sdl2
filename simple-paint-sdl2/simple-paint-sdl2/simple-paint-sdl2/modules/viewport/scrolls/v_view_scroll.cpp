@@ -29,8 +29,8 @@ void V_ViewScroll::update()
 
 void V_ViewScroll::update_scroll_pos()
 {
-	int new_y = parent->canvas->get_y();
-	double procents = (parent->height / 2. - parent->canvas->get_height() / 2. - new_y) / (double)parent->canvas->get_height();
+	int new_y = parent->work_table->get_y();
+	double procents = (parent->height / 2. - parent->work_table->get_height() / 2. - new_y) / (double)parent->work_table->get_height();
 	set_value(procents);
 }
 
@@ -75,8 +75,8 @@ void V_ViewScroll::mouseMotion(SDL_Event * e)
 		now_value = slider_size.y / ((double)body_size.h - slider_size.h);
 
 		double procent = this->get_value();
-		int new_y = (int)(parent->height / 2. - parent->canvas->get_height() / 2. - procent * this->max_value / 2 * parent->canvas->get_size_factor());
-		parent->canvas->set_position(parent->canvas->get_x(), new_y);
+		int new_y = (int)(parent->height / 2. - parent->work_table->get_height() / 2. - procent * this->max_value / 2 * parent->work_table->get_size_factor());
+		parent->work_table->set_position(parent->work_table->get_x(), new_y);
 
 		parent->update();
 	}

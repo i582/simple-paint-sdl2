@@ -23,9 +23,9 @@ void Viewport::mouseButtonDown(SDL_Event* e)
 
 	
 
-	if (canvas->on_hover(pos_mouse.x, pos_mouse.y) || canvas->get_selected())
+	if (work_table->on_hover(pos_mouse.x, pos_mouse.y))
 	{
-		canvas->mouseButtonDown(e);
+		work_table->mouseButtonDown(e);
 		update();
 	}
 }
@@ -37,9 +37,9 @@ void Viewport::mouseButtonUp(SDL_Event* e)
 
 
 
-	if (canvas->on_hover(pos_mouse.x, pos_mouse.y) || canvas->get_selected())
+	if (work_table->on_hover(pos_mouse.x, pos_mouse.y))
 	{
-		canvas->mouseButtonUp(e);
+		work_table->mouseButtonUp(e);
 		layers_viewer->update();
 		update();
 	}
@@ -51,12 +51,9 @@ void Viewport::mouseMotion(SDL_Event* e)
 	update_coord(&pos_mouse.x, &pos_mouse.y);
 
 
-	if (canvas->on_hover(pos_mouse.x, pos_mouse.y) || canvas->get_selected())
+	if (work_table->on_hover(pos_mouse.x, pos_mouse.y))
 	{
-		canvas->mouseMotion(e);
-
-		if (canvas->get_selected())
-			update();
+		work_table->mouseMotion(e);
 	}
 
 	
@@ -92,7 +89,7 @@ void Viewport::mouseWheel(SDL_Event* e)
 				size_factor -= 0.1;
 		}
 
-		set_canvas_size_factor(size_factor);
+		set_table_size_factor(size_factor);
 
 		scale_info->set_scale(size_factor);
 
@@ -112,8 +109,8 @@ void Viewport::mouseWheel(SDL_Event* e)
 		}
 
 		double procent = h_scroll->get_value();
-		int new_x = (int)(this->width / 2. - canvas->get_width() / 2. - procent * canvas->get_width());
-		canvas->set_position(new_x, canvas->get_y());
+		int new_x = (int)(this->width / 2. - work_table->get_width() / 2. - procent * work_table->get_width());
+		work_table->set_position(new_x, work_table->get_y());
 
 		update();
 	}
@@ -129,8 +126,8 @@ void Viewport::mouseWheel(SDL_Event* e)
 		}
 
 		double procent = v_scroll->get_value();
-		int new_y = (int)(this->height / 2. - canvas->get_height() / 2. - procent * canvas->get_height());
-		canvas->set_position(canvas->get_x(), new_y);
+		int new_y = (int)(this->height / 2. - work_table->get_height() / 2. - procent * work_table->get_height());
+		work_table->set_position(work_table->get_x(), new_y);
 
 		update();
 	}

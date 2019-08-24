@@ -23,7 +23,7 @@ private:
 	Viewport* parent;
 
 public:
-	LayersViewer(SDL_Renderer* renderer, Viewport* parent, SDL_Rect size, Layers* layers);
+	LayersViewer(SDL_Renderer* renderer, Viewport* parent, SDL_Rect size);
 
 public:
 	friend LayerView;

@@ -33,8 +33,8 @@ void H_ViewScroll::update()
 
 void H_ViewScroll::update_scroll_pos()
 {
-	int new_x = parent->canvas->get_x();
-	double x_procent = ((parent->width / 2. - parent->canvas->get_width() / 2.) - new_x) / (double)parent->canvas->get_width();
+	int new_x = parent->work_table->get_x();
+	double x_procent = ((parent->width / 2. - parent->work_table->get_width() / 2.) - new_x) / (double)parent->work_table->get_width();
 	set_value(x_procent);
 }
 
@@ -80,8 +80,8 @@ void H_ViewScroll::mouseMotion(SDL_Event * e)
 	
 
 		double procent = this->get_value();
-		int new_x = (int)(parent->width / 2. - parent->canvas->get_width() / 2. - procent * this->max_value / 2 * parent->canvas->get_size_factor());
-		parent->canvas->set_position(new_x, parent->canvas->get_y());
+		int new_x = (int)(parent->width / 2. - parent->work_table->get_width() / 2. - procent * this->max_value / 2 * parent->work_table->get_size_factor());
+		parent->work_table->set_position(new_x, parent->work_table->get_y());
 
 		parent->update();
 	}

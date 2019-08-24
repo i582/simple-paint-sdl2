@@ -69,10 +69,7 @@ public:
 
 	void set_layer_viewer(LayersViewer* layers_viewer);
 
-	void set_table_size_factor(double factor);
 	void set_canvas_size_factor(double size_factor);
-
-	Canvas* get_canvas();
 
 	/* События */
 	void mouseButtonDown(SDL_Event* e);

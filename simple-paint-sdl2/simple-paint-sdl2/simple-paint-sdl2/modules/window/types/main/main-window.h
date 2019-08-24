@@ -2,7 +2,6 @@
 #include "vector"
 #include "../../window.h"
 #include "../../../viewport/viewport.h"
-
 #include "../../../toolbar/toolbar.h"
 #include "../../../layers_viewer/layers_viewer.h"
 #include "../../../container/container.h"
@@ -15,7 +14,6 @@ private:
 
 
 	Viewport* viewport;
-	Canvas* canvas;
 
 	LayersViewer* layers_viewer;
 

@@ -167,6 +167,7 @@
     <ClCompile Include="modules\viewport\scrolls\v_view_scroll.cpp" />
     <ClCompile Include="modules\viewport\viewport.cpp" />
     <ClCompile Include="modules\viewport\viewport_events.cpp" />
+    <ClCompile Include="modules\viewport\work_table\work_table.cpp" />
     <ClCompile Include="modules\window\types\main\main-window.cpp" />
     <ClCompile Include="modules\window\types\main\main-window_event.cpp" />
     <ClCompile Include="modules\window\window.cpp" />
@@ -201,6 +202,7 @@
     <ClInclude Include="modules\viewport\scrolls\h_view_scroll.h" />
     <ClInclude Include="modules\viewport\scrolls\v_view_scroll.h" />
     <ClInclude Include="modules\viewport\viewport.h" />
+    <ClInclude Include="modules\viewport\work_table\work_table.h" />
     <ClInclude Include="modules\window\types\main\main-window.h" />
     <ClInclude Include="modules\window\window.h" />
   </ItemGroup>

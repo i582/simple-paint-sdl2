@@ -70,6 +70,9 @@
     <Filter Include="Исходные файлы\container">
       <UniqueIdentifier>{45edf2e6-9392-44da-b48c-e8810c5a682c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\viewport\work_table">
+      <UniqueIdentifier>{c6e30198-02f3-4c51-b6fc-8a99fb226f72}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -183,6 +186,9 @@
     <ClCompile Include="modules\viewport\viewport_events.cpp">
       <Filter>Исходные файлы\viewport</Filter>
     </ClCompile>
+    <ClCompile Include="modules\viewport\work_table\work_table.cpp">
+      <Filter>Исходные файлы\viewport\work_table</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="modules\editor\editor.h">
@@ -274,6 +280,9 @@
     </ClInclude>
     <ClInclude Include="modules\container\ContainerVScroll.h">
       <Filter>Исходные файлы\container</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\viewport\work_table\work_table.h">
+      <Filter>Исходные файлы\viewport\work_table</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

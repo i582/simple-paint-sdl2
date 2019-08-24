@@ -3,12 +3,12 @@
 #include "../viewport/viewport.h"
 #include "ctime"
 
-LayersViewer::LayersViewer(SDL_Renderer* renderer, Viewport* parent, SDL_Rect size, Layers* layers)
+LayersViewer::LayersViewer(SDL_Renderer* renderer, Viewport* parent, SDL_Rect size)
 {
 	this->renderer = renderer;
 	this->parent = parent;
 	this->size = size;
-	this->layers = layers;
+	this->layers = parent->work_table->canvas->get_layers();
 
 	setup();
 }
