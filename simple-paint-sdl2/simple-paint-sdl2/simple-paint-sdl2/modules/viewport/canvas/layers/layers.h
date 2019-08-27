@@ -12,11 +12,16 @@ class Layers
 {
 private:
 	SDL_Renderer* renderer;
+	SDL_Texture* texture;
+
 	vector <Layer*> layers;
 	SDL_Rect main_size;
 
 public:
 	Layers(SDL_Renderer* renderer, SDL_Rect main_size);
+
+private:
+	void init();
 
 public:
 	void add(Layer* layer);

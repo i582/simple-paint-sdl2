@@ -1,9 +1,10 @@
 #include "main-window.h"
-#include "SDL_syswm.h"
 
 void MainWindow::mouseButtonDown(SDL_Event* e)
 {
 	SDL_GetMouseState(&mouse_coord.x, &mouse_coord.y);
+
+	drop_window->hide();
 
 	if (viewport->on_hover(mouse_coord.x, mouse_coord.y))
 	{
@@ -14,12 +15,45 @@ void MainWindow::mouseButtonDown(SDL_Event* e)
 	{
 		layers_viewer->mouseButtonDown(e);
 	}
-
-	if (container->on_hover(mouse_coord.x, mouse_coord.y))
-	{
-		container->mouseButtonDown(e);
-	}
 	
+	if (dropdown->on_hover(mouse_coord.x, mouse_coord.y))
+	{
+		dropdown->mouseButtonDown(e);
+	}
+
+	if (menubar->on_hover(mouse_coord.x, mouse_coord.y))
+	{
+		menubar->mouseButtonDown(e);
+	}
+
+
+	if (focus_element != nullptr)
+	{
+		focus_element->do_update();
+		focus_element->mouseButtonDown(e);
+
+		update();
+
+		if (!focus_element->is_focus())
+		{
+			focus_element = nullptr;
+		}
+		else
+		{
+			return;
+		}
+	}
+
+	for (auto& control : controls)
+	{
+		if (control->on_hover(mouse_coord.x, mouse_coord.y))
+		{
+			focus_element = control->focus();
+			focus_element->do_update()->mouseButtonDown(e);
+			update();
+			return;
+		}
+	}
 }
 
 void MainWindow::mouseButtonUp(SDL_Event* e)
@@ -40,12 +74,22 @@ void MainWindow::mouseButtonUp(SDL_Event* e)
 	{
 		layers_viewer->mouseButtonUp(e);
 	}
-
-	if (container->on_hover(mouse_coord.x, mouse_coord.y))
+	
+	if (dropdown->on_hover(mouse_coord.x, mouse_coord.y))
 	{
-		container->mouseButtonUp(e);
+		dropdown->mouseButtonUp(e);
 	}
 	
+	if (menubar->on_hover(mouse_coord.x, mouse_coord.y))
+	{
+		menubar->mouseButtonUp(e);
+	}
+
+	if (focus_element != nullptr)
+	{
+		focus_element->do_update()->mouseButtonUp(e);
+		update();
+	}
 }
 
 void MainWindow::mouseMotion(SDL_Event* e)
@@ -67,9 +111,14 @@ void MainWindow::mouseMotion(SDL_Event* e)
 		layers_viewer->mouseMotion(e);
 	}
 
-	if (container->on_hover(mouse_coord.x, mouse_coord.y))
+	for (auto& control : controls)
 	{
-		container->mouseMotion(e);
+		if (control->on_hover(mouse_coord.x, mouse_coord.y))
+		{
+			control->mouseMotion(e);
+			update();
+			return;
+		}
 	}
 }
 
@@ -86,11 +135,6 @@ void MainWindow::mouseWheel(SDL_Event* e)
 	{
 		layers_viewer->mouseWheel(e);
 	}
-
-	if (container->on_hover(mouse_coord.x, mouse_coord.y))
-	{
-		container->mouseWheel(e);
-	}
 }
 
 void MainWindow::keyDown(SDL_Event* e)
@@ -103,46 +147,4 @@ void MainWindow::keyUp(SDL_Event* e)
 	SDL_GetMouseState(&mouse_coord.x, &mouse_coord.y);
 
 	// code
-}
-
-void MainWindow::systemEvent(SDL_Event* e)
-{
-	SDL_SysWMinfo info;
-	SDL_VERSION(&info.version);
-
-	SDL_GetWindowWMInfo(window, &info);
-
-	
-	switch (e->type)
-	{
-	
-	case SDL_SYSWMEVENT:
-		if (e->syswm.msg->msg.win.msg == WM_COMMAND)
-		{
-		
-			switch (LOWORD(e->syswm.msg->msg.win.wParam))
-			{
-
-			case 122:
-			{
-
-
-				MessageBox(info.info.win.window, "safsaf", "Input", MB_ICONINFORMATION);
-
-
-
-				return;
-			}
-
-			default:break;
-			}
-		}
-
-		if (e->syswm.msg->msg.win.msg == WM_CREATE)
-		{
-			
-			MessageBox(info.info.win.window, "safsaf", "Input", MB_ICONINFORMATION);
-		}
-		break;
-	};
 }

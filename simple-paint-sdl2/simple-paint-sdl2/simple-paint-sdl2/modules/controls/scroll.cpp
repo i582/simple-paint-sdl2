@@ -1,6 +1,6 @@
 #include "scroll.h"
 
-Scroll::Scroll(SDL_Renderer* renderer, SDL_Rect size, double now_value, int max_value, int step_size)
+Scroll::Scroll(SDL_Renderer* renderer, SDL_Rect size, int now_value, int max_value, int step_size)
 {
 	this->renderer = renderer;
 	this->body_size = size;
@@ -50,7 +50,7 @@ bool Scroll::on_focus()
  */
 double Scroll::get_value()
 {
-	return (now_value - 0.5) * 2;
+	return (now_value / (double)max_value - 0.5) * 2;
 }
 
 /**
@@ -58,7 +58,6 @@ double Scroll::get_value()
  */
 void Scroll::set_value(double value)
 {
-	now_value = value / 2. + 0.5;
-	
+	now_value = (int)((value / 2. + 0.5) * max_value);
 	update();
 }

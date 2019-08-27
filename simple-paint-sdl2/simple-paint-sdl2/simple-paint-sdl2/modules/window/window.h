@@ -5,6 +5,10 @@
 #include "iostream"
 #include "vector"
 #include "../colors/color.h"
+
+
+#include "../events/events.h"
+
 using namespace std;
 
 class Window {
@@ -24,7 +28,9 @@ protected:
 	SDL_Renderer* renderer;
 
 	SDL_Point mouse_coord;
-	
+	SDL_Texture* icon_texture;
+
+	bool display;
 
 	/*no-border*/
 	bool no_border;
@@ -42,13 +48,18 @@ protected:
 public:
 	bool init();
 	virtual void setup() = 0;
+
 	void show();
 	void hide();
+	bool is_show();
+
 	void close();
 
 	virtual void render() = 0;
 
+	void set_position(int x, int y);
 	SDL_Renderer* getRenderer();
+	SDL_Window* get_window();
 	
 	virtual void mouseButtonDown(SDL_Event* e) = 0;
 	virtual void mouseButtonUp(SDL_Event* e) = 0;
@@ -56,4 +67,6 @@ public:
 	virtual void mouseWheel(SDL_Event* e) = 0;
 	virtual void keyDown(SDL_Event* e) = 0;
 	virtual void keyUp(SDL_Event* e) = 0;
+
+	virtual void handleUserEvents(Event* ev) = 0;
 };

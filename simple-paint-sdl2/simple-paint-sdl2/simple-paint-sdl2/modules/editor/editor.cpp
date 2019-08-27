@@ -1,12 +1,24 @@
 #include "editor.h"
 
+
+Event* Editor::push_event(Event* ev)
+{
+	if (ev == nullptr)
+		throw "Error event (nullptr)";
+
+	events.push_back(ev);
+	return ev;
+}
+
 Editor::Editor(int width, int height)
 {
 	this->running = true;
 
 	SDL_Rect r = { -1, -1, width, height };
-	this->main_window = new MainWindow("Editor", &r, NULL);
+	this->main_window = new MainWindow("NIA Editor", &r, SDL_WINDOW_BORDERLESS);
+	
 	this->main_window->render();
+
 }
 
 Editor::~Editor()
@@ -29,6 +41,17 @@ bool Editor::init()
 		return false;
 	}
 
+	if (!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "2"))
+	{
+		cout << "Error set hint" << endl;
+		return false;
+	}
+
+	if (!SDL_SetHint(SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH, "1"))
+	{
+		cout << "Error set hint" << endl;
+		return false;
+	}
 
 	return true;
 }

@@ -21,11 +21,11 @@ void Viewport::mouseButtonDown(SDL_Event* e)
 	}
 
 
-	
 
-	if (work_table->on_hover(pos_mouse.x, pos_mouse.y))
+
+	if (canvas->on_hover(pos_mouse.x, pos_mouse.y) || canvas->get_selected())
 	{
-		work_table->mouseButtonDown(e);
+		canvas->mouseButtonDown(e);
 		update();
 	}
 }
@@ -37,9 +37,9 @@ void Viewport::mouseButtonUp(SDL_Event* e)
 
 
 
-	if (work_table->on_hover(pos_mouse.x, pos_mouse.y))
+	if (canvas->on_hover(pos_mouse.x, pos_mouse.y) || canvas->get_selected())
 	{
-		work_table->mouseButtonUp(e);
+		canvas->mouseButtonUp(e);
 		layers_viewer->update();
 		update();
 	}
@@ -47,13 +47,20 @@ void Viewport::mouseButtonUp(SDL_Event* e)
 
 void Viewport::mouseMotion(SDL_Event* e)
 {
+
+	//cout << e->motion.x << "  " << e->motion.y << endl;
+	//cout << "relative x and y " << e->motion.xrel << "  " << e->motion.yrel << endl;
+
 	SDL_GetMouseState(&pos_mouse.x, &pos_mouse.y);
 	update_coord(&pos_mouse.x, &pos_mouse.y);
 
 
-	if (work_table->on_hover(pos_mouse.x, pos_mouse.y))
+	if (canvas->on_hover(pos_mouse.x, pos_mouse.y) || canvas->get_selected())
 	{
-		work_table->mouseMotion(e);
+		canvas->mouseMotion(e);
+
+		if (canvas->get_selected())
+			update();
 	}
 
 	
@@ -66,10 +73,23 @@ void Viewport::mouseWheel(SDL_Event* e)
 		SDL_GetMouseState(&pos_mouse.x, &pos_mouse.y);
 		update_coord(&pos_mouse.x, &pos_mouse.y);
 
+		if (size_factor > 20)
+		{
+			SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
+		}
+		else
+		{
+			SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
+		}
+	
+
 		if (e->wheel.y > 0)
 		{
 			if (size_factor > 5)
+			{
 				size_factor += 3;
+			}
+				
 			else if (size_factor > 3)
 				size_factor += 1;
 			else if (size_factor < 0.5)
@@ -89,7 +109,7 @@ void Viewport::mouseWheel(SDL_Event* e)
 				size_factor -= 0.1;
 		}
 
-		set_table_size_factor(size_factor);
+		set_canvas_size_factor(size_factor);
 
 		scale_info->set_scale(size_factor);
 
@@ -109,8 +129,8 @@ void Viewport::mouseWheel(SDL_Event* e)
 		}
 
 		double procent = h_scroll->get_value();
-		int new_x = (int)(this->width / 2. - work_table->get_width() / 2. - procent * work_table->get_width());
-		work_table->set_position(new_x, work_table->get_y());
+		int new_x = (int)(this->width / 2. - canvas->get_width() / 2. - procent * canvas->get_width());
+		canvas->set_position(new_x, canvas->get_y());
 
 		update();
 	}
@@ -126,8 +146,8 @@ void Viewport::mouseWheel(SDL_Event* e)
 		}
 
 		double procent = v_scroll->get_value();
-		int new_y = (int)(this->height / 2. - work_table->get_height() / 2. - procent * work_table->get_height());
-		work_table->set_position(work_table->get_x(), new_y);
+		int new_y = (int)(this->height / 2. - canvas->get_height() / 2. - procent * canvas->get_height());
+		canvas->set_position(canvas->get_x(), new_y);
 
 		update();
 	}

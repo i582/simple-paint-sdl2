@@ -6,20 +6,18 @@
 #include "iostream"
 #include "vector"
 #include "../colors/color.h"
-
-#include "../viewport/work_table/work_table.h"
-
+#include "../viewport/canvas/canvas.h"
 #include "../viewport/scrolls/v_view_scroll.h"
 #include "../viewport/scrolls/h_view_scroll.h"
 #include "../controls/scale_info.h"
 #include "../layers_viewer/layers_viewer.h"
-
 
 using namespace std;
 
 class V_ViewScroll;
 class H_ViewScroll;
 
+class Editor;
 
 class Viewport {
 private:
@@ -32,10 +30,7 @@ private:
 	SDL_Renderer* renderer;
 	SDL_Texture* texture;
 
-	WorkTable* work_table;
-
-
-
+	Canvas* canvas;
 
 	double size_factor;
 
@@ -54,9 +49,10 @@ public:
 public:
 	friend V_ViewScroll;
 	friend H_ViewScroll;
-	friend WorkTable;
 	friend Canvas;
-	friend LayersViewer;
+	friend ScaleInfo;
+
+
 
 public:
 	void init();
@@ -66,13 +62,15 @@ public:
 	void setup_scrolls();
 	void render_scrolls();
 
+	void set_canvas(Canvas* new_canvas);
+	void set_canvas_size_factor(double size_factor);
 
 	void set_layer_viewer(LayersViewer* layers_viewer);
 
-	void set_table_size_factor(double factor);
-	void set_canvas_size_factor(double size_factor);
+	const SDL_Texture* const get_render_target();
+	SDL_Rect get_size();
 
-	Canvas* get_canvas();
+	Canvas* const get_canvas();
 
 	/* События */
 	void mouseButtonDown(SDL_Event* e);

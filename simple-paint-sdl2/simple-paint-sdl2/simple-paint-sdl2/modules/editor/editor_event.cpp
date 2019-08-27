@@ -5,89 +5,106 @@ void Editor::onEvent()
 	while (running && SDL_WaitEvent(&e)) 
 	{
 
-		switch (e.type)
+		switch (e.window.windowID)
 		{
 
-		case SDL_MOUSEMOTION:
+		case 1:
 		{
-			main_window->mouseMotion(&e);
-			break;
-		}
-
-		case SDL_MOUSEBUTTONDOWN:
-		{
-			main_window->mouseButtonDown(&e);
-			break;
-		}
-
-		case SDL_MOUSEBUTTONUP:
-		{
-			main_window->mouseButtonUp(&e);
-			break;
-		}
-
-		case SDL_MOUSEWHEEL:
-		{
-			main_window->mouseWheel(&e);
-			break;
-		}
-
-		case SDL_KEYDOWN:
-		{
-			main_window->keyDown(&e);
-			break;
-		}
-
-		case SDL_KEYUP:
-		{
-			main_window->keyUp(&e);
-			break;
-		}
-
-		case SDL_QUIT:
-		{
-			quit();
-			break;
-		}
-
-		case SDL_WINDOWEVENT:
-		{
-
-			switch (e.window.event)
+			switch (e.type)
 			{
 
-			case SDL_WINDOWEVENT_RESIZED:
+			case SDL_MOUSEMOTION:
 			{
-				//main_window->render();
-				cout << "SDL_WINDOWEVENT_RESIZED" << endl;
+				main_window->mouseMotion(&e);
 				break;
 			}
 
-			case SDL_WINDOWEVENT_SIZE_CHANGED:
+			case SDL_MOUSEBUTTONDOWN:
 			{
-				cout << "SDL_WINDOWEVENT_SIZE_CHANGED" << endl;
+				main_window->mouseButtonDown(&e);
+				break;
+			}
 
-				main_window->set_size(e.window.data1, e.window.data2);
+			case SDL_MOUSEBUTTONUP:
+			{
+				main_window->mouseButtonUp(&e);
+				break;
+			}
 
-				main_window->resized();
+			case SDL_MOUSEWHEEL:
+			{
+				main_window->mouseWheel(&e);
+				break;
+			}
 
+			case SDL_KEYDOWN:
+			{
+				main_window->keyDown(&e);
+				break;
+			}
+
+			case SDL_KEYUP:
+			{
+				main_window->keyUp(&e);
+				break;
+			}
+
+			case SDL_QUIT:
+			{
+				quit();
+				break;
+			}
+
+			case SDL_WINDOWEVENT:
+			{
+
+				switch (e.window.event)
+				{
+
+				case SDL_WINDOWEVENT_ENTER:
+				{
+					
+
+					break;
+				}
+
+				case SDL_WINDOWEVENT_RESIZED:
+				{
+					//main_window->render();
+					cout << "SDL_WINDOWEVENT_RESIZED" << endl;
+					break;
+				}
+
+				case SDL_WINDOWEVENT_SIZE_CHANGED:
+				{
+					cout << "SDL_WINDOWEVENT_SIZE_CHANGED" << endl;
+
+					//main_window->set_size(e.window.data1, e.window.data2);
+
+					//main_window->resized();
+
+
+					break;
+				}
+
+				default:break;
+				}
 
 				break;
 			}
 
 			default:break;
 			}
-
 			break;
 		}
 
-		case SDL_SYSWMEVENT:
-		{	
-			main_window->systemEvent(&e);
-			break;
-		}
+		
 
 		default:break;
 		}
+
+	
+		sendHandleUserEvent();
+
 	}
 }

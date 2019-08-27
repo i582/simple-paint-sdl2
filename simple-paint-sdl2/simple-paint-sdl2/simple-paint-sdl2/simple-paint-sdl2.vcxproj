@@ -84,12 +84,12 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>false</WholeProgramOptimization>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2test.lib;SDL2_ttf.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <Profile>true</Profile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -101,6 +101,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
+      <Profile>true</Profile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -136,27 +137,27 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="modules\colors\color.cpp" />
-    <ClCompile Include="modules\container\Container.cpp" />
-    <ClCompile Include="modules\container\ContainerVScroll.cpp" />
-    <ClCompile Include="modules\container\Container_event.cpp" />
-    <ClCompile Include="modules\controls\base_control.cpp" />
     <ClCompile Include="modules\controls\button.cpp" />
+    <ClCompile Include="modules\controls\button_image.cpp" />
     <ClCompile Include="modules\controls\Checkbox.cpp" />
-    <ClCompile Include="modules\controls\dropDownList.cpp" />
+    <ClCompile Include="modules\controls\DropDown.cpp" />
+    <ClCompile Include="modules\controls\DropWindow.cpp" />
     <ClCompile Include="modules\controls\HScroll.cpp" />
-    <ClCompile Include="modules\controls\input.cpp" />
-    <ClCompile Include="modules\controls\itemList.cpp" />
-    <ClCompile Include="modules\controls\label.cpp" />
+    <ClCompile Include="modules\controls\RadioButton.cpp" />
     <ClCompile Include="modules\controls\scale_info.cpp" />
     <ClCompile Include="modules\controls\scroll.cpp" />
-    <ClCompile Include="modules\controls\textField.cpp" />
     <ClCompile Include="modules\controls\VScroll.cpp" />
     <ClCompile Include="modules\controls\_Control.cpp" />
     <ClCompile Include="modules\editor\editor.cpp" />
     <ClCompile Include="modules\editor\editor_event.cpp" />
+    <ClCompile Include="modules\editor\editor_user_event.cpp" />
+    <ClCompile Include="modules\events\events.cpp" />
     <ClCompile Include="modules\layers_viewer\layers_viewer.cpp" />
     <ClCompile Include="modules\layers_viewer\layer_view\layer_view.cpp" />
+    <ClCompile Include="modules\menubar\menubar.cpp" />
+    <ClCompile Include="modules\menubar\menu_item\menu_item.cpp" />
     <ClCompile Include="modules\primitives\primitives.cpp" />
+    <ClCompile Include="modules\styles\styles.cpp" />
     <ClCompile Include="modules\toolbar\toolbar.cpp" />
     <ClCompile Include="modules\toolbar\tools\tool.cpp" />
     <ClCompile Include="modules\viewport\canvas\canvas.cpp" />
@@ -167,33 +168,33 @@
     <ClCompile Include="modules\viewport\scrolls\v_view_scroll.cpp" />
     <ClCompile Include="modules\viewport\viewport.cpp" />
     <ClCompile Include="modules\viewport\viewport_events.cpp" />
-    <ClCompile Include="modules\viewport\work_table\work_table.cpp" />
     <ClCompile Include="modules\window\types\main\main-window.cpp" />
     <ClCompile Include="modules\window\types\main\main-window_event.cpp" />
+    <ClCompile Include="modules\window\types\main\main-window_user_events.cpp" />
     <ClCompile Include="modules\window\window.cpp" />
     <ClCompile Include="modules\window\window_event.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="modules\colors\color.h" />
-    <ClInclude Include="modules\container\Container.h" />
-    <ClInclude Include="modules\container\ContainerVScroll.h" />
-    <ClInclude Include="modules\controls\base_control.h" />
     <ClInclude Include="modules\controls\button.h" />
+    <ClInclude Include="modules\controls\button_image.h" />
     <ClInclude Include="modules\controls\Checkbox.h" />
-    <ClInclude Include="modules\controls\dropDownList.h" />
+    <ClInclude Include="modules\controls\DropDown.h" />
+    <ClInclude Include="modules\controls\DropWindow.h" />
     <ClInclude Include="modules\controls\HScroll.h" />
-    <ClInclude Include="modules\controls\input.h" />
-    <ClInclude Include="modules\controls\itemList.h" />
-    <ClInclude Include="modules\controls\label.h" />
+    <ClInclude Include="modules\controls\RadioButton.h" />
     <ClInclude Include="modules\controls\scale_info.h" />
     <ClInclude Include="modules\controls\scroll.h" />
-    <ClInclude Include="modules\controls\textField.h" />
     <ClInclude Include="modules\controls\VScroll.h" />
     <ClInclude Include="modules\controls\_Control.h" />
     <ClInclude Include="modules\editor\editor.h" />
+    <ClInclude Include="modules\events\events.h" />
     <ClInclude Include="modules\layers_viewer\layers_viewer.h" />
     <ClInclude Include="modules\layers_viewer\layer_view\layer_view.h" />
+    <ClInclude Include="modules\menubar\menubar.h" />
+    <ClInclude Include="modules\menubar\menu_item\menu_item.h" />
     <ClInclude Include="modules\primitives\primitives.h" />
+    <ClInclude Include="modules\styles\styles.h" />
     <ClInclude Include="modules\toolbar\toolbar.h" />
     <ClInclude Include="modules\toolbar\tools\tool.h" />
     <ClInclude Include="modules\viewport\canvas\canvas.h" />
@@ -202,7 +203,6 @@
     <ClInclude Include="modules\viewport\scrolls\h_view_scroll.h" />
     <ClInclude Include="modules\viewport\scrolls\v_view_scroll.h" />
     <ClInclude Include="modules\viewport\viewport.h" />
-    <ClInclude Include="modules\viewport\work_table\work_table.h" />
     <ClInclude Include="modules\window\types\main\main-window.h" />
     <ClInclude Include="modules\window\window.h" />
   </ItemGroup>

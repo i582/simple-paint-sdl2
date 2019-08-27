@@ -1,14 +1,16 @@
 #include "Checkbox.h"
+#include "../editor/editor.h"
 
-Checkbox::Checkbox(SDL_Renderer* renderer, SDL_Texture* parent_target, SDL_Rect size, int style, bool checked, string text, string font, int font_size) :
-	_Control(renderer, size, text, font, font_size)
+Checkbox::Checkbox(SDL_Renderer* renderer, SDL_Texture* parent_target, int control_ID, SDL_Rect size, int style, bool checked) :
+	Control(renderer, parent_target, size, "", control_ID)
 {
 	IMG_Init(IMG_INIT_PNG);
-	this->parent_target = parent_target;
+
 	this->style = style;
 	this->checked = checked;
 	this->border = true;
-	setup();
+
+	init();
 }
 
 Checkbox::~Checkbox()
@@ -17,19 +19,18 @@ Checkbox::~Checkbox()
 	SDL_DestroyTexture(image_unselect);
 }
 
+void Checkbox::init()
+{
+	setup();
+}
+
 void Checkbox::setup()
 {
 	switch (style)
 	{
 	case SIMPLE:
 	{
-		if (size.w == -1 && size.h == -1)
-		{
-			size.w = 25;
-			size.h = 25;
-		}
-
-		border = true;
+		border = false;
 		image_select = IMG_LoadTexture(renderer, "././resources/images/checkbox/select_1.png");
 		image_unselect = IMG_LoadTexture(renderer, "././resources/images/checkbox/unselect_1.png");
 
@@ -38,12 +39,6 @@ void Checkbox::setup()
 
 	case EYE:
 	{
-		if (size.w == -1 && size.h == -1)
-		{
-			size.w = 25;
-			size.h = 25;
-		}
-
 		border = true;
 		image_select = IMG_LoadTexture(renderer, "././resources/images/checkbox/select_eye.png");
 		image_unselect = IMG_LoadTexture(renderer, "././resources/images/checkbox/unselect_eye.png");
@@ -53,12 +48,6 @@ void Checkbox::setup()
 
 	case BLOCK:
 	{
-		if (size.w == -1 && size.h == -1)
-		{
-			size.w = 25;
-			size.h = 25;
-		}
-
 		border = true;
 		image_select = IMG_LoadTexture(renderer, "././resources/images/checkbox/blocked.png");
 		image_unselect = IMG_LoadTexture(renderer, "././resources/images/checkbox/unselect_eye.png");
@@ -71,13 +60,12 @@ void Checkbox::setup()
 		break;
 	}
 
-	texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, size.w, size.h);
 
 	SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
 	//SDL_SetTextureAlphaMod(texture, 0x00);
 }
 
-void Checkbox::update()
+void Checkbox::update_()
 {
 	if (!display)
 		return;
@@ -110,22 +98,43 @@ void Checkbox::update()
 
 	SDL_RenderPresent(renderer);
 	SDL_SetRenderTarget(renderer, parent_target);
-
-	SDL_RenderCopy(renderer, texture, NULL, &size);
-	SDL_RenderPresent(renderer);
 }
 
 void Checkbox::mouseButtonDown(SDL_Event* e)
 {
-
+	
+	check_click_out();
 }
 
 void Checkbox::mouseButtonUp(SDL_Event* e)
 {
+	is_updated = false;
+
+	if (checked)
+	{
+		Editor::push_event(new Event(CHECKBOX, CHECKBOX_UNCHECKED, control_ID));
+	}
+	else
+	{
+		Editor::push_event(new Event(CHECKBOX, CHECKBOX_CHECKED, control_ID));
+	}
+
 	checked = !checked;
 }
 
 void Checkbox::mouseMotion(SDL_Event* e)
+{
+}
+
+void Checkbox::keyDown(SDL_Event* e)
+{
+}
+
+void Checkbox::keyUp(SDL_Event* e)
+{
+}
+
+void Checkbox::textInput(SDL_Event* e)
 {
 }
 

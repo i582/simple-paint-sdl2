@@ -3,12 +3,12 @@
 #include "../viewport/viewport.h"
 #include "ctime"
 
-LayersViewer::LayersViewer(SDL_Renderer* renderer, Viewport* parent, SDL_Rect size)
+LayersViewer::LayersViewer(SDL_Renderer* renderer, Viewport* parent, SDL_Rect size, Layers* layers)
 {
 	this->renderer = renderer;
 	this->parent = parent;
 	this->size = size;
-	this->layers = parent->work_table->canvas->get_layers();
+	this->layers = layers;
 
 	setup();
 }
@@ -130,39 +130,4 @@ void LayersViewer::update_coord(int* x, int* y)
 {
 	*x -= this->size.x;
 	*y -= this->size.y;
-}
-
-void LayersViewer::render_one_layer(int num)
-{
-	int height = 35;
-
-	SDL_Rect layer_size = { 0, height * num, size.w, height };
-
-	// draw body
-	Primitives::fill_rect(&layer_size, Colors::element_background);
-	Primitives::rect(&layer_size, Colors::viewport_border);
-	//
-
-	// draw text
-	SDL_Surface* text_surface = TTF_RenderUTF8_Blended(font, layers->at(num)->name.c_str(), Colors::element_text);
-	SDL_Rect text_rect = { 70, (int)(height * num + (long)(height - text_surface->h) / 2.), text_surface->w, text_surface->h };
-	SDL_Texture* text_texture = SDL_CreateTextureFromSurface(renderer, text_surface);
-	SDL_FreeSurface(text_surface);
-	SDL_RenderCopy(renderer, text_texture, NULL, &text_rect);
-	SDL_DestroyTexture(text_texture);
-	//
-
-	// draw layer view
-	SDL_Rect layers_size = layers->get_size_layers();
-	double aspect_ratio = layers_size.h / layers_size.w;
-	SDL_Rect layer_view = { 40, (int)(8 + height * num), (int)(20 * aspect_ratio), (int)(20 * (1. / aspect_ratio)) };
-	Primitives::fill_rect(&layer_view, Colors::white);
-	SDL_Texture* view = layers->layer_view(num);
-
-	SDL_SetRenderTarget(renderer, texture);
-
-	SDL_RenderCopy(renderer, view, NULL, &layer_view);
-	SDL_DestroyTexture(view);
-	//
-
 }

@@ -5,6 +5,15 @@ Layers::Layers(SDL_Renderer* renderer, SDL_Rect main_size)
 {
 	this->renderer = renderer;
 	this->main_size = main_size;
+	this->texture = nullptr;
+	this->layers = {};
+
+	init();
+}
+
+void Layers::init()
+{
+	this->texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, main_size.w, main_size.h);
 }
 
 void Layers::add(Layer* layer)
@@ -14,12 +23,9 @@ void Layers::add(Layer* layer)
 
 SDL_Texture* Layers::ready_texture()
 {
+	int width = main_size.w;
+	int height = main_size.h;
 
-	int width;
-	int height;
-	SDL_QueryTexture(layers.at(0)->texture, NULL, NULL, &width, &height);
-	SDL_Texture* texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, width, height);
-	
 	SDL_Rect src;
 	SDL_Rect dst;
 
@@ -27,7 +33,7 @@ SDL_Texture* Layers::ready_texture()
 
 	for (auto& layer : layers)
 	{
-		if (!layer->is_show())
+		if (!layer->display)
 			continue;
 
 		src.x = -layer->size.x > 0 ? -layer->size.x : 0;
@@ -60,10 +66,8 @@ SDL_Texture* Layers::ready_texture()
 
 SDL_Texture* Layers::layer_view(int id)
 {
-	int width;
-	int height;
-	SDL_QueryTexture(layers.at(0)->texture, NULL, NULL, &width, &height);
-	SDL_Texture* texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, width, height);
+	int width = main_size.w;
+	int height = main_size.h;
 
 	SDL_Rect src;
 	SDL_Rect dst;

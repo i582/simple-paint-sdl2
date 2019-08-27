@@ -67,11 +67,26 @@
     <Filter Include="Исходные файлы\controls\Checkbox">
       <UniqueIdentifier>{5a45d06d-fcbb-4775-be6b-028fce16ade3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\container">
-      <UniqueIdentifier>{45edf2e6-9392-44da-b48c-e8810c5a682c}</UniqueIdentifier>
+    <Filter Include="Исходные файлы\events">
+      <UniqueIdentifier>{dec539df-cad1-4774-9beb-28d9888ccaa1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\viewport\work_table">
-      <UniqueIdentifier>{c6e30198-02f3-4c51-b6fc-8a99fb226f72}</UniqueIdentifier>
+    <Filter Include="Исходные файлы\menubar">
+      <UniqueIdentifier>{e080e85e-1ad6-4b7e-9400-a4d9f18acbf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\menubar\menu_item">
+      <UniqueIdentifier>{473deda7-a8c1-4b9e-9100-18a7d4c906d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\styles">
+      <UniqueIdentifier>{805f9c50-a100-4a55-b948-23b6db156b58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\controls\DropDown">
+      <UniqueIdentifier>{1d46f481-0c86-4c86-8b20-a2b37dd088cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\controls\Button">
+      <UniqueIdentifier>{0901b70e-8f6f-4be7-9228-caa37a1b1a8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\controls\RadioButton">
+      <UniqueIdentifier>{8858dfe7-25de-4a40-9ad3-032e6c1a8426}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +114,9 @@
     <ClCompile Include="modules\viewport\viewport.cpp">
       <Filter>Исходные файлы\viewport</Filter>
     </ClCompile>
+    <ClCompile Include="modules\viewport\viewport_events.cpp">
+      <Filter>Исходные файлы\viewport</Filter>
+    </ClCompile>
     <ClCompile Include="modules\viewport\canvas\canvas.cpp">
       <Filter>Исходные файлы\viewport\canvas</Filter>
     </ClCompile>
@@ -120,34 +138,10 @@
     <ClCompile Include="modules\toolbar\tools\tool.cpp">
       <Filter>Исходные файлы\toolbar\tools</Filter>
     </ClCompile>
-    <ClCompile Include="modules\controls\base_control.cpp">
-      <Filter>Исходные файлы\controls</Filter>
-    </ClCompile>
-    <ClCompile Include="modules\controls\button.cpp">
-      <Filter>Исходные файлы\controls</Filter>
-    </ClCompile>
-    <ClCompile Include="modules\controls\dropDownList.cpp">
-      <Filter>Исходные файлы\controls</Filter>
-    </ClCompile>
-    <ClCompile Include="modules\controls\HScroll.cpp">
-      <Filter>Исходные файлы\controls</Filter>
-    </ClCompile>
-    <ClCompile Include="modules\controls\input.cpp">
-      <Filter>Исходные файлы\controls</Filter>
-    </ClCompile>
-    <ClCompile Include="modules\controls\itemList.cpp">
-      <Filter>Исходные файлы\controls</Filter>
-    </ClCompile>
-    <ClCompile Include="modules\controls\label.cpp">
-      <Filter>Исходные файлы\controls</Filter>
-    </ClCompile>
     <ClCompile Include="modules\controls\scale_info.cpp">
       <Filter>Исходные файлы\controls</Filter>
     </ClCompile>
     <ClCompile Include="modules\controls\scroll.cpp">
-      <Filter>Исходные файлы\controls</Filter>
-    </ClCompile>
-    <ClCompile Include="modules\controls\textField.cpp">
       <Filter>Исходные файлы\controls</Filter>
     </ClCompile>
     <ClCompile Include="modules\controls\VScroll.cpp">
@@ -174,20 +168,41 @@
     <ClCompile Include="modules\controls\Checkbox.cpp">
       <Filter>Исходные файлы\controls\Checkbox</Filter>
     </ClCompile>
-    <ClCompile Include="modules\container\Container.cpp">
-      <Filter>Исходные файлы\container</Filter>
+    <ClCompile Include="modules\events\events.cpp">
+      <Filter>Исходные файлы\events</Filter>
     </ClCompile>
-    <ClCompile Include="modules\container\Container_event.cpp">
-      <Filter>Исходные файлы\container</Filter>
+    <ClCompile Include="modules\editor\editor_user_event.cpp">
+      <Filter>Исходные файлы\editor</Filter>
     </ClCompile>
-    <ClCompile Include="modules\container\ContainerVScroll.cpp">
-      <Filter>Исходные файлы\container</Filter>
+    <ClCompile Include="modules\menubar\menubar.cpp">
+      <Filter>Исходные файлы\menubar</Filter>
     </ClCompile>
-    <ClCompile Include="modules\viewport\viewport_events.cpp">
-      <Filter>Исходные файлы\viewport</Filter>
+    <ClCompile Include="modules\menubar\menu_item\menu_item.cpp">
+      <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="modules\viewport\work_table\work_table.cpp">
-      <Filter>Исходные файлы\viewport\work_table</Filter>
+    <ClCompile Include="modules\styles\styles.cpp">
+      <Filter>Исходные файлы\styles</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\controls\HScroll.cpp">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\controls\DropDown.cpp">
+      <Filter>Исходные файлы\controls\DropDown</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\controls\button.cpp">
+      <Filter>Исходные файлы\controls\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\controls\DropWindow.cpp">
+      <Filter>Исходные файлы\controls\DropDown</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\controls\button_image.cpp">
+      <Filter>Исходные файлы\controls\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\window\types\main\main-window_user_events.cpp">
+      <Filter>Исходные файлы\window\types\main</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\controls\RadioButton.cpp">
+      <Filter>Исходные файлы\controls\RadioButton</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -221,34 +236,10 @@
     <ClInclude Include="modules\toolbar\tools\tool.h">
       <Filter>Исходные файлы\toolbar\tools</Filter>
     </ClInclude>
-    <ClInclude Include="modules\controls\base_control.h">
-      <Filter>Исходные файлы\controls</Filter>
-    </ClInclude>
-    <ClInclude Include="modules\controls\button.h">
-      <Filter>Исходные файлы\controls</Filter>
-    </ClInclude>
-    <ClInclude Include="modules\controls\dropDownList.h">
-      <Filter>Исходные файлы\controls</Filter>
-    </ClInclude>
-    <ClInclude Include="modules\controls\HScroll.h">
-      <Filter>Исходные файлы\controls</Filter>
-    </ClInclude>
-    <ClInclude Include="modules\controls\input.h">
-      <Filter>Исходные файлы\controls</Filter>
-    </ClInclude>
-    <ClInclude Include="modules\controls\itemList.h">
-      <Filter>Исходные файлы\controls</Filter>
-    </ClInclude>
-    <ClInclude Include="modules\controls\label.h">
-      <Filter>Исходные файлы\controls</Filter>
-    </ClInclude>
     <ClInclude Include="modules\controls\scale_info.h">
       <Filter>Исходные файлы\controls</Filter>
     </ClInclude>
     <ClInclude Include="modules\controls\scroll.h">
-      <Filter>Исходные файлы\controls</Filter>
-    </ClInclude>
-    <ClInclude Include="modules\controls\textField.h">
       <Filter>Исходные файлы\controls</Filter>
     </ClInclude>
     <ClInclude Include="modules\controls\VScroll.h">
@@ -275,14 +266,35 @@
     <ClInclude Include="modules\controls\Checkbox.h">
       <Filter>Исходные файлы\controls\Checkbox</Filter>
     </ClInclude>
-    <ClInclude Include="modules\container\Container.h">
-      <Filter>Исходные файлы\container</Filter>
+    <ClInclude Include="modules\events\events.h">
+      <Filter>Исходные файлы\events</Filter>
     </ClInclude>
-    <ClInclude Include="modules\container\ContainerVScroll.h">
-      <Filter>Исходные файлы\container</Filter>
+    <ClInclude Include="modules\menubar\menubar.h">
+      <Filter>Исходные файлы\menubar</Filter>
     </ClInclude>
-    <ClInclude Include="modules\viewport\work_table\work_table.h">
-      <Filter>Исходные файлы\viewport\work_table</Filter>
+    <ClInclude Include="modules\menubar\menu_item\menu_item.h">
+      <Filter>Исходные файлы\menubar\menu_item</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\styles\styles.h">
+      <Filter>Исходные файлы\styles</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\controls\HScroll.h">
+      <Filter>Исходные файлы\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\controls\DropDown.h">
+      <Filter>Исходные файлы\controls\DropDown</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\controls\DropWindow.h">
+      <Filter>Исходные файлы\controls\DropDown</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\controls\button.h">
+      <Filter>Исходные файлы\controls\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\controls\button_image.h">
+      <Filter>Исходные файлы\controls\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\controls\RadioButton.h">
+      <Filter>Исходные файлы\controls\RadioButton</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

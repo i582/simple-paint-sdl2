@@ -10,7 +10,7 @@ private:
 	Viewport* parent;
 
 public:
-	V_ViewScroll(SDL_Renderer* renderer, Viewport* parent, SDL_Rect size, double now_value, int max_value, int step_size);
+	V_ViewScroll(SDL_Renderer* renderer, Viewport* parent, SDL_Rect size, int now_value, int max_value, int step_size);
 
 public:
 	void update();

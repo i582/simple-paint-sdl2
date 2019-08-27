@@ -8,11 +8,10 @@ enum CheckboxStyles
 	BLOCK = 0x00000003
 };
 
-class Checkbox : public _Control
+class Checkbox : public Control
 {
 
-private:
-	SDL_Texture* parent_target;
+protected:
 	SDL_Texture* image_select;
 	SDL_Texture* image_unselect;
 
@@ -23,19 +22,23 @@ private:
 	bool border;
 
 public:
-	Checkbox(SDL_Renderer* renderer, SDL_Texture* parent_target, SDL_Rect size = { 0, 0, -1, -1 }, int style = SIMPLE, bool checked = false, string text = "", string font = "", int font_size = 0);
-
+	Checkbox(SDL_Renderer* renderer, SDL_Texture* parent_target, int control_ID, SDL_Rect size = { 0, 0, -1, -1 }, int style = SIMPLE, bool checked = false);
+	
 	~Checkbox();
 
-private:
-	void setup();
+protected:
+	void init();
+	virtual void setup();
 
 public:
-	void update();
+	virtual void update_();
 
-	void mouseButtonDown(SDL_Event* e);
-	void mouseButtonUp(SDL_Event* e);
-	void mouseMotion(SDL_Event* e);
+	virtual void mouseButtonDown(SDL_Event* e);
+	virtual void mouseButtonUp(SDL_Event* e);
+	virtual void mouseMotion(SDL_Event* e);
+	virtual void keyDown(SDL_Event* e);
+	virtual void keyUp(SDL_Event* e);
+	virtual void textInput(SDL_Event* e);
 
 	void check();
 	void uncheck();
