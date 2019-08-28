@@ -56,7 +56,7 @@ void Checkbox::setup()
 	}
 
 	default:
-		throw logic_error("Invalid style argument");
+		
 		break;
 	}
 
@@ -102,7 +102,6 @@ void Checkbox::update_()
 
 void Checkbox::mouseButtonDown(SDL_Event* e)
 {
-	
 	check_click_out();
 }
 
@@ -136,19 +135,4 @@ void Checkbox::keyUp(SDL_Event* e)
 
 void Checkbox::textInput(SDL_Event* e)
 {
-}
-
-void Checkbox::check()
-{
-	checked = true;
-}
-
-void Checkbox::uncheck()
-{
-	checked = false;
-}
-
-bool Checkbox::is_checked()
-{
-	return checked;
 }

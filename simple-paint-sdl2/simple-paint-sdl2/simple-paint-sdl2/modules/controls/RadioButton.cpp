@@ -1,10 +1,13 @@
 #include "RadioButton.h"
 #include "../editor/editor.h"
 
-RadioButton::RadioButton(Window* parent, SDL_Texture* parent_target, int group_ID, int control_ID, SDL_Rect size, int style, bool checked)
+RadioButton::RadioButton(Window* parent, SDL_Texture* parent_target, int group_ID, int control_ID, 
+	SDL_Rect size, vector <Control*>* friends, int style, bool checked)
 	: Checkbox(parent->getRenderer(), parent_target, control_ID, size, style, checked)
 {
 	this->group_ID = group_ID;
+	this->friends = friends;
+	setup();
 }
 
 void RadioButton::setup()
@@ -21,7 +24,7 @@ void RadioButton::setup()
 	}
 
 	default:
-		throw logic_error("Invalid style argument");
+		
 		break;
 	}
 
@@ -73,16 +76,16 @@ void RadioButton::mouseButtonUp(SDL_Event* e)
 {
 	is_updated = false;
 
-	if (checked)
+	for (auto& friend_ : *friends)
 	{
-		Editor::push_event(new Event(RADIOBUTTON, RADIOBUTTON_UNCHECKED, control_ID));
-	}
-	else
-	{
-		Editor::push_event(new Event(RADIOBUTTON, RADIOBUTTON_CHECKED, control_ID));
+		friend_->uncheck();
 	}
 
-	checked = !checked;
+
+	Editor::push_event(new Event(RADIOBUTTON, RADIOBUTTON_CHECKED, control_ID));
+	
+
+	checked = true;
 }
 
 void RadioButton::mouseMotion(SDL_Event* e)

@@ -24,6 +24,8 @@ private:
 	MainWindow* main_window;
 	SDL_Event e;
 
+	int selected_tool;
+
 public:
 	Editor(int width, int height);
 	~Editor();

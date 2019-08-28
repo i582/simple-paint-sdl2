@@ -1,9 +1,10 @@
 #include "toolbar.h"
 #include "ctime"
 
-Toolbar::Toolbar(SDL_Renderer* renderer, SDL_Rect size)
+Toolbar::Toolbar(Window* parent, SDL_Rect size)
 {
-	this->renderer = renderer;
+	this->parent = parent;
+	this->renderer = parent->getRenderer();
 	this->size = size;
 
 	init();
@@ -25,11 +26,24 @@ void Toolbar::init()
 
 	SDL_RenderPresent(renderer);
 
-	tools.push_back(new Tool(renderer, TOOL_0, 5, 5));
-	tools.push_back(new Tool(renderer, TOOL_1, 5, 35));
-	tools.push_back(new Tool(renderer, TOOL_2, 5, 65));
-	tools.push_back(new Tool(renderer, TOOL_3, 5, 95));
-	tools.push_back(new Tool(renderer, TOOL_4, 5, 125));
+
+	auto tools1 = new vector<Control*>;
+
+	Tool* tool1 = new Tool(parent, texture, 1, 128, { (size.w - 30) / 2, 0, 30, 25 }, tools1, TOOL_MOVE);
+	Tool* tool2 = new Tool(parent, texture, 1, 129, { (size.w - 30) / 2, 27, 30, 25 }, tools1, TOOL_SELECT);
+	Tool* tool3 = new Tool(parent, texture, 1, 130, { (size.w - 30) / 2, 54, 30, 25 }, tools1, TOOL_DRAW);
+	Tool* tool4 = new Tool(parent, texture, 1, 131, { (size.w - 30) / 2, 81, 30, 25 }, tools1, TOOL_RECTANGLE);
+	Tool* tool5 = new Tool(parent, texture, 1, 132, { (size.w - 30) / 2, 108, 30, 25 }, tools1, TOOL_LINE);
+	tools1->push_back(tool1);
+	tools1->push_back(tool2);
+	tools1->push_back(tool3);
+	tools1->push_back(tool4);
+	tools1->push_back(tool5);
+	tools.push_back(tool1);
+	tools.push_back(tool2);
+	tools.push_back(tool3);
+	tools.push_back(tool4);
+	tools.push_back(tool5);
 }
 
 void Toolbar::update()
@@ -52,7 +66,7 @@ void Toolbar::render_tools()
 
 	for (auto& tool : tools)
 	{
-		tool->render();
+		tool->update();
 	}
 
 	SDL_SetRenderTarget(renderer, NULL);
@@ -63,6 +77,15 @@ void Toolbar::mouseButtonDown(SDL_Event* e)
 	SDL_GetMouseState(&mouse_coord.x, &mouse_coord.y);
 	update_coord(&mouse_coord.x, &mouse_coord.y);
 
+	for (auto& tool : tools)
+	{
+		if (tool->on_hover(mouse_coord.x, mouse_coord.y))
+		{
+			tool->do_update()->mouseButtonDown(e);
+		}
+	}
+
+	update();
 }
 
 void Toolbar::mouseButtonUp(SDL_Event* e)
@@ -74,11 +97,7 @@ void Toolbar::mouseButtonUp(SDL_Event* e)
 	{
 		if (tool->on_hover(mouse_coord.x, mouse_coord.y))
 		{
-			tool->set_selected(true);
-		}
-		else
-		{
-			tool->set_selected(false);
+			tool->do_update()->mouseButtonUp(e);
 		}
 	}
 
@@ -93,9 +112,13 @@ void Toolbar::mouseMotion(SDL_Event* e)
 	for (auto& tool : tools)
 	{
 		if (tool->on_hover(mouse_coord.x, mouse_coord.y))
-			tool->set_hover(true);
+		{
+			tool->hover();
+		}
 		else
-			tool->set_hover(false);
+		{
+			tool->unhover();
+		}
 	}
 
 	update();
@@ -109,9 +132,7 @@ bool Toolbar::on_hover(int x, int y)
 
 int Toolbar::get_tool()
 {
-	for (auto& tool : tools)
-		if (tool->is_selected())
-			return tool->get_tool_type();
+	return 0;
 }
 
 void Toolbar::update_coord(int* x, int* y)

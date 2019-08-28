@@ -15,7 +15,6 @@ protected:
 	SDL_Texture* image_select;
 	SDL_Texture* image_unselect;
 
-	bool checked;
 
 	int style;
 
@@ -40,8 +39,5 @@ public:
 	virtual void keyUp(SDL_Event* e);
 	virtual void textInput(SDL_Event* e);
 
-	void check();
-	void uncheck();
-	bool is_checked();
 };
 

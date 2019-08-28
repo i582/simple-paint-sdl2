@@ -14,15 +14,20 @@ Control::Control(SDL_Renderer* renderer, SDL_Texture* parent_target, SDL_Rect si
 	this->font = nullptr;
 
 	this->control_ID = control_ID;
+	this->group_ID = -1;
 
 	this->blocked = false;
 	this->display = true;
 	this->click = false;
 	this->focused = false;
 	this->hovered = false;
+	this->checked = false;
+
 	this->is_updated = false;
 
 	this->mouse_p = { 0, 0 };
+
+	this->friends = nullptr;
 
 	init();
 }
@@ -181,6 +186,25 @@ bool Control::is_focus()
 	return focused;
 }
 
+Control* const Control::check()
+{
+	checked = true;
+	is_updated = false;
+	return this;
+}
+
+Control* const Control::uncheck()
+{
+	checked = false;
+	is_updated = false;
+	return this;
+}
+
+bool Control::is_checked()
+{
+	return checked;
+}
+
 Control* const Control::hover()
 {
 	hovered = true;
@@ -204,6 +228,21 @@ Control* const Control::do_update()
 {
 	is_updated = false;
 	return this;
+}
+
+int Control::get_group_id()
+{
+	return group_ID;
+}
+
+auto Control::get_friends()
+{
+	return friends;
+}
+
+bool Control::have_friends()
+{
+	return friends != nullptr && friends->size();
 }
 
 bool Control::on_hover(int x, int y)

@@ -39,4 +39,5 @@ struct Colors
 	static SDL_Color tool_selected;
 	static SDL_Color tool_border;
 	
+	static SDL_Color drop_down_back;
 };

@@ -19,8 +19,6 @@ enum Align
 	CENTER_ALIGN
 };
 
-
-
 class Control
 {
 protected:
@@ -39,14 +37,18 @@ protected:
 	SDL_Point mouse_p;
 
 	int control_ID;
+	int group_ID;
 
 	bool blocked;
 	bool display;
 	bool click;
 	bool focused;
 	bool hovered;
+	bool checked;
 
 	bool is_updated;
+
+	vector <Control*>* friends;
 
 public:
 	Control(SDL_Renderer* renderer, SDL_Texture* parent_target, SDL_Rect size, string text, int control_ID);
@@ -86,11 +88,20 @@ public:
 	Control* const unfocus();
 	bool is_focus();
 
+	Control* const check();
+	Control* const uncheck();
+	bool is_checked();
+
 	Control* const hover();
 	Control* const unhover();
 	bool is_hover_();
 
 	Control* const do_update();
+
+	int get_group_id();
+
+	auto get_friends();
+	bool have_friends();
 
 	virtual bool on_hover(int x, int y);
 	void update_coord(int* x, int* y);

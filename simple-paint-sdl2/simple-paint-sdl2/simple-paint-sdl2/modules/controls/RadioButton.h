@@ -4,16 +4,16 @@
 class RadioButton : public Checkbox
 {
 private:
-	int group_ID;
+	
 
 public:
-	RadioButton(Window* parent, SDL_Texture* parent_target, int group_ID, int control_ID, SDL_Rect size, int style = SIMPLE, bool checked = false);
+	RadioButton(Window* parent, SDL_Texture* parent_target, int group_ID, int control_ID, SDL_Rect size, vector <Control*>* friends, int style = SIMPLE, bool checked = false);
 
 private:
 	virtual void setup();
 
 public:
-	virtual void update_();
+	virtual void update_(); 
 
 	virtual void mouseButtonDown(SDL_Event* e);
 	virtual void mouseButtonUp(SDL_Event* e);

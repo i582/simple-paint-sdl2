@@ -27,8 +27,6 @@ private:
 	Toolbar* toolbar;
 	MenuBar* menubar;
 
-	DropDownList* dropdown;
-
 	vector <Control*> controls;
 	Control* focus_element;
 

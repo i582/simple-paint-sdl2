@@ -11,14 +11,14 @@ void MainWindow::mouseButtonDown(SDL_Event* e)
 		viewport->mouseButtonDown(e);
 	}
 
+	if (toolbar->on_hover(mouse_coord.x, mouse_coord.y))
+	{
+		toolbar->mouseButtonDown(e);
+	}
+
 	if (layers_viewer->on_hover(mouse_coord.x, mouse_coord.y))
 	{
 		layers_viewer->mouseButtonDown(e);
-	}
-	
-	if (dropdown->on_hover(mouse_coord.x, mouse_coord.y))
-	{
-		dropdown->mouseButtonDown(e);
 	}
 
 	if (menubar->on_hover(mouse_coord.x, mouse_coord.y))
@@ -73,11 +73,6 @@ void MainWindow::mouseButtonUp(SDL_Event* e)
 	if (layers_viewer->on_hover(mouse_coord.x, mouse_coord.y))
 	{
 		layers_viewer->mouseButtonUp(e);
-	}
-	
-	if (dropdown->on_hover(mouse_coord.x, mouse_coord.y))
-	{
-		dropdown->mouseButtonUp(e);
 	}
 	
 	if (menubar->on_hover(mouse_coord.x, mouse_coord.y))

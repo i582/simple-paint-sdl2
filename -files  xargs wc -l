@@ -1,0 +1,97 @@
+[33mcommit 8d0d711cf69bcf5972b72e70c07611d950dbcdb6[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: i582 <i58215@voenmeh.ru>
+Date:   Tue Aug 27 18:50:41 2019 +0300
+
+    update
+
+1	1	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/colors/color.cpp
+0	59	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/container/Container.cpp
+0	42	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/container/Container.h
+0	71	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/container/ContainerVScroll.cpp
+0	21	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/container/ContainerVScroll.h
+0	65	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/container/Container_event.cpp
+38	29	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/controls/Checkbox.cpp
+15	12	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/controls/Checkbox.h
+97	0	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/controls/DropDown.cpp
+27	0	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/controls/DropDown.h
+55	0	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/controls/DropWindow.cpp
+27	0	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/controls/DropWindow.h
+6	5	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/controls/HScroll.cpp
+1	1	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/controls/HScroll.h
+102	0	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/controls/RadioButton.cpp
+24	0	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/controls/RadioButton.h
+6	6	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/controls/VScroll.cpp
+1	1	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/controls/VScroll.h
+184	15	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/controls/_Control.cpp
+63	12	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/controls/_Control.h
+69	31	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/controls/button.cpp
+20	5	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/controls/button.h
+50	0	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/controls/button_image.cpp
+19	0	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/controls/button_image.h
+42	19	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/controls/scale_info.cpp
+15	2	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/controls/scale_info.h
+3	4	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/controls/scroll.cpp
+4	2	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/controls/scroll.h
+24	1	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/editor/editor.cpp
+10	1	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/editor/editor.h
+71	54	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/editor/editor_event.cpp
+43	0	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/editor/editor_user_event.cpp
+21	0	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/events/events.cpp
+70	0	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/events/events.h
+7	6	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/layers_viewer/layer_view/layer_view.cpp
+2	37	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/layers_viewer/layers_viewer.cpp
+1	1	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/layers_viewer/layers_viewer.h
+55	0	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/menubar/menu_item/menu_item.cpp
+31	0	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/menubar/menu_item/menu_item.h
+93	0	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/menubar/menubar.cpp
+34	0	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/menubar/menubar.h
+9	0	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/styles/styles.cpp
+17	0	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/styles/styles.h
+86	25	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/viewport/canvas/canvas.cpp
+30	4	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/viewport/canvas/canvas.h
+9	6	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/viewport/canvas/canvas_event.cpp
+14	10	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/viewport/canvas/layers/layers.cpp
+5	0	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/viewport/canvas/layers/layers.h
+7	8	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/viewport/scrolls/h_view_scroll.cpp
+1	1	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/viewport/scrolls/h_view_scroll.h
+8	7	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/viewport/scrolls/v_view_scroll.cpp
+1	1	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/viewport/scrolls/v_view_scroll.h
+0	94	"simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/viewport/viewport \342\200\224 \320\272\320\276\320\277\320\270\321\217.h"
+43	28	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/viewport/viewport.cpp
+11	13	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/viewport/viewport.h
+32	12	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/viewport/viewport_events.cpp
+0	136	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/viewport/work_table/work_table.cpp
+0	64	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/viewport/work_table/work_table.h
+85	8	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/window/types/main/main-window.cpp
+31	8	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/window/types/main/main-window.h
+58	56	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/window/types/main/main-window_event.cpp
+94	0	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/window/types/main/main-window_user_events.cpp
+25	1	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/window/window.cpp
+14	1	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/window/window.h
+-	-	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/resources/images/back.png
+-	-	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/resources/images/backa.png
+-	-	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/resources/images/checkbox/select_1.png
+-	-	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/resources/images/checkbox/unselect_1.png
+-	-	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/resources/images/icon.png
+-	-	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/resources/images/icon_1.png
+-	-	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/resources/images/radiobutton/select.png
+-	-	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/resources/images/radiobutton/unselect.png
+-	-	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/resources/images/system_icon/collapse.png
+-	-	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/resources/images/system_icon/exit.png
+-	-	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/resources/images/system_icon/expand.png
+20	20	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2.vcxproj
+80	68	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2.vcxproj.filters
+
+[33mcommit 924104116454d863c6fd05a2bf52ab15571e52b5[m
+Author: i582 <i58215@voenmeh.ru>
+Date:   Sun Aug 25 00:09:37 2019 +0300
+
+    --
+
+2	2	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/layers_viewer/layers_viewer.cpp
+1	1	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/layers_viewer/layers_viewer.h
+14	82	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/viewport/canvas/canvas.cpp
+4	30	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/viewport/canvas/canvas.h
+6	6	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/viewport/canvas/canvas_event.cpp
+4	4	simple-paint-sdl2/simple-paint-sdl2/simple-paint-sdl2/modules/viewport/scrolls/h_view_scroll.cpp
+4	4	simple-paint-sdl2/simple-paint-sdl2/simple-pai

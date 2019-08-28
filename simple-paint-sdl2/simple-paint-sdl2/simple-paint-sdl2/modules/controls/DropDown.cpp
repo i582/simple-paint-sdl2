@@ -30,25 +30,15 @@ void DropDownList::update_()
 		SDL_SetRenderDrawColor(renderer, Colors::element_blocked.r, Colors::element_blocked.g, Colors::element_blocked.b, 0xFF);
 	else
 		if (click)
-			SDL_SetRenderDrawColor(renderer, Colors::element_background_click.r, Colors::element_background_click.g, Colors::element_background_click.b, 0xFF);
+			SDL_SetRenderDrawColor(renderer, Colors::drop_down_back.r, Colors::drop_down_back.g, Colors::drop_down_back.b, 0xFF);
 		else
-			SDL_SetRenderDrawColor(renderer, Colors::element_background.r, Colors::element_background.g, Colors::element_background.b, 0xFF);
+			if (opened)
+				SDL_SetRenderDrawColor(renderer, Colors::drop_down_back.r, Colors::drop_down_back.g, Colors::drop_down_back.b, 0xFF);
+			else
+				SDL_SetRenderDrawColor(renderer, Colors::background.r, Colors::background.g, Colors::background.b, 0xFF);
 	SDL_RenderFillRect(renderer, NULL);
 
-
-	if (click && !blocked || focused)
-		SDL_SetRenderDrawColor(renderer, Colors::element_background_click.r, Colors::element_background_click.g, Colors::element_background_click.b, 0xFF);
-	else
-		SDL_SetRenderDrawColor(renderer, Colors::element_border.r, Colors::element_border.g, Colors::element_border.b, 0xFF);
-	SDL_RenderDrawRect(renderer, NULL);
-
-
 	render_text(text, { 0, 0, size.w, size.h }, CENTER_ALIGN);
-
-	SDL_SetRenderTarget(renderer, parent_target);
-
-	SDL_RenderCopy(renderer, texture, NULL, &size);
-	SDL_RenderPresent(renderer); 
 }
 
 void DropDownList::mouseButtonDown(SDL_Event* e)
@@ -58,26 +48,24 @@ void DropDownList::mouseButtonDown(SDL_Event* e)
 	 
 	if (opened)
 	{
-		MainWindow::drop_window->hide();
-		opened = false;
+		//MainWindow::drop_window->hide();
+		//opened = false;
 	}
 	else
 	{
 		MainWindow::drop_window->set_position(size.x + parent->x, size.y + size.h + parent->y);
-		MainWindow::drop_window->show();
+		//MainWindow::drop_window->show();
 		MainWindow::drop_window->render();
-		opened = true;
+		//opened = true;
 	}
 
-	update();
+	check_click_out();
 }
 
 void DropDownList::mouseButtonUp(SDL_Event* e)
 {
 	is_updated = false;
 	click = false;
-
-	update();
 }
 
 void DropDownList::mouseMotion(SDL_Event* e)

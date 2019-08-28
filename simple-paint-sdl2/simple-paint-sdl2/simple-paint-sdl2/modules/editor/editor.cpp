@@ -18,7 +18,7 @@ Editor::Editor(int width, int height)
 	this->main_window = new MainWindow("NIA Editor", &r, SDL_WINDOW_BORDERLESS);
 	
 	this->main_window->render();
-
+	this->selected_tool = 1;
 }
 
 Editor::~Editor()

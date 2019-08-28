@@ -1,11 +1,15 @@
 #pragma once
 #include "tools/tool.h"
 #include "vector"
+
+#include "../window/window.h"
+
 using namespace std;
 
 class Toolbar
 {
 private:
+	Window* parent;
 	SDL_Renderer* renderer;
 	SDL_Texture* texture;
 	SDL_Rect size;
@@ -15,7 +19,7 @@ private:
 	SDL_Point mouse_coord;
 
 public:
-	Toolbar(SDL_Renderer* renderer, SDL_Rect size);
+	Toolbar(Window* parent, SDL_Rect size);
 	~Toolbar();
 
 private:

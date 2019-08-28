@@ -31,7 +31,7 @@ SDL_HitTestResult MainWindow::HitTest(SDL_Window* wind, const SDL_Point* area, v
 void MainWindow::setup()
 {
 	SDL_Rect* r = new SDL_Rect;
-	*r = { 0, 0, width - 150, 35 };
+	*r = { 135, 0, width - 285, 35 };
 	SDL_SetWindowHitTest(window, HitTest, r);
 
 
@@ -39,7 +39,7 @@ void MainWindow::setup()
 
 	show();
 
-	viewport = new Viewport(renderer, 50, 35, 1000, 660);
+	viewport = new Viewport(renderer, 40, 35, 1000, 660);
 	canvas = new Canvas(renderer, viewport, 100, 100, 1000, 1000);
 
 	layers_viewer = new LayersViewer(renderer, viewport, { 1052, 495, 295, 201 }, canvas->get_layers());
@@ -48,11 +48,11 @@ void MainWindow::setup()
 	viewport->set_canvas(canvas);
 
 	
-	toolbar = new Toolbar(renderer, { 1, 30, 40, 640 });
+	toolbar = new Toolbar(this, { 1, 35, 40, 640 });
 	menubar = new MenuBar(this, { 0, 0, width, 0 }, 15);
 
-	dropdown = new DropDownList(this, NULL, "drop", 100, { 1200, 100, 100, 20 });
-
+	CreateControl(new DropDownList(this, NULL, "File", 100, { 35, 8, 50, 20 }));
+	CreateControl(new DropDownList(this, NULL, "Edit", 101, { 85, 8, 50, 20 }));
 
 
 	CreateControl(new Button(this, NULL, 123, "Save", { 1100, 50, 60, 25 }));
@@ -61,7 +61,20 @@ void MainWindow::setup()
 
 	CreateControl(new Checkbox(renderer, NULL, 126, { 1200, 50 , 16, 16 }));
 
-	CreateControl(new RadioButton(this, NULL, 1, 126, { 1250, 50 , 16, 16 }));
+
+	auto radio_buttons1 = new vector<Control*>;
+
+	RadioButton* radio1 = new RadioButton(this, NULL, 1, 128, { 1250, 50, 16, 16 }, radio_buttons1);
+	RadioButton* radio2 = new RadioButton(this, NULL, 1, 129, { 1250, 70, 16, 16 }, radio_buttons1);
+	RadioButton* radio3 = new RadioButton(this, NULL, 1, 130, { 1250, 90, 16, 16 }, radio_buttons1);
+	radio_buttons1->push_back(radio1);
+	radio_buttons1->push_back(radio2);
+	radio_buttons1->push_back(radio3);
+	CreateControl(radio1);
+	CreateControl(radio2);
+	CreateControl(radio3);
+
+	//CreateControl(new RadioButton(this, NULL, 2, 130, { 1250, 110, 16, 16 }));
 
 	CreateControl(new ButtonImg(this, NULL, SYSTEM_EXIT, "", { width - 51, 1, 49, 34 }, Styles::path_to_SystemExit));
 	CreateControl(new ButtonImg(this, NULL, SYSTEM_EXPAND, "", { width - 101, 1, 49, 34 }, Styles::path_to_SystemExpand));
@@ -97,8 +110,6 @@ void MainWindow::render()
 	toolbar->update();
 
 	menubar->update();
-
-	dropdown->update();
 
 	update();
 

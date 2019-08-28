@@ -35,7 +35,7 @@ void Canvas::mouseMotion(SDL_Event* e)
 			(int)(e->motion.yrel / get_size_factor())
 		);
 
-		Editor::push_event(new Event(BUTTON, BUTTON_PRESSED, 10));
+		//Editor::push_event(new Event(BUTTON, BUTTON_PRESSED, 10));
 
 		update();
 	}

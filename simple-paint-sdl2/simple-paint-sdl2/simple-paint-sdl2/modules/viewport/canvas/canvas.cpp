@@ -12,7 +12,7 @@ Canvas::Canvas(SDL_Renderer* renderer, Viewport* parent, int x, int y, int width
 
 	this->texture = nullptr;
 	this->layers = nullptr;
-	this->size_factor = 1.0;
+	this->size_factor = 0.5;
 	this->pos_mouse = { 0, 0 };
 	this->parent = parent;
 
