@@ -15,3 +15,4 @@ struct Styles
 	static const string path_to_SystemCollapse;
 	static const string path_to_SystemExpand;
 };
+;

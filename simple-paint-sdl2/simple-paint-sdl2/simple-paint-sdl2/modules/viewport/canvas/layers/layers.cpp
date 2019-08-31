@@ -14,6 +14,15 @@ Layers::Layers(SDL_Renderer* renderer, SDL_Rect main_size)
 void Layers::init()
 {
 	this->texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, main_size.w, main_size.h);
+
+	//SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+	SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+
+	SDL_SetRenderTarget(renderer, texture);
+	SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0x00);
+	SDL_RenderClear(renderer);
+	SDL_SetRenderTarget(renderer, NULL);
+
 }
 
 void Layers::add(Layer* layer)
@@ -23,6 +32,8 @@ void Layers::add(Layer* layer)
 
 SDL_Texture* Layers::ready_texture()
 {
+	int count_visible = 0;
+
 	int width = main_size.w;
 	int height = main_size.h;
 
@@ -31,6 +42,9 @@ SDL_Texture* Layers::ready_texture()
 
 	SDL_SetRenderTarget(renderer, texture);
 
+	SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0x00);
+	SDL_RenderClear(renderer);
+
 	for (auto& layer : layers)
 	{
 		if (!layer->display)
@@ -38,13 +52,13 @@ SDL_Texture* Layers::ready_texture()
 
 		src.x = -layer->size.x > 0 ? -layer->size.x : 0;
 		src.y = -layer->size.y > 0 ? -layer->size.y : 0;
-		src.w = layer->size.w + layer->size.x > main_size.w ? main_size.w : layer->size.w + layer->size.x;
-		src.h = layer->size.h + layer->size.y > main_size.h ? main_size.h : layer->size.h + layer->size.y;
+		src.w = layer->size.w + layer->size.x > width ? width : layer->size.w + layer->size.x;
+		src.h = layer->size.h + layer->size.y > height ? height : layer->size.h + layer->size.y;
 
 		dst.x = layer->size.x > 0 ? layer->size.x : 0;
 		dst.y = layer->size.y > 0 ? layer->size.y : 0;
-		dst.w = layer->size.w + layer->size.x < width ? layer->size.w + layer->size.x : width;
-		dst.h = layer->size.h + layer->size.y < height ? layer->size.h + layer->size.y : height;
+		dst.w = layer->size.x > 0 ? layer->size.w : layer->size.w + layer->size.x;
+		dst.h = layer->size.y > 0 ? layer->size.h : layer->size.h + layer->size.y;
 
 		SDL_SetTextureBlendMode(layer->texture, layer->blend_mode);
 		SDL_SetTextureAlphaMod(layer->texture, layer->alpha);
@@ -53,16 +67,21 @@ SDL_Texture* Layers::ready_texture()
 
 		SDL_RenderCopy(renderer, layer->texture, &src, &dst);
 		SDL_RenderPresent(renderer);
+
+		count_visible++;
 	}
 
 	
 	SDL_SetRenderTarget(renderer, NULL);
 
-	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
-
+	if (count_visible == 0)
+	{
+		return nullptr;
+	}
 
 	return texture;
 }
+
 
 SDL_Texture* Layers::layer_view(int id)
 {
@@ -74,16 +93,20 @@ SDL_Texture* Layers::layer_view(int id)
 
 	SDL_SetRenderTarget(renderer, texture);
 
+	SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0x00);
+	SDL_RenderClear(renderer);
 
-	src.x = -layers.at(id)->size.x > 0 ? -layers.at(id)->size.x : 0;
-	src.y = -layers.at(id)->size.y > 0 ? -layers.at(id)->size.y : 0;
-	src.w = layers.at(id)->size.w + layers.at(id)->size.x > main_size.w ? main_size.w : layers.at(id)->size.w + layers.at(id)->size.x;
-	src.h = layers.at(id)->size.h + layers.at(id)->size.y > main_size.h ? main_size.h : layers.at(id)->size.h + layers.at(id)->size.y;
+	Layer* layer = layers.at(id);
 
-	dst.x = layers.at(id)->size.x > 0 ? layers.at(id)->size.x : 0;
-	dst.y = layers.at(id)->size.y > 0 ? layers.at(id)->size.y : 0;
-	dst.w = layers.at(id)->size.w + layers.at(id)->size.x < width ? layers.at(id)->size.w + layers.at(id)->size.x : width;
-	dst.h = layers.at(id)->size.h + layers.at(id)->size.y < height ? layers.at(id)->size.h + layers.at(id)->size.y : height;
+	src.x = -layer->size.x > 0 ? -layer->size.x : 0;
+	src.y = -layer->size.y > 0 ? -layer->size.y : 0;
+	src.w = layer->size.w + layer->size.x > width ? width : layer->size.w + layer->size.x;
+	src.h = layer->size.h + layer->size.y > height ? height : layer->size.h + layer->size.y;
+
+	dst.x = layer->size.x > 0 ? layer->size.x : 0;
+	dst.y = layer->size.y > 0 ? layer->size.y : 0;
+	dst.w = layer->size.x > 0 ? layer->size.w : layer->size.w + layer->size.x;
+	dst.h = layer->size.y > 0 ? layer->size.h : layer->size.h + layer->size.y;
 
 	SDL_SetTextureBlendMode(layers.at(id)->texture, SDL_BLENDMODE_NONE);
 	SDL_SetTextureAlphaMod(layers.at(id)->texture, 0xFF);

@@ -1,13 +1,18 @@
 #pragma once
-#include "base_control.h"
+#include "_Control.h"
 
-class Label : public Control {
-private:
-	// none
+class Label : public Control
+{
 public:
-	Label(SDL_Rect _sizes, string _new_string, string _font, int _font_size, int _text_align) : Control(_sizes, _new_string, _font, _font_size, _text_align)
-	{};
+	Label(Window* parent, SDL_Texture* parent_target, int control_ID, string text, SDL_Rect size, TTF_Font* font);
+
 public:
-	void render();
-	void set_text(string text);
+	void update_();
+
+	void mouseButtonDown(SDL_Event* e);
+	void mouseButtonUp(SDL_Event* e);
+	void mouseMotion(SDL_Event* e);
+	void keyDown(SDL_Event* e);
+	void keyUp(SDL_Event* e);
+	void textInput(SDL_Event* e);
 };

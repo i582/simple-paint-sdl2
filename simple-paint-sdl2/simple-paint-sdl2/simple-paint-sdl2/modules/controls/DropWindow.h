@@ -20,6 +20,7 @@ public:
 	void mouseWheel(SDL_Event* e);
 	void keyDown(SDL_Event* e);
 	void keyUp(SDL_Event* e);
+	void textInput(SDL_Event* e);
 
 	void handleUserEvents(Event* ev);
 

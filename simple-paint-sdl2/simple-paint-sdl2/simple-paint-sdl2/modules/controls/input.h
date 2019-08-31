@@ -1,22 +1,18 @@
 #pragma once
-#include "base_control.h"
+#include "_Control.h"
 
-class Input : public Control {
-private:
-	bool focus;
+class Input : public Control
+{
+public:
+	Input(Window* parent, SDL_Texture* parent_target, int control_ID, string text, SDL_Rect size, TTF_Font* font = Resources::font_lato_12px);
 
 public:
-	Input(SDL_Rect _sizes, string _font, int _font_size, int _text_align) : Control(_sizes, "", _font, _font_size, _text_align)
-	{
-		focus = false;
-	};
+	void update_();
 
-public:
-
-	void render();
-	void onEvent(SDL_Event* e);
-	void in_focus();
-	void out_focus();
-	string get_value();
-	void clear();
+	void mouseButtonDown(SDL_Event* e);
+	void mouseButtonUp(SDL_Event* e);
+	void mouseMotion(SDL_Event* e);
+	void keyDown(SDL_Event* e);
+	void keyUp(SDL_Event* e);
+	void textInput(SDL_Event* e);
 };

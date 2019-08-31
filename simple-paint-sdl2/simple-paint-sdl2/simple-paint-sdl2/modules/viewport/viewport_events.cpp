@@ -79,7 +79,7 @@ void Viewport::mouseWheel(SDL_Event* e)
 		}
 		else
 		{
-			SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
+			SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "2");
 		}
 	
 

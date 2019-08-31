@@ -1,4 +1,5 @@
 #pragma once
+
 #include "vector"
 #include "../../window.h"
 #include "../../../viewport/viewport.h"
@@ -12,6 +13,7 @@
 #include "../../../controls/button_image.h"
 
 #include "../../../controls/RadioButton.h"
+
 
 class MainWindow : public Window 
 {
@@ -30,7 +32,8 @@ private:
 	vector <Control*> controls;
 	Control* focus_element;
 
-	SDL_Texture* back;
+	
+	SDL_Rect canvas_size;
 
 public:
 	MainWindow(string title, SDL_Rect* sizes, Uint32 flags);
@@ -43,6 +46,9 @@ public:
 public:
 	void update();
 	void setup();
+
+	void setup_canvas(SDL_Rect canvas_size);
+
 	void render();
 
 	void resized();
@@ -58,6 +64,7 @@ public:
 	void mouseWheel(SDL_Event* e);
 	void keyDown(SDL_Event* e);
 	void keyUp(SDL_Event* e);
+	void textInput(SDL_Event* e);
 
 	void handleUserEvents(Event* ev);
 };

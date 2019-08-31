@@ -10,34 +10,47 @@ void Editor::sendHandleUserEvent()
 		Event* ev = events.front();
 		events.pop_back();
 
-		
-
-		switch (ev->common.object_id)
+		switch (e.window.windowID)
 		{
 
-		case SYSTEM_EXIT:
+		case WINDOW_NEW_DOCUMENT:
 		{
-			switch (ev->common.action)
-			{
 
-			case BUTTON_RELEASED:
+			if (ev->common.object_id == SYSTEM_EXIT &&
+				ev->common.action == BUTTON_RELEASED)
 			{
 				quit();
-				break;
+				return;
 			}
 
-			default:break;
-			}
+
+
+			new_document->handleUserEvents(ev);
 
 			break;
 		}
-		
+
+
+
+		case WINDOW_MAIN:
+		{
+
+			if (ev->common.object_id == SYSTEM_EXIT &&
+				ev->common.action == BUTTON_RELEASED)
+			{
+				quit();
+				return;
+			}
+
+	
+			main_window->handleUserEvents(ev);
+
+			break;
+		}
 
 		default:
-			main_window->handleUserEvents(ev);
+			throw "Error unhandled window with";
 			break;
 		}
-
 	}
-
 }

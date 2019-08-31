@@ -4,13 +4,7 @@
 class Button : public Control
 {
 public:
-	static Uint32 animate(Uint32 interval, void* param);
-
-private:
-	
-
-public:
-	Button(Window* parent, SDL_Texture* parent_target, int control_ID, string text, SDL_Rect size);
+	Button(Window* parent, SDL_Texture* parent_target, int control_ID, string text, SDL_Rect size, TTF_Font* font = Resources::font_lato_12px);
 
 public:
 	void update_();

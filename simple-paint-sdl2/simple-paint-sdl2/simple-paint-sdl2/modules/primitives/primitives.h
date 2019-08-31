@@ -5,7 +5,10 @@
 #include "../colors/color.h"
 #include "queue"
 
-class Primitives{
+//#include "SDL2_gfxPrimitives.h"
+
+class Primitives
+{
 public:
 	static SDL_Renderer* renderer;
 	static SDL_Color* color;
@@ -16,6 +19,8 @@ private:
 	static inline double frac_part(double num);
 
 	static void render_pixel(int x, int y, double bright);
+
+	static void circle_part(int x, int y, int rad, int part);
 
 public:
 	/*
@@ -93,12 +98,14 @@ public:
 	/*
 	 * Отрисовка контурного прямоугольника с скругленными краями
 	 */
-	static void rounded_rect(SDL_Rect* input_rect);
+	static void rounded_rect(SDL_Rect input_rect, int rad);
+	static void rounded_rect(SDL_Rect* input_rect, int rad);
 
 	/*
 	 * Отрисовка закрашенного прямоугольника с скругленными краями
 	 */
-	static void rounded_fill_rect(SDL_Rect* input_rect);
+	static void rounded_fill_rect(SDL_Rect input_rect, int rad);
+	static void rounded_fill_rect(SDL_Rect* input_rect, int rad);
 
 
 	/*
@@ -106,4 +113,12 @@ public:
 	 */
 	static void fill(int x, int y);
 	static void fill(SDL_Point* p);
+
+
+
+	/*
+	 * Отрисовка части круга
+	 */
+
+	static void arc(int x, int y, int rad, int start, int end);
 };

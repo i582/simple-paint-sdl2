@@ -45,6 +45,10 @@ void DropWindow::keyUp(SDL_Event* e)
 {
 }
 
+void DropWindow::textInput(SDL_Event* e)
+{
+}
+
 void DropWindow::handleUserEvents(Event* ev)
 {
 }

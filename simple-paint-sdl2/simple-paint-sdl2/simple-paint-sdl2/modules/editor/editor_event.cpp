@@ -4,11 +4,72 @@ void Editor::onEvent()
 {
 	while (running && SDL_WaitEvent(&e)) 
 	{
-
+		
 		switch (e.window.windowID)
 		{
 
-		case 1:
+
+		case WINDOW_NEW_DOCUMENT:
+		{
+			switch (e.type)
+			{
+
+			case SDL_MOUSEMOTION:
+			{
+				new_document->mouseMotion(&e);
+				break;
+			}
+
+			case SDL_MOUSEBUTTONDOWN:
+			{
+				new_document->mouseButtonDown(&e);
+				break;
+			}
+
+			case SDL_MOUSEBUTTONUP:
+			{
+				new_document->mouseButtonUp(&e);
+				break;
+			}
+
+			case SDL_MOUSEWHEEL:
+			{
+				new_document->mouseWheel(&e);
+				break;
+			}
+
+			case SDL_KEYDOWN:
+			{
+				new_document->keyDown(&e);
+				break;
+			}
+
+			case SDL_KEYUP:
+			{
+				new_document->keyUp(&e);
+				break;
+			}
+
+			case SDL_TEXTINPUT:
+			{
+				new_document->textInput(&e);
+				break;
+			}
+
+			case SDL_QUIT:
+			{
+				new_document->close();
+				break;
+			}
+
+			}
+
+			break;
+		}
+
+
+
+		case WINDOW_MAIN:
 		{
 			switch (e.type)
 			{
@@ -46,6 +107,12 @@ void Editor::onEvent()
 			case SDL_KEYUP:
 			{
 				main_window->keyUp(&e);
+				break;
+			}
+
+			case SDL_TEXTINPUT:
+			{
+				main_window->textInput(&e);
 				break;
 			}
 
@@ -95,12 +162,13 @@ void Editor::onEvent()
 
 			default:break;
 			}
+
 			break;
 		}
 
-		
-
-		default:break;
+		default:
+			
+			break;
 		}
 
 	

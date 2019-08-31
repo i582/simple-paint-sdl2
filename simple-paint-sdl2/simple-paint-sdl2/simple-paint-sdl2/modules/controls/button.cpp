@@ -1,21 +1,10 @@
 #include "button.h"
 #include "../editor/editor.h"
 
-
-
-Button::Button(Window* parent, SDL_Texture* parent_target, int control_ID, string text, SDL_Rect size)
+Button::Button(Window* parent, SDL_Texture* parent_target, int control_ID, string text, SDL_Rect size, TTF_Font* font)
 	: Control(parent->getRenderer(), parent_target, size, text, control_ID)
 {
-
-}
-
-
-Uint32 Button::animate(Uint32 interval, void* param)
-{
-	((Button*)param)->click = interval % 20;
-	cout << interval << endl;
-	((Button*)param)->update();
-	return interval != 2000;
+	this->font = font;
 }
 
 void Button::update_()
@@ -31,7 +20,7 @@ void Button::update_()
 		if (click)
 			SDL_SetRenderDrawColor(renderer, Colors::element_background_click.r, Colors::element_background_click.g, Colors::element_background_click.b, 0xFF);
 		else
-			SDL_SetRenderDrawColor(renderer, Colors::element_background.r, Colors::element_background.g, Colors::element_background.b, 0xFF);
+			SDL_SetRenderDrawColor(renderer, background.r, background.g, background.b, background.a);
 	SDL_RenderFillRect(renderer, NULL);
 
 
@@ -53,6 +42,7 @@ void Button::mouseButtonDown(SDL_Event* e)
 	Editor::push_event(new Event(BUTTON, BUTTON_PRESSED, control_ID));
 
 	check_click_out();
+
 }
 
 void Button::mouseButtonUp(SDL_Event* e)

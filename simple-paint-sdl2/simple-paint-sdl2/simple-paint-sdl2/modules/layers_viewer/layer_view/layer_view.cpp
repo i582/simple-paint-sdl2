@@ -46,7 +46,7 @@ void LayerView::update()
 
 	// draw text
 	SDL_Surface* text_surface = TTF_RenderUTF8_Blended(font, layers->at(layer_id)->name.c_str(), Colors::element_text);
-	SDL_Rect text_rect = { 80, (int)((size.h - text_surface->h) / 2.), text_surface->w, text_surface->h };
+	SDL_Rect text_rect = { 85, (int)((size.h - text_surface->h) / 2.), text_surface->w, text_surface->h };
 	SDL_Texture * text_texture = SDL_CreateTextureFromSurface(renderer, text_surface);
 	SDL_FreeSurface(text_surface);
 	SDL_RenderCopy(renderer, text_texture, NULL, &text_rect);
@@ -56,7 +56,7 @@ void LayerView::update()
 
 	// draw layer view
 	SDL_Rect layers_size = layers->get_size_layers();
-	double aspect_ratio = layers_size.w / layers_size.h;
+	double aspect_ratio = layers_size.w / (double)layers_size.h;
 
 	SDL_Rect layer_rect = { 45, 8, -1, -1 };
 	

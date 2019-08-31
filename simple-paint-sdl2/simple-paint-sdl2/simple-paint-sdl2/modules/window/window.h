@@ -6,12 +6,15 @@
 #include "vector"
 #include "../colors/color.h"
 
-
+#include "../resources/resources.h"
+#include "../primitives/primitives.h"
 #include "../events/events.h"
 
 using namespace std;
 
-class Window {
+class Window 
+{
+
 public:
 	int width;
 	int height;
@@ -67,6 +70,7 @@ public:
 	virtual void mouseWheel(SDL_Event* e) = 0;
 	virtual void keyDown(SDL_Event* e) = 0;
 	virtual void keyUp(SDL_Event* e) = 0;
+	virtual void textInput(SDL_Event* e) = 0;
 
 	virtual void handleUserEvents(Event* ev) = 0;
 };

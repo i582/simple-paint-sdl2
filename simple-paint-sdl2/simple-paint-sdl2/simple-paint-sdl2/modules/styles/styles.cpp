@@ -1,5 +1,6 @@
 #include "styles.h"
 #include "../colors/color.h"
+#include "..\resources\resources.h"
 
 const char* Styles::font_path = "././resources/fonts/verdana.ttf";
 const int Styles::font_size = 12;

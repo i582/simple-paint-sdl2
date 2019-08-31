@@ -30,26 +30,29 @@ Canvas::~Canvas()
 
 void Canvas::init()
 {
+	this->texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, width, height);
+	this->background = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, width, height);
+
 
 	layers = new Layers(renderer, { 0, 0, width, height });
 
 
-	texture = IMG_LoadTexture(renderer, "./././resources/images/4.png");
-	Layer* layer1 = new Layer(texture, "Layer 0", 0xFF);
+	SDL_Texture* tex = IMG_LoadTexture(renderer, "./././resources/images/4.png");
+	Layer* layer1 = new Layer(tex, 0, "", 0xFF);
 	layers->add(layer1);
 	
-
+	
 	texture = IMG_LoadTexture(renderer, "./././resources/images/first.png");
-	Layer* layer2 = new Layer(texture, "Layer 1", 0xA0);
+	Layer* layer2 = new Layer(texture, 1, "", 0xA0);
 	layers->add(layer2);
 
 
 	texture = IMG_LoadTexture(renderer, "./././resources/images/first.png");
-	Layer* layer3 = new Layer(texture, "Layer 2", 0xFF);
+	Layer* layer3 = new Layer(texture, 2, "", 0xFF);
 	layers->add(layer3);
 	
 	texture = IMG_LoadTexture(renderer, "./././resources/images/4.png");
-	Layer* layer4 = new Layer(texture, "Layer 3", 0xFF);
+	Layer* layer4 = new Layer(texture, 3, "", 0xFF);
 	layers->add(layer4);
 
 	
@@ -58,18 +61,60 @@ void Canvas::init()
 
 void Canvas::update()
 {
+
+	SDL_SetRenderTarget(renderer, background);
+	SDL_SetRenderDrawColor(renderer, 0xff, 0xff, 0xff, 0xFF);
+	SDL_RenderFillRect(renderer, NULL);
+	
+
+
 	SDL_Texture* tex = layers->ready_texture();
 
 	SDL_SetRenderTarget(renderer, parent->texture);
 	
-
 	SDL_Rect copy_rect = { x, y, (int)(width * size_factor), (int)(height * size_factor) };
+
+	SDL_RenderCopy(renderer, background, NULL, &copy_rect);
+
+	
 	SDL_RenderCopy(renderer, tex, NULL, &copy_rect);
+
+
 	SDL_RenderPresent(renderer);
 
 	SDL_SetRenderTarget(renderer, NULL);
 
 	//SDL_DestroyTexture(tex);
+
+}
+
+void Canvas::save_png()
+{
+	Uint32 rmask, gmask, bmask, amask;
+#if SDL_BYTEORDER == SDL_BIG_ENDIAN
+	int shift = 8;
+	rmask = 0xff000000 >> shift;
+	gmask = 0x00ff0000 >> shift;
+	bmask = 0x0000ff00 >> shift;
+	amask = 0x000000ff >> shift;
+#else // little endian, like x86
+	rmask = 0x000000ff;
+	gmask = 0x0000ff00;
+	bmask = 0x00ff0000;
+	amask = 0xff000000;
+#endif
+
+	SDL_Texture* ready = layers->ready_texture();
+
+	void* pixels = nullptr;
+
+	SDL_SetRenderTarget(renderer, ready);
+	SDL_RenderReadPixels(renderer, NULL, SDL_PIXELFORMAT_RGBA8888, pixels, 4);
+	SDL_Rect size = layers->get_size_layers();
+	SDL_Surface* surface = SDL_CreateRGBSurfaceFrom(pixels, size.w, size.h, 32, 4, rmask, gmask, bmask, amask);
+	SDL_SetSurfaceBlendMode(surface, SDL_BLENDMODE_BLEND);
+	IMG_SavePNG(surface, "ready.png");
+
 }
 
 bool Canvas::on_hover(int x, int y)

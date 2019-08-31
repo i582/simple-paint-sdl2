@@ -34,6 +34,9 @@ protected:
 	string text;
 	TTF_Font* font;
 
+	SDL_Color background;
+	SDL_Color color;
+
 	SDL_Point mouse_p;
 
 	int control_ID;
@@ -47,6 +50,7 @@ protected:
 	bool checked;
 
 	bool is_updated;
+	bool need_update;
 
 	vector <Control*>* friends;
 
@@ -59,8 +63,8 @@ private:
 
 
 protected:
-	void render_text(string text, SDL_Rect place, int align, int font_size = Styles::font_size);
-	void render_text_(string text, SDL_Rect place, int align, int font_size = Styles::font_size);
+	void render_text(string text, SDL_Rect place, int align, TTF_Font* font = Resources::font_verdana_12px);
+	void render_text_(string text, SDL_Rect place, int align, TTF_Font* font = Resources::font_verdana_12px);
 
 public:
 	void update();
@@ -68,6 +72,10 @@ public:
 	virtual Control* const clear();
 
 	string& get_value();
+
+	Control* set_background_color(SDL_Color color);
+	Control* set_text_color(SDL_Color color);
+
 
 	virtual void mouseButtonDown(SDL_Event* e) = 0;
 	virtual void mouseButtonUp(SDL_Event* e) = 0;

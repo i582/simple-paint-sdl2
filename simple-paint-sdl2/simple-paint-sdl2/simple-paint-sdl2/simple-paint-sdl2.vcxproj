@@ -70,7 +70,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\SDL2\SDL2_ttf-2.0.15\include;C:\SDL2\SDL2_image-2.0.4\include;C:\SDL2\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\SDL2\SDL2_gfx;C:\SDL2\SDL2_ttf-2.0.15\include;C:\SDL2\SDL2_image-2.0.4\include;C:\SDL2\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\SDL2\SDL2_ttf-2.0.15\lib\x86;C:\SDL2\SDL2_image-2.0.4\lib\x86;C:\SDL2\lib\x86;$(LibraryPath)</LibraryPath>
     <CodeAnalysisRuleSet>NativeRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <LinkIncremental>true</LinkIncremental>
@@ -143,6 +143,8 @@
     <ClCompile Include="modules\controls\DropDown.cpp" />
     <ClCompile Include="modules\controls\DropWindow.cpp" />
     <ClCompile Include="modules\controls\HScroll.cpp" />
+    <ClCompile Include="modules\controls\Input.cpp" />
+    <ClCompile Include="modules\controls\Label.cpp" />
     <ClCompile Include="modules\controls\RadioButton.cpp" />
     <ClCompile Include="modules\controls\scale_info.cpp" />
     <ClCompile Include="modules\controls\scroll.cpp" />
@@ -157,6 +159,7 @@
     <ClCompile Include="modules\menubar\menubar.cpp" />
     <ClCompile Include="modules\menubar\menu_item\menu_item.cpp" />
     <ClCompile Include="modules\primitives\primitives.cpp" />
+    <ClCompile Include="modules\resources\resources.cpp" />
     <ClCompile Include="modules\styles\styles.cpp" />
     <ClCompile Include="modules\toolbar\toolbar.cpp" />
     <ClCompile Include="modules\toolbar\tools\tool.cpp" />
@@ -171,6 +174,9 @@
     <ClCompile Include="modules\window\types\main\main-window.cpp" />
     <ClCompile Include="modules\window\types\main\main-window_event.cpp" />
     <ClCompile Include="modules\window\types\main\main-window_user_events.cpp" />
+    <ClCompile Include="modules\window\types\new_doc\WindowNeDocument_user_events.cpp" />
+    <ClCompile Include="modules\window\types\new_doc\WindowNewDocument.cpp" />
+    <ClCompile Include="modules\window\types\new_doc\WindowNewDocument_events.cpp" />
     <ClCompile Include="modules\window\window.cpp" />
     <ClCompile Include="modules\window\window_event.cpp" />
   </ItemGroup>
@@ -182,6 +188,8 @@
     <ClInclude Include="modules\controls\DropDown.h" />
     <ClInclude Include="modules\controls\DropWindow.h" />
     <ClInclude Include="modules\controls\HScroll.h" />
+    <ClInclude Include="modules\controls\Input.h" />
+    <ClInclude Include="modules\controls\Label.h" />
     <ClInclude Include="modules\controls\RadioButton.h" />
     <ClInclude Include="modules\controls\scale_info.h" />
     <ClInclude Include="modules\controls\scroll.h" />
@@ -194,6 +202,7 @@
     <ClInclude Include="modules\menubar\menubar.h" />
     <ClInclude Include="modules\menubar\menu_item\menu_item.h" />
     <ClInclude Include="modules\primitives\primitives.h" />
+    <ClInclude Include="modules\resources\resources.h" />
     <ClInclude Include="modules\styles\styles.h" />
     <ClInclude Include="modules\toolbar\toolbar.h" />
     <ClInclude Include="modules\toolbar\tools\tool.h" />
@@ -204,7 +213,11 @@
     <ClInclude Include="modules\viewport\scrolls\v_view_scroll.h" />
     <ClInclude Include="modules\viewport\viewport.h" />
     <ClInclude Include="modules\window\types\main\main-window.h" />
+    <ClInclude Include="modules\window\types\new_doc\WindowNewDocument.h" />
     <ClInclude Include="modules\window\window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

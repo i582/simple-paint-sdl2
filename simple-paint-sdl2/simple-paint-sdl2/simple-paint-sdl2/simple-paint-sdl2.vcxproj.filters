@@ -88,6 +88,18 @@
     <Filter Include="Исходные файлы\controls\RadioButton">
       <UniqueIdentifier>{8858dfe7-25de-4a40-9ad3-032e6c1a8426}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\window\types\new_doc">
+      <UniqueIdentifier>{5bc7b27a-1716-4295-8863-934765d70696}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\resources">
+      <UniqueIdentifier>{36ca918f-893e-4b31-b663-c170aa8a486b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\controls\Label">
+      <UniqueIdentifier>{e6d3f974-22c6-4e7f-a671-8db37f851285}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\controls\Input">
+      <UniqueIdentifier>{5844f8ab-98ab-4f0a-8f14-033e5421e652}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -204,6 +216,24 @@
     <ClCompile Include="modules\controls\RadioButton.cpp">
       <Filter>Исходные файлы\controls\RadioButton</Filter>
     </ClCompile>
+    <ClCompile Include="modules\window\types\new_doc\WindowNewDocument.cpp">
+      <Filter>Исходные файлы\window\types\new_doc</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\window\types\new_doc\WindowNewDocument_events.cpp">
+      <Filter>Исходные файлы\window\types\new_doc</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\resources\resources.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\controls\Input.cpp">
+      <Filter>Исходные файлы\controls\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\controls\Label.cpp">
+      <Filter>Исходные файлы\controls\Label</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\window\types\new_doc\WindowNeDocument_user_events.cpp">
+      <Filter>Исходные файлы\window\types\new_doc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="modules\editor\editor.h">
@@ -296,5 +326,20 @@
     <ClInclude Include="modules\controls\RadioButton.h">
       <Filter>Исходные файлы\controls\RadioButton</Filter>
     </ClInclude>
+    <ClInclude Include="modules\window\types\new_doc\WindowNewDocument.h">
+      <Filter>Исходные файлы\window\types\new_doc</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\resources\resources.h">
+      <Filter>Исходные файлы\resources</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\controls\Label.h">
+      <Filter>Исходные файлы\controls\Label</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\controls\Input.h">
+      <Filter>Исходные файлы\controls\Input</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

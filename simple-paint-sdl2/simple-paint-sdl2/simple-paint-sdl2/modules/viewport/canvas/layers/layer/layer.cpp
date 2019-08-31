@@ -1,6 +1,22 @@
 #include "layer.h"
 
-int Layer::s_id = 0;
+Layer::Layer(SDL_Texture* texture, int id, string name, Uint8 alpha, SDL_BlendMode blend_mode)
+{
+	if (name == "") this->name = "Layer " + to_string(id);
+	else this->name = name;
+
+	this->id = id;
+
+
+	this->alpha = alpha;
+	this->texture = texture;
+	this->blend_mode = blend_mode;
+
+	SDL_QueryTexture(this->texture, NULL, NULL, &size.w, &size.h);
+
+	this->display = true;
+	this->blocked = false;
+}
 
 void Layer::set_alpha(Uint8 alpha)
 {

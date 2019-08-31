@@ -4,7 +4,10 @@ int main(int argc, char** argv)
 {
 	setlocale(LC_ALL, "Rus");
 
-	Editor editor(1350, 700);
+	Editor* editor = Editor::get_instance();
 
-	return editor.onExecute();
+	editor->run();
+
+	delete editor;
+	return 0;
 }

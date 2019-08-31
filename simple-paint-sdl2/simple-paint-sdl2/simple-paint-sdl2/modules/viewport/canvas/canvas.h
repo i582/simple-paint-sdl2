@@ -24,6 +24,8 @@ private:
 	SDL_Renderer* renderer;
 	SDL_Texture* texture;
 
+	SDL_Texture* background;
+
 	Layers* layers;
 
 	double size_factor;
@@ -45,6 +47,8 @@ private:
 
 public:
 	void update();
+
+	void save_png();
 
 	/* События */
 	void mouseButtonDown(SDL_Event* e);

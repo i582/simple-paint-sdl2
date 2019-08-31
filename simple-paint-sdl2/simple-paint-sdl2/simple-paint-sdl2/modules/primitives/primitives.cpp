@@ -1,8 +1,11 @@
 #include "primitives.h"
 #include <ctime>
 
+// require
 SDL_Renderer* Primitives::renderer = nullptr;
 SDL_Color* Primitives::color = nullptr;
+
+// for fill
 SDL_Texture* Primitives::tex = nullptr;
 
 inline int Primitives::int_part(double num)
@@ -19,6 +22,54 @@ void Primitives::render_pixel(int x, int y, double bright)
 {
 	SDL_SetRenderDrawColor(renderer, color->r, color->g, color->b, (Uint8)(0xFF * bright));
 	SDL_RenderDrawPoint(renderer, x, y);
+}
+
+void Primitives::circle_part(int x, int y, int rad, int part)
+{
+	SDL_SetRenderDrawColor(renderer, color->r, color->g, color->b, color->a);
+
+
+	int x1 = 0;
+	int y1 = rad;
+
+	int delta = 1 - 2 * rad;
+	int error = 0;
+
+	while (y1 != 0 || x1 < rad + 1)
+	{
+		if (part == 3)
+			SDL_RenderDrawPoint(renderer, x + x1, y + y1); // низ право
+
+		if (part == 2)
+			SDL_RenderDrawPoint(renderer, x + x1, y - y1); // верх право
+
+		if (part == 4)
+			SDL_RenderDrawPoint(renderer, x - x1, y + y1); // низ лево
+
+		if (part == 1)
+			SDL_RenderDrawPoint(renderer, x - x1, y - y1); // вверх лево
+
+
+
+
+		error = 2 * (delta + y1) - 1;
+
+		if ((delta < 0) && (error <= 0)) {
+			x1++;
+			delta += 2 * x1 + 1;
+			continue;
+		}
+		if ((delta > 0) && (error > 0)) {
+			y1--;
+			delta -= 2 * y1 + 1;
+			continue;
+		}
+		x1++;
+		delta += 2 * (x1 - y1);
+		y1--;
+	}
+
+	SDL_RenderPresent(renderer);
 }
 
 void Primitives::pixel(int x, int y)
@@ -258,39 +309,40 @@ void Primitives::circle(int x, int y, int rad)
 	SDL_SetRenderDrawColor(renderer, color->r, color->g, color->b, color->a);
 
 
-	int x1 = 0;
-	int y1 = rad;
+	//int x1 = 0;
+	//int y1 = rad;
 
-	int delta = 1 - 2 * rad;
-	int error = 0;
+	//int delta = 1 - 2 * rad;
+	//int error = 0;
 
-	while (y1 != -1) 
-	{
-		//SDL_RenderDrawPoint(renderer, x + x1, y + y1); // низ право
-		//SDL_RenderDrawPoint(renderer, x + x1, y - y1); // верх право
-		//SDL_RenderDrawPoint(renderer, x - x1, y + y1); // низ лево
-		SDL_RenderDrawPoint(renderer, x - x1, y - y1); // вверх лево
+	//while (y1 != -1) 
+	//{
+	//	SDL_RenderDrawPoint(renderer, x + x1, y + y1); // низ право
+	//	SDL_RenderDrawPoint(renderer, x + x1, y - y1); // верх право
+	//	SDL_RenderDrawPoint(renderer, x - x1, y + y1); // низ лево
+	//	SDL_RenderDrawPoint(renderer, x - x1, y - y1); // вверх лево
 
-		
-		
+	//	
+	//	
 
-		error = 2 * (delta + y1) - 1;
+	//	error = 2 * (delta + y1) - 1;
 
-		if ((delta < 0) && (error <= 0)) {
-			x1++;
-			delta += 2 * x1 + 1;
-			continue;
-		}
-		if ((delta > 0) && (error > 0)) {
-			y1--;
-			delta -= 2 * y1 + 1;
-			continue;
-		}
-		x1++;
-		delta += 2 * (x1 - y1);
-		y1--;
-	}
+	//	if ((delta < 0) && (error <= 0)) {
+	//		x1++;
+	//		delta += 2 * x1 + 1;
+	//		continue;
+	//	}
+	//	if ((delta > 0) && (error > 0)) {
+	//		y1--;
+	//		delta -= 2 * y1 + 1;
+	//		continue;
+	//	}
+	//	x1++;
+	//	delta += 2 * (x1 - y1);
+	//	y1--;
+	//}
 
+	
 	SDL_RenderPresent(renderer);
 }
 
@@ -314,12 +366,86 @@ void Primitives::line_shape(SDL_Point* points, int count)
 {
 }
 
-void Primitives::rounded_rect(SDL_Rect* input_rect)
+void Primitives::rounded_rect(SDL_Rect input_rect, int rad)
 {
+	rounded_rect(&input_rect, rad);
 }
 
-void Primitives::rounded_fill_rect(SDL_Rect* input_rect)
+void Primitives::rounded_rect(SDL_Rect* input_rect, int rad)
 {
+	int x1 = input_rect->x,
+		y1 = input_rect->y + 1,
+		x2 = input_rect->x + input_rect->w - 1,
+		y2 = input_rect->y + input_rect->h - 1;
+
+	int xx1, xx2;
+	int yy1, yy2;
+
+	xx1 = x1 + rad;
+	xx2 = x2 - rad;
+	yy1 = y1 + rad;
+	yy2 = y2 - rad;
+
+	circle_part(xx1, yy1, rad, 1);
+	circle_part(xx2, yy1, rad, 2);
+	circle_part(xx1, yy2, rad, 4);
+	circle_part(xx2, yy2, rad, 3);
+
+	h_line(xx1, y1, xx2);
+	h_line(xx1, y2, xx2);
+
+	v_line(x1, yy1, yy2);
+	v_line(x2, yy1, yy2);
+
+
+
+	/*int x1 = input_rect->x, 
+		y1 = input_rect->y, 
+		x2 = input_rect->x + input_rect->w, 
+		y2 = input_rect->y + input_rect->h;
+
+
+	if (x1 > x2)
+		std::swap(x1, x2);
+	
+	if (y1 > y2)
+		std::swap(y1, y2);
+
+	Sint16 xx1, xx2;
+	Sint16 yy1, yy2;
+
+	xx1 = x1 + rad;
+	xx2 = x2 - rad;
+	yy1 = y1 + rad;
+	yy2 = y2 - rad;
+	arc(xx1, yy1, rad, 180, 270);
+	arc(xx2, yy1, rad, 270, 360);
+	arc(xx1, yy2, rad, 90, 180);
+	arc(xx2, yy2, rad, 0, 90);
+
+	if (xx1 <= xx2)
+	{
+		h_line(xx1, xx2, y1);
+		h_line(xx1, xx2, y2);
+	}
+
+	if (yy1 <= yy2)
+	{
+		v_line(x1, yy1, yy2);
+		v_line(x2, yy1, yy2);
+	}
+*/
+}
+
+void Primitives::rounded_fill_rect(SDL_Rect input_rect, int rad)
+{
+	rounded_fill_rect(&input_rect, rad);
+}
+
+void Primitives::rounded_fill_rect(SDL_Rect* input_rect, int rad)
+{
+	rounded_rect(input_rect, rad);
+	fill(input_rect->x + rad, input_rect->y + rad);
 }
 
 void Primitives::fill(int x, int y)
@@ -416,5 +542,190 @@ void Primitives::fill(SDL_Point* p)
 	fill(p->x, p->y);
 }
 
+void Primitives::arc(int x, int y, int rad, int start, int end)
+{
+	int r = color->r, 
+		g = color->g, 
+		b = color->b, 
+		a = color->a;
+	
 
+	Sint16 cx = 0;
+	Sint16 cy = rad;
+	Sint16 df = 1 - rad;
+	Sint16 d_e = 3;
+	Sint16 d_se = -2 * rad + 5;
+	Sint16 xpcx, xmcx, xpcy, xmcy;
+	Sint16 ypcy, ymcy, ypcx, ymcx;
+	Uint8 drawoct;
+	int startoct, endoct, oct, stopval_start = 0, stopval_end = 0;
+	double dstart, dend, temp = 0.;
+
+	
+
+	
+	drawoct = 0;
+
+	start %= 360;
+	end %= 360;
+	while (start < 0) start += 360;
+	while (end < 0) end += 360;
+	start %= 360;
+	end %= 360;
+
+	startoct = start / 45;
+	endoct = end / 45;
+	oct = startoct - 1;
+
+	do 
+	{
+		oct = (oct + 1) % 8;
+
+		if (oct == startoct) 
+		{
+			dstart = (double)start;
+			switch (oct)
+			{
+			case 0:
+			case 3:
+				temp = sin(dstart * M_PI / 180.);
+				break;
+			case 1:
+			case 6:
+				temp = cos(dstart * M_PI / 180.);
+				break;
+			case 2:
+			case 5:
+				temp = -cos(dstart * M_PI / 180.);
+				break;
+			case 4:
+			case 7:
+				temp = -sin(dstart * M_PI / 180.);
+				break;
+			}
+			temp *= rad;
+			stopval_start = (int)temp;
+
+
+			if (oct % 2) drawoct |= (1 << oct);		
+			else		 drawoct &= 255 - (1 << oct);
+		}
+		if (oct == endoct)
+		{
+			dend = (double)end;
+			switch (oct)
+			{
+			case 0:
+			case 3:
+				temp = sin(dend * M_PI / 180);
+				break;
+			case 1:
+			case 6:
+				temp = cos(dend * M_PI / 180);
+				break;
+			case 2:
+			case 5:
+				temp = -cos(dend * M_PI / 180);
+				break;
+			case 4:
+			case 7:
+				temp = -sin(dend * M_PI / 180);
+				break;
+			}
+			temp *= rad;
+			stopval_end = (int)temp;
+
+			if (startoct == endoct)
+			{
+				if (start > end)
+				{
+					drawoct = 255;
+				}
+				else
+				{
+					drawoct &= 255 - (1 << oct);
+				}
+			}
+			else if (oct % 2) drawoct &= 255 - (1 << oct);
+			else			  drawoct |= (1 << oct);
+		}
+		else if (oct != startoct)
+		{ 
+			drawoct |= (1 << oct);
+		}
+	} while (oct != endoct);
+
+
+
+	SDL_SetRenderDrawBlendMode(renderer, (a == 255) ? SDL_BLENDMODE_NONE : SDL_BLENDMODE_BLEND);
+	SDL_SetRenderDrawColor(renderer, r, g, b, a);
+
+
+	do
+	{
+		ypcy = y + cy;
+		ymcy = y - cy;
+		if (cx > 0)
+		{
+			xpcx = x + cx;
+			xmcx = x - cx;
+
+			if (drawoct & 4)  pixel(xmcx, ypcy);
+			if (drawoct & 2)  pixel(xpcx, ypcy);
+			if (drawoct & 32) pixel(xmcx, ymcy);
+			if (drawoct & 64) pixel(xpcx, ymcy);
+		}
+		else
+		{
+			if (drawoct & 96) pixel(x, ymcy);
+			if (drawoct & 6)  pixel(x, ypcy);
+		}
+
+		xpcy = x + cy;
+		xmcy = x - cy;
+		if (cx > 0 && cx != cy)
+		{
+			ypcx = y + cx;
+			ymcx = y - cx;
+			if (drawoct & 8)   pixel(xmcy, ypcx);
+			if (drawoct & 1)   pixel(xpcy, ypcx);
+			if (drawoct & 16)  pixel(xmcy, ymcx);
+			if (drawoct & 128) pixel(xpcy, ymcx);
+		}
+		else if (cx == 0)
+		{
+			if (drawoct & 24)  pixel(xmcy, y);
+			if (drawoct & 129) pixel(xpcy, y);
+		}
+
+
+		if (stopval_start == cx)
+		{
+			if (drawoct & (1 << startoct)) drawoct &= 255 - (1 << startoct);
+			else						   drawoct |= (1 << startoct);
+		}
+		if (stopval_end == cx)
+		{
+			if (drawoct & (1 << endoct)) drawoct &= 255 - (1 << endoct);
+			else						 drawoct |= (1 << endoct);
+		}
+
+
+		if (df < 0)
+		{
+			df += d_e;
+			d_e += 2;
+			d_se += 2;
+		}
+		else
+		{
+			df += d_se;
+			d_e += 2;
+			d_se += 4;
+			cy--;
+		}
+		cx++;
+	} while (cx <= cy);
+
+}
 

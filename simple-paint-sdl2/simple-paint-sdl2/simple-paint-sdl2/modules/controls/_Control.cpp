@@ -13,6 +13,9 @@ Control::Control(SDL_Renderer* renderer, SDL_Texture* parent_target, SDL_Rect si
 	this->text = text;
 	this->font = nullptr;
 
+	this->background = Colors::element_background;
+	this->color = Colors::element_text;
+
 	this->control_ID = control_ID;
 	this->group_ID = -1;
 
@@ -24,6 +27,7 @@ Control::Control(SDL_Renderer* renderer, SDL_Texture* parent_target, SDL_Rect si
 	this->checked = false;
 
 	this->is_updated = false;
+	this->need_update = true;
 
 	this->mouse_p = { 0, 0 };
 
@@ -42,12 +46,13 @@ Control::~Control()
 void Control::init()
 {
 	texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, size.w, size.h);
+	SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
 }
 
-void Control::render_text(string text, SDL_Rect place, int align, int font_size)
+void Control::render_text(string text, SDL_Rect place, int align, TTF_Font* font)
 {
 	if (text_texture == nullptr)
-		render_text_(text, place, align, font_size);
+		render_text_(text, place, align, font);
 
 	SDL_SetRenderTarget(renderer, texture);
 	SDL_RenderCopy(renderer, text_texture, NULL, &text_rect);
@@ -56,7 +61,7 @@ void Control::render_text(string text, SDL_Rect place, int align, int font_size)
 }
 
 
-void Control::render_text_(string text, SDL_Rect place, int align, int font_size)
+void Control::render_text_(string text, SDL_Rect place, int align, TTF_Font* font)
 {
 	SDL_DestroyTexture(text_texture);
 
@@ -66,10 +71,7 @@ void Control::render_text_(string text, SDL_Rect place, int align, int font_size
 		return;
 	}
 
-	if (font == nullptr)
-		this->font = TTF_OpenFont(Styles::font_path, font_size);
-
-	SDL_Surface * text_surface = TTF_RenderUTF8_Blended(font, text.c_str(), Colors::element_text);
+	SDL_Surface * text_surface = TTF_RenderUTF8_Blended(font, text.c_str(), color);
 
 	text_rect.w = text_surface->w;
 	text_rect.h = text_surface->h;
@@ -88,7 +90,7 @@ void Control::render_text_(string text, SDL_Rect place, int align, int font_size
 		text_rect.x = (int)((place.w - text_surface->w) / 2.);
 	}
 
-	text_rect.y = (int)(place.h / 2. - text_surface->h / 1.8) + place.y;
+	text_rect.y = (int)(place.h / 2. - text_surface->h / 2.) + place.y;
 
 	text_texture = SDL_CreateTextureFromSurface(renderer, text_surface);
 
@@ -100,7 +102,7 @@ void Control::render_text_(string text, SDL_Rect place, int align, int font_size
 
 void Control::update()
 {
-	if (is_updated == false)
+	if (is_updated == false || need_update == false)
 	{
 		update_();
 		is_updated = true;
@@ -125,6 +127,18 @@ Control* const Control::clear()
 string& Control::get_value()
 {
 	return text;
+}
+
+Control* Control::set_background_color(SDL_Color color)
+{
+	this->background = color;
+	return this;
+}
+
+Control* Control::set_text_color(SDL_Color color)
+{
+	this->color = color;
+	return this;
 }
 
 Control* const Control::block()

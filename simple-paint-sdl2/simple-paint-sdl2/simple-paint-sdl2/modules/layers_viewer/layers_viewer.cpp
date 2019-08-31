@@ -17,8 +17,6 @@ void LayersViewer::setup()
 {
 	texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, size.w, size.h);
 
-	
-	Primitives::renderer = renderer;
 
 	for (int i = 0; i < layers->get_size(); i++)
 	{
@@ -33,6 +31,7 @@ void LayersViewer::update()
 	SDL_SetRenderTarget(renderer, texture);
 
 	// body
+	Primitives::renderer = renderer;
 	Primitives::fill_rect(NULL, Colors::element_background);
 	Primitives::rect(NULL, Colors::viewport_border);
 	//

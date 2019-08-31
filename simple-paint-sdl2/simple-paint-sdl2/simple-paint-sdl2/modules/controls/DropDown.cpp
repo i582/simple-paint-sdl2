@@ -53,9 +53,9 @@ void DropDownList::mouseButtonDown(SDL_Event* e)
 	}
 	else
 	{
-		MainWindow::drop_window->set_position(size.x + parent->x, size.y + size.h + parent->y);
+		//MainWindow::drop_window->set_position(size.x + parent->x, size.y + size.h + parent->y);
 		//MainWindow::drop_window->show();
-		MainWindow::drop_window->render();
+		//MainWindow::drop_window->render();
 		//opened = true;
 	}
 

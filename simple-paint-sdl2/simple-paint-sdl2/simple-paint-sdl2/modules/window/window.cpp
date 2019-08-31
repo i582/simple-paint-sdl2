@@ -1,5 +1,8 @@
 #include "window.h"
 
+#include "windows.h"
+#include "SDL_syswm.h"
+
 Window::Window(string title, SDL_Rect* sizes, Uint32 flags)
 {
 	this->title = title;
@@ -23,6 +26,7 @@ Window::Window(string title, SDL_Rect* sizes, Uint32 flags)
 	this->display = false;
 
 	this->mouse_coord = { 0, 0 };
+
 }
 
 Window::~Window()
@@ -66,6 +70,25 @@ bool Window::init()
 	}
 
 	SDL_SetWindowIcon(window, IMG_Load("././resources/images/icon_1.png"));
+
+
+	SDL_SysWMinfo info;
+
+	SDL_GetWindowWMInfo(window, &info);
+	cout << SDL_GetError() << endl;
+	HWND hwnd = info.info.win.window;
+
+	HMENU menu = CreatePopupMenu();
+
+	AppendMenu(menu, MF_ENABLED, 12, "sfs");
+
+	cout << SetMenu(hwnd, menu);
+
+	UpdateWindow(hwnd);
+
+	cout << GetLastError() << endl;
+
+
 
 	setup();
 	

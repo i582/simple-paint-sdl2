@@ -2,7 +2,7 @@
 
 DropWindow* MainWindow::drop_window = nullptr;
 
-MainWindow::MainWindow(string title, SDL_Rect* sizes, Uint32 flags) 
+MainWindow::MainWindow(string title, SDL_Rect* sizes, Uint32 flags)
 	: Window(title, sizes, flags)
 {
 	init();
@@ -34,22 +34,14 @@ void MainWindow::setup()
 	*r = { 135, 0, width - 285, 35 };
 	SDL_SetWindowHitTest(window, HitTest, r);
 
+	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+
+
 
 	icon_texture = IMG_LoadTexture(renderer, "././././resources/images/icon.png");
 
-	show();
 
-	viewport = new Viewport(renderer, 40, 35, 1000, 660);
-	canvas = new Canvas(renderer, viewport, 100, 100, 1000, 1000);
-
-	layers_viewer = new LayersViewer(renderer, viewport, { 1052, 495, 295, 201 }, canvas->get_layers());
-	viewport->set_layer_viewer(layers_viewer);
-
-	viewport->set_canvas(canvas);
-
-	
 	toolbar = new Toolbar(this, { 1, 35, 40, 640 });
-	menubar = new MenuBar(this, { 0, 0, width, 0 }, 15);
 
 	CreateControl(new DropDownList(this, NULL, "File", 100, { 35, 8, 50, 20 }));
 	CreateControl(new DropDownList(this, NULL, "Edit", 101, { 85, 8, 50, 20 }));
@@ -74,42 +66,43 @@ void MainWindow::setup()
 	CreateControl(radio2);
 	CreateControl(radio3);
 
-	//CreateControl(new RadioButton(this, NULL, 2, 130, { 1250, 110, 16, 16 }));
 
-	CreateControl(new ButtonImg(this, NULL, SYSTEM_EXIT, "", { width - 51, 1, 49, 34 }, Styles::path_to_SystemExit));
-	CreateControl(new ButtonImg(this, NULL, SYSTEM_EXPAND, "", { width - 101, 1, 49, 34 }, Styles::path_to_SystemExpand));
-	CreateControl(new ButtonImg(this, NULL, SYSTEM_COLLAPSE, "", { width - 151, 1, 49, 34 }, Styles::path_to_SystemCollapse));
-
-	SDL_Rect r1 = { -1, -1, 300, 300 };
-	MainWindow::drop_window = new DropWindow("", &r1, SDL_WINDOW_HIDDEN | SDL_WINDOW_BORDERLESS | SDL_WINDOW_FOREIGN);
+	CreateControl(new ButtonImg(this, NULL, SYSTEM_EXIT, "", { width - 51, 1, 49, 34 }, Resources::texture_systemExit));
+	CreateControl(new ButtonImg(this, NULL, SYSTEM_EXPAND, "", { width - 101, 1, 49, 34 }, Resources::texture_systemExpand));
+	CreateControl(new ButtonImg(this, NULL, SYSTEM_COLLAPSE, "", { width - 151, 1, 49, 34 }, Resources::texture_systemCollapse));
 
 
+}
 
+void MainWindow::setup_canvas(SDL_Rect canvas_size)
+{
+	this->canvas_size = canvas_size;
 
-	
+	viewport = new Viewport(renderer, 40, 35, 1000, 660);
+	canvas = new Canvas(renderer, viewport, 100, 100, canvas_size.w, canvas_size.h);
 
+	layers_viewer = new LayersViewer(renderer, viewport, { 1052, 495, 295, 201 }, canvas->get_layers());
+	viewport->set_layer_viewer(layers_viewer);
+
+	viewport->set_canvas(canvas);
+
+	show();
+	render();
 }
 
 
 void MainWindow::render()
 {
-	SDL_SetDrawColor(renderer, Colors::background);
-	SDL_RenderFillRect(renderer, NULL);
-
 	SDL_SetRenderTarget(renderer, NULL);
-	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
-	SDL_SetTextureBlendMode(back, SDL_BLENDMODE_BLEND);
 
-
-	SDL_RenderCopy(renderer, back, NULL, NULL);
+	SDL_SetRenderDrawColor(renderer, Colors::background.r, Colors::background.g, Colors::background.b, 0xFF);
+	SDL_RenderFillRect(renderer, NULL);
 
 	layers_viewer->update();
 
 	viewport->update();
 
 	toolbar->update();
-
-	menubar->update();
 
 	update();
 

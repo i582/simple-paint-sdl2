@@ -1,117 +1,87 @@
-#include "input.h"
+#include "Input.h"
 
-void Input::render()
+Input::Input(Window* parent, SDL_Texture* parent_target, int control_ID, string text, SDL_Rect size, TTF_Font* font)
+	: Control(parent->getRenderer(), parent_target, size, text, control_ID)
 {
-	if (!display) {
-		SDL_Rect clearRect = *sizes;
-		clearRect.x--;
-		clearRect.y--;
-		clearRect.w += 2;
-		clearRect.h += 2;
+	this->font = font;
+}
 
-
-		SDL_SetRenderColor(renderer, Colors::background);
-		SDL_RenderFillRect(renderer, &clearRect);
-		SDL_RenderPresent(renderer);
+void Input::update_()
+{
+	if (!display)
 		return;
-	}
 
-	SDL_Rect border = *sizes;
-	border.x--;
-	border.y--;
-	border.w += 2;
-	border.h += 2;
+	SDL_SetRenderTarget(renderer, texture);
 
-	if (focus && !block)
-		SDL_SetRenderColor(renderer, Colors::element_border_click);
+	if (blocked)
+		SDL_SetRenderDrawColor(renderer, Colors::element_blocked.r, Colors::element_blocked.g, Colors::element_blocked.b, 0xFF);
 	else
-		SDL_SetRenderColor(renderer, Colors::element_border);
-
-	SDL_RenderFillRect(renderer, &border);
-
+		SDL_SetRenderDrawColor(renderer, background.r, background.g, background.b, background.a);
+	SDL_RenderFillRect(renderer, NULL);
 
 
-	if (block)
-		SDL_SetRenderColor(renderer, Colors::element_blocked);
+	render_text(text, { 0, 0, size.w, size.h }, LEFT_ALIGN, font);
+
+	SDL_SetRenderTarget(renderer, texture);
+
+	Primitives::renderer = renderer;
+
+	if (focused && !blocked)
+		Primitives::color = &Colors::element_border_click;
 	else
-		if (focus)
-			SDL_SetRenderColor(renderer, Colors::element_background_focus);
-		else
-			SDL_SetRenderColor(renderer, Colors::element_background_unfocus);
-	
-	
-	SDL_RenderFillRect(renderer, sizes);
+		Primitives::color = &Colors::element_border;
 
-	renderLabel(label, sizes);
-	SDL_RenderPresent(renderer);
+	Primitives::rounded_rect({ 0, 0, size.w, size.h }, 5);
+
 }
 
-void Input::onEvent(SDL_Event* e)
+void Input::mouseButtonDown(SDL_Event* e)
 {
-	SDL_StartTextInput();
-	while (focus) {
-		while (SDL_PollEvent(e)) {
-			switch (e->type)
-			{
+	SDL_GetMouseState(&mouse_p.x, &mouse_p.y);
+	is_updated = false; 
+	focused = on_hover(mouse_p.x, mouse_p.y);
+}
 
-			case SDL_KEYDOWN:
-			{
-				if (e->key.keysym.sym == SDLK_BACKSPACE && label.length() > 0)
-					label.pop_back();
-				else if (e->key.keysym.sym == SDLK_c && SDL_GetModState() & KMOD_CTRL)
-					SDL_SetClipboardText(label.c_str());
-				else if (e->key.keysym.sym == SDLK_v && SDL_GetModState() & KMOD_CTRL)
-					label = SDL_GetClipboardText();
+void Input::mouseButtonUp(SDL_Event* e)
+{
+	is_updated = false;
+}
 
-				break;
-			}
+void Input::mouseMotion(SDL_Event* e)
+{
+}
 
-			case SDL_TEXTINPUT:
-				if (!((e->text.text[0] == 'c' || e->text.text[0] == 'C') && (e->text.text[0] == 'v' || e->text.text[0] == 'V') && SDL_GetModState() & KMOD_CTRL))
-					if ((int)label.size() * (font_size - 2) + 10 < sizes->w)
-						label += e->text.text;
+void Input::keyDown(SDL_Event* e)
+{
+	is_updated = false;
 
-				break;
-
-			case SDL_MOUSEBUTTONDOWN:
-			{
-				int x, y;
-				SDL_GetMouseState(&x, &y);
-
-				SDL_Point point = { x, y };
-
-				if (!SDL_PointInRect(&point, sizes))
-					focus = false;
-
-				render();
-				break;
-			}
-			}
-			render();
-		}
+	if (e->key.keysym.sym == SDLK_BACKSPACE && text.length() > 0)
+	{
+		text.pop_back();
+		render_text_(text, { 0, 0, size.w, size.h }, LEFT_ALIGN, font);
 	}
-	SDL_StopTextInput();
+	else if (e->key.keysym.sym == SDLK_c && SDL_GetModState() & KMOD_CTRL)
+	{
+		SDL_SetClipboardText(text.c_str());
+	}
+	else if (e->key.keysym.sym == SDLK_v && SDL_GetModState() & KMOD_CTRL)
+	{
+		text = SDL_GetClipboardText();
+		render_text_(text, { 0, 0, size.w, size.h }, LEFT_ALIGN, font);
+	}
 }
 
-void Input::in_focus()
+void Input::keyUp(SDL_Event* e)
 {
-	focus = true;
-	render();
+
 }
 
-void Input::out_focus()
+void Input::textInput(SDL_Event* e)
 {
-	focus = false;
-	render();
-}
+	is_updated = false; 
 
-string Input::get_value()
-{
-	return label;
-}
+	if (!((e->text.text[0] == 'c' || e->text.text[0] == 'C') && (e->text.text[0] == 'v' || e->text.text[0] == 'V') && SDL_GetModState() & KMOD_CTRL))
+		text += e->text.text;
 
-void Input::clear()
-{
-	label = "";
-	render();
+	render_text_(text, { 0, 0, size.w, size.h }, LEFT_ALIGN, font);
 }

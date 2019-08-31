@@ -4,8 +4,6 @@ void MainWindow::mouseButtonDown(SDL_Event* e)
 {
 	SDL_GetMouseState(&mouse_coord.x, &mouse_coord.y);
 
-	drop_window->hide();
-
 	if (viewport->on_hover(mouse_coord.x, mouse_coord.y))
 	{
 		viewport->mouseButtonDown(e);
@@ -21,12 +19,6 @@ void MainWindow::mouseButtonDown(SDL_Event* e)
 		layers_viewer->mouseButtonDown(e);
 	}
 
-	if (menubar->on_hover(mouse_coord.x, mouse_coord.y))
-	{
-		menubar->mouseButtonDown(e);
-	}
-
-
 	if (focus_element != nullptr)
 	{
 		focus_element->do_update();
@@ -39,7 +31,7 @@ void MainWindow::mouseButtonDown(SDL_Event* e)
 			focus_element = nullptr;
 		}
 		else
-		{
+		{	
 			return;
 		}
 	}
@@ -74,11 +66,7 @@ void MainWindow::mouseButtonUp(SDL_Event* e)
 	{
 		layers_viewer->mouseButtonUp(e);
 	}
-	
-	if (menubar->on_hover(mouse_coord.x, mouse_coord.y))
-	{
-		menubar->mouseButtonUp(e);
-	}
+
 
 	if (focus_element != nullptr)
 	{
@@ -142,4 +130,13 @@ void MainWindow::keyUp(SDL_Event* e)
 	SDL_GetMouseState(&mouse_coord.x, &mouse_coord.y);
 
 	// code
+}
+
+void MainWindow::textInput(SDL_Event* e)
+{
+	if (focus_element != nullptr)
+	{
+		focus_element->do_update()->textInput(e);
+		update();
+	}
 }
