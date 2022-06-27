@@ -10,12 +10,7 @@ MainWindow::MainWindow(string title, SDL_Rect* sizes, Uint32 flags)
 
 void MainWindow::update()
 {
-
-	for (int i = controls.size() - 1; i >= 0; i--)
-	{
-		controls.at(i)->update();
-	}
-
+   render();
 }
 
 
@@ -38,7 +33,7 @@ void MainWindow::setup()
 
 
 
-	icon_texture = IMG_LoadTexture(renderer, "././././resources/images/icon.png");
+	icon_texture = IMG_LoadTexture(renderer, "/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/icon.png");
 
 
 	toolbar = new Toolbar(this, { 1, 35, 40, 640 });
@@ -72,6 +67,7 @@ void MainWindow::setup()
 	CreateControl(new ButtonImg(this, NULL, SYSTEM_COLLAPSE, "", { width - 151, 1, 49, 34 }, Resources::texture_systemCollapse));
 
 
+   setup_canvas({ 0, 0, 1000, 1000 });
 }
 
 void MainWindow::setup_canvas(SDL_Rect canvas_size)
@@ -104,7 +100,10 @@ void MainWindow::render()
 
 	toolbar->update();
 
-	update();
+   for (int i = controls.size() - 1; i >= 0; i--)
+   {
+      controls.at(i)->update();
+   }
 
 	SDL_Rect i_r = { 2, 0, 35, 35 };
 	SDL_RenderCopy(renderer, icon_texture, NULL, &i_r);

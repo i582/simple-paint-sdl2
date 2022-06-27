@@ -7,10 +7,10 @@
 
 #include "../../../controls/RadioButton.h"
 
-#include "../../../controls/Label.h"
-#include "../../../controls/Input.h"
+#include "../../../controls/label.h"
+#include "../../../controls/input.h"
 
-#include "../../../window/types/main/main-window.h"
+#include "../main/main-window.h"
 
 enum Controls_Id
 {
@@ -29,7 +29,7 @@ class NewDocumentWindow : public Window
 
 private:
 	vector <Control*> controls;
-	Control* focus_element;
+	Control* focus_element{nullptr};
 
 	SDL_Texture* background;
 

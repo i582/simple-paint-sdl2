@@ -33,13 +33,11 @@ void MenuBar::update_()
 	}
 
 
-	SDL_RenderPresent(renderer);
 
 	SDL_SetRenderTarget(renderer, NULL);
 
 
 	SDL_RenderCopy(renderer, texture, NULL, &size);
-	SDL_RenderPresent(renderer);
 }
 
 void MenuBar::mouseButtonDown(SDL_Event* e)

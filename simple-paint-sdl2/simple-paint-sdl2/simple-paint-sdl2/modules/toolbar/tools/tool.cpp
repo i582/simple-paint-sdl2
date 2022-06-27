@@ -14,8 +14,8 @@ void Tool::setup()
 	case TOOL_MOVE:
 	{
 		border = false;
-		image_select = IMG_LoadTexture(renderer, "./././resources/images/tool_icons/move.png");
-		image_unselect = IMG_LoadTexture(renderer, "./././resources/images/tool_icons/move.png");
+		image_select = IMG_LoadTexture(renderer, "/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/tool_icons/move.png");
+		image_unselect = IMG_LoadTexture(renderer, "/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/tool_icons/move.png");
 
 		break;
 	}
@@ -23,8 +23,8 @@ void Tool::setup()
 	case TOOL_SELECT:
 	{
 		border = false;
-		image_select = IMG_LoadTexture(renderer, "./././resources/images/tool_icons/select.png");
-		image_unselect = IMG_LoadTexture(renderer, "./././resources/images/tool_icons/select.png");
+		image_select = IMG_LoadTexture(renderer, "/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/tool_icons/select.png");
+		image_unselect = IMG_LoadTexture(renderer, "/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/tool_icons/select.png");
 
 		break;
 	}
@@ -32,8 +32,8 @@ void Tool::setup()
 	case TOOL_DRAW:
 	{
 		border = false;
-		image_select = IMG_LoadTexture(renderer, "./././resources/images/tool_icons/draw.png");
-		image_unselect = IMG_LoadTexture(renderer, "./././resources/images/tool_icons/draw.png");
+		image_select = IMG_LoadTexture(renderer, "/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/tool_icons/draw.png");
+		image_unselect = IMG_LoadTexture(renderer, "/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/tool_icons/draw.png");
 
 		break;
 	}
@@ -41,8 +41,8 @@ void Tool::setup()
 	case TOOL_RECTANGLE:
 	{
 		border = false;
-		image_select = IMG_LoadTexture(renderer, "./././resources/images/tool_icons/rect.png");
-		image_unselect = IMG_LoadTexture(renderer, "./././resources/images/tool_icons/rect.png");
+		image_select = IMG_LoadTexture(renderer, "/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/tool_icons/rect.png");
+		image_unselect = IMG_LoadTexture(renderer, "/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/tool_icons/rect.png");
 
 		break;
 	}
@@ -94,7 +94,7 @@ void Tool::update_()
 		SDL_RenderDrawRect(renderer, NULL);
 	}
 
-	SDL_RenderPresent(renderer);
+//	SDL_RenderPresent(renderer);
 	SDL_SetRenderTarget(renderer, parent_target);
 }
 

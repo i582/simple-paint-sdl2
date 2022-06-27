@@ -24,7 +24,7 @@ void Toolbar::init()
 	SDL_SetRenderDrawColor(renderer, Colors::background.r, Colors::background.g, Colors::background.b, 0xFF);
 	SDL_RenderFillRect(renderer, NULL);
 
-	SDL_RenderPresent(renderer);
+//	SDL_RenderPresent(renderer);
 
 
 	auto tools1 = new vector<Control*>;
@@ -57,7 +57,7 @@ void Toolbar::update()
 
 	SDL_RenderCopy(renderer, texture, NULL, &size);
 
-	SDL_RenderPresent(renderer);
+//	SDL_RenderPresent(renderer);
 }
 
 void Toolbar::render_tools()

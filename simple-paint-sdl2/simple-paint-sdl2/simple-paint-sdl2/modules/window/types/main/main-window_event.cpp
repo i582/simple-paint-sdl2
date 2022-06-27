@@ -99,7 +99,7 @@ void MainWindow::mouseMotion(SDL_Event* e)
 		if (control->on_hover(mouse_coord.x, mouse_coord.y))
 		{
 			control->mouseMotion(e);
-			update();
+//			update();
 			return;
 		}
 	}

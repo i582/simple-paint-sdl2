@@ -17,8 +17,8 @@ void RadioButton::setup()
 	case SIMPLE:
 	{
 		border = false;
-		image_select = IMG_LoadTexture(renderer, "././resources/images/radiobutton/select.png");
-		image_unselect = IMG_LoadTexture(renderer, "././resources/images/radiobutton/unselect.png");
+		image_select = IMG_LoadTexture(renderer, "/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/radiobutton/select.png");
+		image_unselect = IMG_LoadTexture(renderer, "/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/radiobutton/unselect.png");
 
 		break;
 	}
@@ -63,7 +63,7 @@ void RadioButton::update_()
 		SDL_RenderDrawRect(renderer, NULL);
 	}
 
-	SDL_RenderPresent(renderer);
+//	SDL_RenderPresent(renderer);
 	SDL_SetRenderTarget(renderer, parent_target);
 }
 

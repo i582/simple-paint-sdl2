@@ -52,7 +52,7 @@ void ScaleInfo::update_()
 	text_texture = SDL_CreateTextureFromSurface(renderer, textSurface);
 
 	SDL_RenderCopy(renderer, text_texture, NULL, &text_rect);
-	SDL_RenderPresent(renderer);
+//	SDL_RenderPresent(renderer);
 
 	SDL_FreeSurface(textSurface);
 	SDL_SetRenderTarget(renderer, NULL);
@@ -69,7 +69,7 @@ void ScaleInfo::update()
 	SDL_SetRenderTarget(renderer, parent->texture);
 
 	SDL_RenderCopy(renderer, texture, NULL, &size);
-	SDL_RenderPresent(renderer);
+//	SDL_RenderPresent(renderer);
 
 	SDL_SetRenderTarget(renderer, NULL);
 }

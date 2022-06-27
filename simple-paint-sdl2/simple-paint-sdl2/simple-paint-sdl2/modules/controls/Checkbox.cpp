@@ -31,8 +31,8 @@ void Checkbox::setup()
 	case SIMPLE:
 	{
 		border = false;
-		image_select = IMG_LoadTexture(renderer, "././resources/images/checkbox/select_1.png");
-		image_unselect = IMG_LoadTexture(renderer, "././resources/images/checkbox/unselect_1.png");
+		image_select = IMG_LoadTexture(renderer, "/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/checkbox/select_1.png");
+		image_unselect = IMG_LoadTexture(renderer, "/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/checkbox/unselect_1.png");
 
 		break;
 	}
@@ -40,8 +40,8 @@ void Checkbox::setup()
 	case EYE:
 	{
 		border = true;
-		image_select = IMG_LoadTexture(renderer, "././resources/images/checkbox/select_eye.png");
-		image_unselect = IMG_LoadTexture(renderer, "././resources/images/checkbox/unselect_eye.png");
+		image_select = IMG_LoadTexture(renderer, "/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/checkbox/select_eye.png");
+		image_unselect = IMG_LoadTexture(renderer, "/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/checkbox/unselect_eye.png");
 
 		break;
 	}
@@ -49,8 +49,8 @@ void Checkbox::setup()
 	case BLOCK:
 	{
 		border = true;
-		image_select = IMG_LoadTexture(renderer, "././resources/images/checkbox/blocked.png");
-		image_unselect = IMG_LoadTexture(renderer, "././resources/images/checkbox/unselect_eye.png");
+		image_select = IMG_LoadTexture(renderer, "/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/checkbox/blocked.png");
+		image_unselect = IMG_LoadTexture(renderer, "/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/checkbox/unselect_eye.png");
 
 		break;
 	}
@@ -70,7 +70,7 @@ void Checkbox::update_()
 	if (!display)
 		return;
 
-	SDL_SetRenderTarget(renderer, texture);
+   SDL_SetRenderTarget(renderer, texture);
 
 	SDL_SetRenderDrawColor(renderer, Colors::element_background.r, Colors::element_background.g, Colors::element_background.b, 0xFF);
 	SDL_RenderFillRect(renderer, NULL);
@@ -96,7 +96,8 @@ void Checkbox::update_()
 		SDL_RenderDrawRect(renderer, NULL);
 	}
 
-	SDL_RenderPresent(renderer);
+
+	// SDL_RenderPresent(renderer);
 	SDL_SetRenderTarget(renderer, parent_target);
 }
 

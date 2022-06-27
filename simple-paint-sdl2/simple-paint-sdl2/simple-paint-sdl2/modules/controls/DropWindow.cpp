@@ -9,16 +9,16 @@ DropWindow::DropWindow(string title, SDL_Rect* sizes, Uint32 flags)
 void DropWindow::setup()
 {
 	SDL_SetRenderDrawColor(renderer, Colors::drop_down_back.r, Colors::drop_down_back.g, Colors::drop_down_back.b, 0xFF);
-	SDL_RenderClear(renderer);
-	SDL_RenderPresent(renderer);
+
+//	SDL_RenderPresent(renderer);
 
 }
 
 void DropWindow::render()
 {
 	SDL_SetRenderDrawColor(renderer, Colors::drop_down_back.r, Colors::drop_down_back.g, Colors::drop_down_back.b, 0xFF);
-	SDL_RenderClear(renderer);
-	SDL_RenderPresent(renderer);
+
+//	SDL_RenderPresent(renderer);
 }
 
 void DropWindow::mouseButtonDown(SDL_Event* e)

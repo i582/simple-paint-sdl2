@@ -15,7 +15,7 @@ LayerView::LayerView(SDL_Renderer* renderer, LayersViewer* parent, int layer_id,
 	this->layers = layers;
 	this->layer_id = layer_id;
 
-	this->font = TTF_OpenFont("././resources/fonts/verdana.ttf", 11);
+	this->font = TTF_OpenFont("/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/fonts/verdana.ttf", 11);
 
 	setup();
 }

@@ -1,6 +1,6 @@
 #include "viewport.h"
-#include "../viewport/scrolls/v_view_scroll.h"
-#include "../viewport/scrolls/h_view_scroll.h"
+#include "scrolls/v_view_scroll.h"
+#include "scrolls/h_view_scroll.h"
 #include "ctime"
 
 Viewport::Viewport(SDL_Renderer* renderer, int x, int y, int width, int height)
@@ -50,7 +50,7 @@ void Viewport::init()
 
 
 	SDL_Rect scale_size = {0, this->height - 16, 55, 16};
-	scale_info = new ScaleInfo(renderer, this, scale_size, size_factor, "././resources/fonts/verdana.ttf", 10);
+	scale_info = new ScaleInfo(renderer, this, scale_size, size_factor, "/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/fonts/verdana.ttf", 10);
 }
 
 void Viewport::update()
@@ -74,8 +74,6 @@ void Viewport::update()
 	copy_rect.h += 2;
 
 	SDL_RenderDrawRect(renderer, &copy_rect);
-
-	SDL_RenderPresent(renderer);
 }
 
 void Viewport::clear()

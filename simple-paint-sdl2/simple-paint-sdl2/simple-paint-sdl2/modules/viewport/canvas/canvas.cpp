@@ -37,21 +37,21 @@ void Canvas::init()
 	layers = new Layers(renderer, { 0, 0, width, height });
 
 
-	SDL_Texture* tex = IMG_LoadTexture(renderer, "./././resources/images/4.png");
+	SDL_Texture* tex = IMG_LoadTexture(renderer, "/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/4.png");
 	Layer* layer1 = new Layer(tex, 0, "", 0xFF);
 	layers->add(layer1);
 	
 	
-	texture = IMG_LoadTexture(renderer, "./././resources/images/first.png");
+	texture = IMG_LoadTexture(renderer, "/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/first.png");
 	Layer* layer2 = new Layer(texture, 1, "", 0xA0);
 	layers->add(layer2);
 
 
-	texture = IMG_LoadTexture(renderer, "./././resources/images/first.png");
+	texture = IMG_LoadTexture(renderer, "/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/first.png");
 	Layer* layer3 = new Layer(texture, 2, "", 0xFF);
 	layers->add(layer3);
 	
-	texture = IMG_LoadTexture(renderer, "./././resources/images/4.png");
+	texture = IMG_LoadTexture(renderer, "/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/4.png");
 	Layer* layer4 = new Layer(texture, 3, "", 0xFF);
 	layers->add(layer4);
 
@@ -80,11 +80,11 @@ void Canvas::update()
 	SDL_RenderCopy(renderer, tex, NULL, &copy_rect);
 
 
-	SDL_RenderPresent(renderer);
+//	SDL_RenderPresent(renderer);
 
 	SDL_SetRenderTarget(renderer, NULL);
 
-	//SDL_DestroyTexture(tex);
+//	SDL_DestroyTexture(tex);
 
 }
 

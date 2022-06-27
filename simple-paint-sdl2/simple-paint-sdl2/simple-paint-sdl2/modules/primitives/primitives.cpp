@@ -38,16 +38,16 @@ void Primitives::circle_part(int x, int y, int rad, int part)
 	while (y1 != 0 || x1 < rad + 1)
 	{
 		if (part == 3)
-			SDL_RenderDrawPoint(renderer, x + x1, y + y1); // низ право
+			SDL_RenderDrawPoint(renderer, x + x1, y + y1); // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
 		if (part == 2)
-			SDL_RenderDrawPoint(renderer, x + x1, y - y1); // верх право
+			SDL_RenderDrawPoint(renderer, x + x1, y - y1); // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
 		if (part == 4)
-			SDL_RenderDrawPoint(renderer, x - x1, y + y1); // низ лево
+			SDL_RenderDrawPoint(renderer, x - x1, y + y1); // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 
 		if (part == 1)
-			SDL_RenderDrawPoint(renderer, x - x1, y - y1); // вверх лево
+			SDL_RenderDrawPoint(renderer, x - x1, y - y1); // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 
 
 
@@ -69,56 +69,56 @@ void Primitives::circle_part(int x, int y, int rad, int part)
 		y1--;
 	}
 
-	SDL_RenderPresent(renderer);
+//	// SDL_RenderPresent(renderer);
 }
 
 void Primitives::pixel(int x, int y)
 {
 	SDL_SetRenderDrawColor(renderer, color->r, color->g, color->b, 0xFF);
 	SDL_RenderDrawPoint(renderer, x, y);
-	SDL_RenderPresent(renderer);
+	// SDL_RenderPresent(renderer);
 }
 
 void Primitives::rect(SDL_Rect* input_rect)
 {
 	SDL_SetRenderDrawColor(renderer, color->r, color->g, color->b, color->a);
 	SDL_RenderDrawRect(renderer, input_rect);
-	SDL_RenderPresent(renderer);
+	// SDL_RenderPresent(renderer);
 }
 
 void Primitives::rect(SDL_Rect* input_rect, SDL_Color color)
 {
 	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 	SDL_RenderDrawRect(renderer, input_rect);
-	SDL_RenderPresent(renderer);
+	// SDL_RenderPresent(renderer);
 }
 
 void Primitives::rect(SDL_Rect input_rect)
 {
 	SDL_SetRenderDrawColor(renderer, color->r, color->g, color->b, color->a);
 	SDL_RenderDrawRect(renderer, &input_rect);
-	SDL_RenderPresent(renderer);
+	// SDL_RenderPresent(renderer);
 }
 
 void Primitives::fill_rect(SDL_Rect* input_rect)
 {
 	SDL_SetRenderDrawColor(renderer, color->r, color->g, color->b, color->a);
 	SDL_RenderFillRect(renderer, input_rect);
-	SDL_RenderPresent(renderer);
+	// SDL_RenderPresent(renderer);
 }
 
 void Primitives::fill_rect(SDL_Rect input_rect)
 {
 	SDL_SetRenderDrawColor(renderer, color->r, color->g, color->b, color->a);
 	SDL_RenderFillRect(renderer, &input_rect);
-	SDL_RenderPresent(renderer);
+	// SDL_RenderPresent(renderer);
 }
 
 void Primitives::fill_rect(SDL_Rect* input_rect, SDL_Color color)
 {
 	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 	SDL_RenderFillRect(renderer, input_rect);
-	SDL_RenderPresent(renderer);
+	// SDL_RenderPresent(renderer);
 }
 
 void Primitives::line(int x1, int y1, int x2, int y2)
@@ -147,7 +147,7 @@ void Primitives::line(int x1, int y1, int x2, int y2)
 	
 	if (abs(dx) == abs(dy)) {
 		SDL_RenderDrawLine(renderer, x1, y1, x2, y2);
-		SDL_RenderPresent(renderer);
+		// SDL_RenderPresent(renderer);
 		return;
 	}
 
@@ -175,7 +175,7 @@ void Primitives::line(int x1, int y1, int x2, int y2)
 	}
 
 	
-	SDL_RenderPresent(renderer);
+	// SDL_RenderPresent(renderer);
 }
 
 void Primitives::line(SDL_Point* p1, SDL_Point* p2)
@@ -187,14 +187,14 @@ void Primitives::h_line(int x1, int y1, int x2)
 {
 	SDL_SetRenderDrawColor(renderer, color->r, color->g, color->b, color->a);
 	SDL_RenderDrawLine(renderer, x1, y1, x2, y1);
-	SDL_RenderPresent(renderer);
+	// SDL_RenderPresent(renderer);
 }
 
 void Primitives::v_line(int x1, int y1, int y2)
 {
 	SDL_SetRenderDrawColor(renderer, color->r, color->g, color->b, color->a);
 	SDL_RenderDrawLine(renderer, x1, y1, x1, y2);
-	SDL_RenderPresent(renderer);
+	// SDL_RenderPresent(renderer);
 }
 
 void Primitives::line(int x1, int y1, int x2, int y2, int thickness)
@@ -250,7 +250,7 @@ void Primitives::line(int x1, int y1, int x2, int y2, int thickness)
 	line(&p1, &p3);
 	line(&p2, &p4);
 
-	SDL_RenderPresent(renderer);
+	// SDL_RenderPresent(renderer);
 }
 
 void Primitives::line(SDL_Point* p1, SDL_Point* p2, int thickness)
@@ -278,7 +278,7 @@ void Primitives::h_line(int x1, int y1, int x2, int thickness)
 			SDL_RenderDrawLine(renderer, x1, y1 - 1 - i, x2, y1 - 1 - i);
 	}
 
-	SDL_RenderPresent(renderer);
+	// SDL_RenderPresent(renderer);
 }
 
 void Primitives::v_line(int x1, int y1, int y2, int thickness)
@@ -301,7 +301,7 @@ void Primitives::v_line(int x1, int y1, int y2, int thickness)
 			SDL_RenderDrawLine(renderer, x1 - 1 - i, y1, x1 - 1 - i, y2);
 	}
 
-	SDL_RenderPresent(renderer);
+	// SDL_RenderPresent(renderer);
 }
 
 void Primitives::circle(int x, int y, int rad)
@@ -317,10 +317,10 @@ void Primitives::circle(int x, int y, int rad)
 
 	//while (y1 != -1) 
 	//{
-	//	SDL_RenderDrawPoint(renderer, x + x1, y + y1); // низ право
-	//	SDL_RenderDrawPoint(renderer, x + x1, y - y1); // верх право
-	//	SDL_RenderDrawPoint(renderer, x - x1, y + y1); // низ лево
-	//	SDL_RenderDrawPoint(renderer, x - x1, y - y1); // вверх лево
+	//	SDL_RenderDrawPoint(renderer, x + x1, y + y1); // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+	//	SDL_RenderDrawPoint(renderer, x + x1, y - y1); // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+	//	SDL_RenderDrawPoint(renderer, x - x1, y + y1); // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+	//	SDL_RenderDrawPoint(renderer, x - x1, y - y1); // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 
 	//	
 	//	
@@ -343,7 +343,7 @@ void Primitives::circle(int x, int y, int rad)
 	//}
 
 	
-	SDL_RenderPresent(renderer);
+	// SDL_RenderPresent(renderer);
 }
 
 void Primitives::circle(SDL_Point* center, int rad)
@@ -452,7 +452,7 @@ void Primitives::fill(int x, int y)
 {
 	unsigned int start_time = clock();
 
-	SDL_RenderPresent(renderer);
+	// SDL_RenderPresent(renderer);
 
 	int width, height;
 
@@ -481,7 +481,7 @@ void Primitives::fill(int x, int y)
 
 	int byte_shift = surface->pitch / surface->w;
 
-	Uint32* psrc = (Uint32*)((int)surface->pixels + (y * surface->pitch + byte_shift * (x - 1)));
+	Uint32* psrc = (Uint32*)((int64_t)surface->pixels + (y * surface->pitch + byte_shift * (x - 1)));
 	
 	color_fill_pixel = *psrc;
 	*psrc = cur_color;
@@ -492,7 +492,7 @@ void Primitives::fill(int x, int y)
 	
 
 	Uint32* first_pixel = (Uint32*)surface->pixels;
-	Uint32* last_pixel = (Uint32*)((int)surface->pixels + ((height - 1) * surface->pitch + byte_shift * (width - 1)));
+	Uint32* last_pixel = (Uint32*)((int64_t)surface->pixels + ((height - 1) * surface->pitch + byte_shift * (width - 1)));
 
 	Uint32* now_pixel;
 	Uint32* temp_pixel;
@@ -526,7 +526,7 @@ void Primitives::fill(int x, int y)
 	SDL_Texture* ready = SDL_CreateTextureFromSurface(renderer, surface);
 	SDL_Rect ren_rec = { 0, 0, width, height };
 	SDL_RenderCopy(renderer, ready, NULL, &ren_rec);
-	SDL_RenderPresent(renderer);
+	// SDL_RenderPresent(renderer);
 
 	SDL_FreeSurface(surface);
 	SDL_DestroyTexture(ready);

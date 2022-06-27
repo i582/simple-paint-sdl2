@@ -42,12 +42,9 @@ void LayersViewer::update()
 	}
 
 
-	SDL_RenderPresent(renderer);
-
 	SDL_SetRenderTarget(renderer, NULL);
 
 	SDL_RenderCopy(renderer, texture, NULL, &size);
-	SDL_RenderPresent(renderer);
 }
 
 void LayersViewer::update_layer()
