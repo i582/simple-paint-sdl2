@@ -73,11 +73,11 @@ bool Editor::init()
 void Editor::setup()
 {
 	SDL_Rect r2 = { -1, -1, 800, 480 };
-	this->new_document = new NewDocumentWindow("New document", &r2, SDL_WINDOW_BORDERLESS);
+	this->new_document = new NewDocumentWindow("New document", &r2, 0);
 
 
 	SDL_Rect r = { -1, -1, width, height };
-	this->main_window = new MainWindow("NIA Editor", &r, SDL_WINDOW_HIDDEN | SDL_WINDOW_BORDERLESS);
+	this->main_window = new MainWindow("NIA Editor", &r, SDL_WINDOW_HIDDEN);
 }
 
 void Editor::update()

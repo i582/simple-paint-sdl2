@@ -6,7 +6,7 @@
 
 #include "../../viewport/canvas/layers/layers.h"
 #include "../../colors/color.h"
-#include "../../controls/checkbox.h"
+#include "../../controls/Checkbox.h"
 
 using namespace std;
 

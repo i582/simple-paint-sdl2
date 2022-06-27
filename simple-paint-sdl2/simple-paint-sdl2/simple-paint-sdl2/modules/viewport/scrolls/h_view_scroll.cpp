@@ -11,6 +11,7 @@ H_ViewScroll::H_ViewScroll(SDL_Renderer* renderer, Viewport* parent,
 void H_ViewScroll::update()
 {
 
+
 	SDL_SetRenderTarget(renderer, parent->texture);
 
 	SDL_SetRenderDrawColor(renderer, Colors::scroll_back.r, Colors::scroll_back.g, Colors::scroll_back.b, 0xFF);
@@ -25,8 +26,6 @@ void H_ViewScroll::update()
 	SDL_SetRenderDrawColor(renderer, Colors::scroll_corner.r, Colors::scroll_corner.g, Colors::scroll_corner.b, 0xFF);
 	SDL_Rect corner = { body_size.w + body_size.x, body_size.y, body_size.h, body_size.h };
 	SDL_RenderFillRect(renderer, &corner);
-
-	SDL_RenderPresent(renderer);
 
 	SDL_SetRenderTarget(renderer, NULL);
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../controls/vscroll.h"
+#include "../../controls/VScroll.h"
 
 class Viewport;
 

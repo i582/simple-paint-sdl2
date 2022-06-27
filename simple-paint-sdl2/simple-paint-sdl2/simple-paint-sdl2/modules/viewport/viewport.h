@@ -6,9 +6,9 @@
 #include "iostream"
 #include "vector"
 #include "../colors/color.h"
-#include "../viewport/canvas/canvas.h"
-#include "../viewport/scrolls/v_view_scroll.h"
-#include "../viewport/scrolls/h_view_scroll.h"
+#include "canvas/canvas.h"
+#include "scrolls/v_view_scroll.h"
+#include "scrolls/h_view_scroll.h"
 #include "../controls/scale_info.h"
 #include "../layers_viewer/layers_viewer.h"
 
@@ -72,7 +72,7 @@ public:
 
 	Canvas* const get_canvas();
 
-	/* События */
+	/* пїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
 	void mouseButtonDown(SDL_Event* e);
 	void mouseButtonUp(SDL_Event* e);
 	void mouseMotion(SDL_Event* e);
@@ -80,11 +80,11 @@ public:
 	void keyDown(SDL_Event* e);
 
 
-	/* Вспомогательные */
+	/* пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
 	bool on_hover(int x, int y);
 
 	/**
-	 *  \Преобразует координаты мыши в координаты относительно верхнего левого угла вьюпорта
+	 *  \пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	 */
 	void update_coord(int* x, int* y);
 

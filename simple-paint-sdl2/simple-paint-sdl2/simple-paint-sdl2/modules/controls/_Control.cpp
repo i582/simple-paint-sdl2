@@ -54,9 +54,10 @@ void Control::render_text(string text, SDL_Rect place, int align, TTF_Font* font
 	if (text_texture == nullptr)
 		render_text_(text, place, align, font);
 
-	SDL_SetRenderTarget(renderer, texture);
-	SDL_RenderCopy(renderer, text_texture, NULL, &text_rect);
-	SDL_RenderPresent(renderer);
+//   SDL_RenderClear(renderer);
+   SDL_SetRenderTarget(renderer, texture);
+	SDL_RenderCopy(renderer, text_texture, nullptr, &text_rect);
+//	SDL_RenderPresent(renderer);
 	SDL_SetRenderTarget(renderer, parent_target);
 }
 
@@ -102,18 +103,17 @@ void Control::render_text_(string text, SDL_Rect place, int align, TTF_Font* fon
 
 void Control::update()
 {
-	if (is_updated == false || need_update == false)
-	{
+//	if (is_updated == false || need_update == false)
+//	{
 		update_();
-		is_updated = true;
-	}
+//		is_updated = true;
+//	}
 
-	SDL_SetRenderTarget(renderer, parent_target);
+   SDL_SetRenderTarget(renderer, parent_target);
 
-	SDL_RenderCopy(renderer, texture, NULL, &size);
-	SDL_RenderPresent(renderer);
+	SDL_RenderCopy(renderer, texture, nullptr, &size);
 
-	SDL_SetRenderTarget(renderer, NULL);
+	SDL_SetRenderTarget(renderer, nullptr);
 }
 
 Control* const Control::clear()

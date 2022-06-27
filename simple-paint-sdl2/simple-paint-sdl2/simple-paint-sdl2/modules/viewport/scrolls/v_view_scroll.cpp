@@ -10,7 +10,6 @@ V_ViewScroll::V_ViewScroll(SDL_Renderer* renderer, Viewport* parent,
 
 void V_ViewScroll::update()
 {
-
 	SDL_SetRenderTarget(renderer, parent->texture);
 
 	SDL_SetRenderDrawColor(renderer, Colors::scroll_back.r, Colors::scroll_back.g, Colors::scroll_back.b, 0xFF);
@@ -21,8 +20,6 @@ void V_ViewScroll::update()
 		SDL_SetRenderDrawColor(renderer, Colors::scroll_slider.r, Colors::scroll_slider.g, Colors::scroll_slider.b, 0xFF);
 		SDL_RenderFillRect(renderer, &slider_size);
 	}
-
-	SDL_RenderPresent(renderer);
 
 	SDL_SetRenderTarget(renderer, NULL);
 }

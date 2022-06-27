@@ -25,15 +25,15 @@ void Resources::init()
 		return;
 	}
 
-	Resources::font_verdana_12px = TTF_OpenFont("././resources/fonts/verdana.ttf", 12);
-	Resources::font_verdana_11px = TTF_OpenFont("././resources/fonts/verdana.ttf", 11);
+	Resources::font_verdana_12px = TTF_OpenFont("/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/fonts/verdana.ttf", 12);
+	Resources::font_verdana_11px = TTF_OpenFont("/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/fonts/verdana.ttf", 11);
 
-	Resources::font_lato_regular_25px = TTF_OpenFont("././resources/fonts/Lato-Light.ttf", 29);
-	Resources::font_lato_12px = TTF_OpenFont("././resources/fonts/Lato-Regular.ttf", 12);
+	Resources::font_lato_regular_25px = TTF_OpenFont("/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/fonts/Lato-Light.ttf", 29);
+	Resources::font_lato_12px = TTF_OpenFont("/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/fonts/Lato-Regular.ttf", 12);
 
-	Resources::texture_systemExit = IMG_Load("././resources/images/system_icon/exit.png");
-	Resources::texture_systemCollapse = IMG_Load("././resources/images/system_icon/collapse.png");
-	Resources::texture_systemExpand = IMG_Load("././resources/images/system_icon/expand.png");
+	Resources::texture_systemExit = IMG_Load("/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/system_icon/exit.png");
+	Resources::texture_systemCollapse = IMG_Load("/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/system_icon/collapse.png");
+	Resources::texture_systemExpand = IMG_Load("/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/system_icon/expand.png");
 }
 
 void Resources::clear()

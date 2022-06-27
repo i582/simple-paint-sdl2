@@ -30,7 +30,7 @@ private:
 	MenuBar* menubar;
 
 	vector <Control*> controls;
-	Control* focus_element;
+	Control* focus_element{nullptr};
 
 	
 	SDL_Rect canvas_size;

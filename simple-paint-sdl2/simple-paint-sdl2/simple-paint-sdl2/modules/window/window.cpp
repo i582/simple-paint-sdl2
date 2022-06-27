@@ -1,6 +1,6 @@
 #include "window.h"
 
-#include "windows.h"
+//#include "windows.h"
 #include "SDL_syswm.h"
 
 Window::Window(string title, SDL_Rect* sizes, Uint32 flags)
@@ -64,31 +64,12 @@ bool Window::init()
 	}
 
 
-	if ((renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED)) == nullptr) {
+	if ((renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE | SDL_RENDERER_PRESENTVSYNC)) == nullptr) {
 		cout << "Renderer could not be created! SDL Error: %s\n" << SDL_GetError();
 		return false;
 	}
 
-	SDL_SetWindowIcon(window, IMG_Load("././resources/images/icon_1.png"));
-
-
-	SDL_SysWMinfo info;
-
-	SDL_GetWindowWMInfo(window, &info);
-	cout << SDL_GetError() << endl;
-	HWND hwnd = info.info.win.window;
-
-	HMENU menu = CreatePopupMenu();
-
-	AppendMenu(menu, MF_ENABLED, 12, "sfs");
-
-	cout << SetMenu(hwnd, menu);
-
-	UpdateWindow(hwnd);
-
-	cout << GetLastError() << endl;
-
-
+	SDL_SetWindowIcon(window, IMG_Load("/Users/petrmakhnev/CLionProjects/paint-sdl2/resources/images/icon_1.png"));
 
 	setup();
 	

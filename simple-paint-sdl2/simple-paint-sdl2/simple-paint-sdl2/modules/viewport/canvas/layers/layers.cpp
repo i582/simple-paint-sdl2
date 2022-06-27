@@ -66,7 +66,7 @@ SDL_Texture* Layers::ready_texture()
 
 
 		SDL_RenderCopy(renderer, layer->texture, &src, &dst);
-		SDL_RenderPresent(renderer);
+		// SDL_RenderPresent(renderer);
 
 		count_visible++;
 	}
@@ -113,7 +113,7 @@ SDL_Texture* Layers::layer_view(int id)
 
 	SDL_RenderCopy(renderer, layers.at(id)->texture, &src, &dst);
 
-	SDL_RenderPresent(renderer);
+	// SDL_RenderPresent(renderer);
 	SDL_SetRenderTarget(renderer, NULL);
 
 	return texture;

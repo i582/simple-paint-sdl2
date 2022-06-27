@@ -1,4 +1,4 @@
-#include "Label.h"
+#include "label.h"
 
 Label::Label(Window* parent, SDL_Texture* parent_target, int control_ID, string text, SDL_Rect size, TTF_Font* font)
 	: Control(parent->getRenderer(), parent_target, size, text, control_ID)
